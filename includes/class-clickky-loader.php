@@ -32,16 +32,16 @@ class Clickky_Loader {
 	 */
 	protected $actions;
 
-	/**
-	 * The array of filters registered with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
-	 */
-	protected $filters;
+    /**
+     * The array of filters registered with WordPress.
+     *
+     * @since    1.0.0
+     * @access   protected
+     * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
+     */
+    protected $filters;
 
-	/**
+    /**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
 	 * @since    1.0.0
@@ -50,7 +50,6 @@ class Clickky_Loader {
 
 		$this->actions = array();
 		$this->filters = array();
-
 	}
 
 	/**

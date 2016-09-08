@@ -10,7 +10,7 @@
  *
  * @link              http://clickky.biz
  * @since             1.0.0
- * @package           Сlickky
+ * @package           Clickky
  *
  * @wordpress-plugin
  * Plugin Name:       Сlickky
@@ -21,8 +21,8 @@
  * Author URI:        http://clickky.biz/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       сlickky
- * Domain Path:       /сlickky
+ * Text Domain:       clickky
+ * Domain Path:       /
  */
 
 // If this file is called directly, abort.
@@ -30,13 +30,14 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-
+define( 'CLICKKY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'CLICKKY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-сlickky-activator.php
  */
 function activate_clickky() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-сlickky-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-clickky-activator.php';
 	Clickky_Activator::activate();
 }
 
@@ -45,7 +46,7 @@ function activate_clickky() {
  * This action is documented in includes/class-сlickky-deactivator.php
  */
 function deactivate_clickky() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-сlickky-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-clickky-deactivator.php';
 	Clickky_Deactivator::deactivate();
 }
 
@@ -57,7 +58,7 @@ register_deactivation_hook( __FILE__, 'deactivate_clickky' );
  * admin-specific hooks, and public-facing site hooks.
  */
 
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-сlickky.php';
+require_once plugin_dir_path( __FILE__ )  . 'includes/class-clickky.php';
 
 /**
  * Begins execution of the plugin.
@@ -75,3 +76,4 @@ function run_clickky() {
 
 }
 run_clickky();
+
