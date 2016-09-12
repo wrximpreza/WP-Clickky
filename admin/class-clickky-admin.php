@@ -64,50 +64,60 @@ class Clickky_Admin
             'name' => 'Catfish Ads',
             'alias' => 'clickky',
             'callback' => 'catfish',
-            'id' => 'banner'
+            'id' => 'banner',
+            'js_file' => 'banner'
         );
         $this->banners[] = array(
             'name' => 'Catfish Ads Slider',
             'alias' => 'clickky/catfish_slider',
             'callback' => 'catfish_slider',
-            'id' => 'banner_slider'
+            'id' => 'banner_slider',
+            'js_file' => 'banner'
+
         );
         $this->banners[] = array(
             'name' => 'Dialog Ads',
             'alias' => 'clickky/dialog',
             'callback' => 'dialog',
-            'id' => 'dialog'
+            'id' => 'dialog',
+            'js_file' => 'dialogads'
         );
         $this->banners[] = array(
             'name' => 'Expandable Banner',
             'alias' => 'clickky/expandable_banner',
             'callback' => 'expandable_banner',
-            'id' => 'expandable'
+            'id' => 'expandable',
+            'js_file' => 'slideads'
         );
         $this->banners[] = array(
             'name' => 'FullScreen Ads',
             'alias' => 'clickky/fullscreen',
             'callback' => 'fullscreen',
-            'id' => 'fullScreen'
+            'id' => 'fullScreen',
+            'js_file' => 'full'
         );
         $this->banners[] = array(
             'name' => 'Interstitial',
             'alias' => 'clickky/interstitial',
             'callback' => 'interstitial',
-            'id' => 'Interstitial'
+            'id' => 'Interstitial',
+            'js_file' => 'popin'
         );
         $this->banners[] = array(
             'name' => 'Rich media',
             'alias' => 'clickky/richmedia',
             'callback' => 'richmedia',
-            'id' => 'richmedia'
+            'id' => 'richmedia',
+            'js_file' => 'media'
         );
         $this->banners[] = array(
             'name' => 'Recommended Apps',
             'alias' => 'clickky/recommended_apps',
             'callback' => 'recommended_apps',
-            'id' => 'recommended'
+            'id' => 'recommended',
+            'js_file' => 'tizer'
         );
+
 
         $this->recommendeds = unserialize(get_option($this->plugin_name . '_recommended'));
         if ($this->recommendeds) {
@@ -175,13 +185,64 @@ class Clickky_Admin
 
     }
 
+
+    public function add_placement_page(){
+        //if(isset($_POST['code'])){
+            //$code = $_POST['code'];
+
+            $code ="
+                <!-- BEGIN CODE {literal} -->
+                <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
+                <script type='text/javascript'>
+            
+                    var o =
+                    {  'widget_id' : '13264',  
+                        'hash': 'e2402ac3d7ed8c5144ae589eaaeb057b1a7409d5', 
+                        'delay' : 1, 
+                        'template': 1, 
+                        'countBanners': 1 
+                    };
+            
+                    var Cliky = new Cliky(o);
+                    Cliky.init();
+            
+                </script>
+                <!-- {/literal} END CODE -->
+             ";
+            $code = str_replace(' ','',$code);
+            echo '======================================';
+
+            $ads = '';
+            $count = preg_match('/src=(["\'])(.*?)\1/', $code, $match);
+            if ($count === FALSE) {
+                echo('not found\n');
+            }else {
+                foreach ($this->banners as $banner){
+
+                    if(strpos($match[2], $banner['js_file']) !== false ){
+                        $ads =  $banner['js_file'];
+                        break;
+                    }
+                }
+            }
+
+            echo '======================================';
+            exit();
+
+        //}
+        require_once plugin_dir_path(__FILE__) . 'partials/clickky-add-placement.php';
+
+    }
+
+    public function global_settings_page(){
+        require_once plugin_dir_path(__FILE__) . 'partials/clickky-global-settings.php';
+    }
+
     /**
      * Get banner page in admin panel
      */
     public function catfish()
     {
-
-
         require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-catfish.php';
     }
 
@@ -280,27 +341,11 @@ class Clickky_Admin
             plugin_dir_url(__FILE__) . 'img/icon.png',
             '2.1'
         );
-
         remove_submenu_page('clickky', 'clickky');
+        add_submenu_page('clickky', 'Add placement', 'Add placement', 'manage_options', 'clickky', array($this, 'add_placement_page'));
+        add_submenu_page('clickky', 'My placement', 'My placement', 'manage_options', 'my_placement', array($this, 'my_placement_page'));
+        add_submenu_page('clickky', 'Global settings', 'Global settings', 'manage_options', 'global_settings', array($this, 'global_settings_page'));
 
-        foreach ($this->banners as $banner) {
-            $icon = '';
-            if (get_option($this->plugin_name . '_' . $banner['id'] . '_active')) {
-                $icon = ' <i class="fa fa-check-circle" aria-hidden="true"></i>';
-            } elseif ($banner['id'] == 'recommended') {
-
-                for ($i = 0; $i < $this->r_count; $i++) {
-                    if ($this->recommendeds['active'][$i] == 1) {
-                        $icon = ' <i class="fa fa-check-circle" aria-hidden="true"></i>';
-                        break;
-                    }
-                }
-
-            }
-
-            add_submenu_page('clickky', $banner['name'], $banner['name'] . $icon, 'manage_options', $banner['alias'], array($this, $banner['callback']));
-
-        }
     }
     /***
      *
@@ -488,41 +533,40 @@ class Clickky_Admin
      * @param $active
      * @return string
      */
-    public function topNavigation($active)
+    public function topNavigation($active = '')
     {
 
-
-        $html = '<nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="#">
-                        <img alt="Logo" src="' . CLICKKY_PLUGIN_URL . '/admin/img/logo.png" height="50">
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-             
-                        <ul class="nav navbar-nav navbar-nav-wp navbar-right">';
-
-        foreach ($this->banners as $banner) {
-            if ($banner['callback'] == $active) {
-                $html .= '<li class="active">
-                                                <a href="?page=' . $banner['alias'] . '">
-                                                    ' . $banner['name'] . '
-                                                </a>
-                                            </li>';
-            } else {
-                $html .= '<li>
-                                                <a href="?page=' . $banner['alias'] . '">
-                                                    ' . $banner['name'] . '
-                                                </a>
-                                            </li>';
-            }
+        $class_global = '';
+        if($active == 'global'){
+            $class_global = 'active';
         }
-        $html .= '
+
+        $html = '<div class="row header">
+                <div class="col s2 logo">
+                    <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/logo.png" height="42" alt="">
+                </div>
+                <div class="col s10">
+                    <ul class="right top_menu">
+                        <li>
+                            <a href="#">
+                                <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/my_placement_icon.png" alt="My placement" />
+                                <span class="text">My placement</span>
+                            </a>
+                        </li>
+                        <li class="'.$class_global.'">
+                            <a href="admin.php?page=global_settings">
+                                <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/global_settings_icon.png" alt="Global settings" />
+                                <span>Global settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn" href="admin.php?page=clickky">ADD PLACEMENT</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </nav>';
+        ';
+
 
         return $html;
     }
