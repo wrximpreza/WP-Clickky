@@ -60,7 +60,7 @@
                             foreach ($pages as $page) {
                                 ?>
                                 <p>
-                                    <input type="checkbox"  class="filled-in"
+                                    <input type="checkbox" class="filled-in"
                                            name="<?php echo $this->plugin_name . '_' . $active . '_page'; ?>[]"
                                            value="<?php echo $page->ID; ?>"
                                            id="<?php echo $active; ?>_page_<?php echo $page->ID; ?>"
@@ -70,7 +70,8 @@
                                                 echo 'checked';
                                         ?>
                                     >
-                                    <label for="<?php echo $active; ?>_page_<?php echo $page->ID; ?>"><?php echo $page->post_title; ?></label>
+                                    <label
+                                        for="<?php echo $active; ?>_page_<?php echo $page->ID; ?>"><?php echo $page->post_title; ?></label>
                                 </p>
                                 <?php
                             }
@@ -92,14 +93,14 @@
 
                         ?>
                         <p>
-                           <input id="<?php echo $active; ?>_post_all" type="checkbox" class="filled-in"
-                                       onClick="toggleCheckbox(this, 'all_posts')"
-                                    <?php
-                                    if (count($checked_posts) == count($posts)) {
-                                        echo 'checked';
-                                    }
-                                    ?>
-                                />
+                            <input id="<?php echo $active; ?>_post_all" type="checkbox" class="filled-in"
+                                   onClick="toggleCheckbox(this, 'all_posts')"
+                                <?php
+                                if (count($checked_posts) == count($posts)) {
+                                    echo 'checked';
+                                }
+                                ?>
+                            />
                             <label for="<?php echo $active; ?>_post_all"><?php _e('All', 'clickky'); ?></label>
                         </p>
                         <?php
@@ -108,18 +109,19 @@
                             foreach ($posts as $post) {
                                 ?>
                                 <p>
-                                        <input type="checkbox"  class="filled-in"
-                                               name="<?php echo $this->plugin_name . '_' . $active . '_post'; ?>[]"
-                                               value="<?php echo $post->ID; ?>"
-                                               id="<?php echo $active; ?>_post_<?php echo $post->ID; ?>"
-                                            <?php
-                                            if (is_array($checked_posts) && count($checked_posts) > 0)
-                                                if (in_array($post->ID, $checked_posts))
-                                                    echo 'checked';
-                                            ?>
-                                        >
+                                    <input type="checkbox" class="filled-in"
+                                           name="<?php echo $this->plugin_name . '_' . $active . '_post'; ?>[]"
+                                           value="<?php echo $post->ID; ?>"
+                                           id="<?php echo $active; ?>_post_<?php echo $post->ID; ?>"
+                                        <?php
+                                        if (is_array($checked_posts) && count($checked_posts) > 0)
+                                            if (in_array($post->ID, $checked_posts))
+                                                echo 'checked';
+                                        ?>
+                                    >
 
-                                    <label for="<?php echo $active; ?>_post_<?php echo $post->ID; ?>"><?php echo $post->post_title; ?></label>
+                                    <label
+                                        for="<?php echo $active; ?>_post_<?php echo $post->ID; ?>"><?php echo $post->post_title; ?></label>
                                 </p>
 
                                 <?php
@@ -142,14 +144,14 @@
                         $categories = get_categories();
                         ?>
                         <p>
-                            <input id="<?php echo $active; ?>_category__all" type="checkbox"  class="filled-in"
-                                       onClick="toggleCheckbox(this, 'all_categories')"
-                                    <?php
-                                    if (count($checked_categories) == count($categories)) {
-                                        echo 'checked';
-                                    }
-                                    ?>
-                                />
+                            <input id="<?php echo $active; ?>_category__all" type="checkbox" class="filled-in"
+                                   onClick="toggleCheckbox(this, 'all_categories')"
+                                <?php
+                                if (count($checked_categories) == count($categories)) {
+                                    echo 'checked';
+                                }
+                                ?>
+                            />
                             <label for="<?php echo $active; ?>_category__all"><?php _e('All', 'clickky'); ?></label>
                         </p>
                         <?php
@@ -157,17 +159,18 @@
                             foreach ($categories as $category) {
                                 ?>
                                 <p>
-                                        <input type="checkbox"   class="filled-in"
-                                               name="<?php echo $this->plugin_name . '_' . $active . '_category'; ?>[]"
-                                               value="<?php echo $category->term_id; ?>"
-                                               id="<?php echo $active; ?>_category_<?php echo $category->term_id; ?>"
-                                            <?php
-                                            if (is_array($checked_categories) && count($checked_categories) > 0)
-                                                if (in_array($category->term_id, $checked_categories))
-                                                    echo 'checked';
-                                            ?>
-                                        >
-                                    <label for="<?php echo $active; ?>_category_<?php echo $category->term_id; ?>"><?php echo $category->name; ?></label>
+                                    <input type="checkbox" class="filled-in"
+                                           name="<?php echo $this->plugin_name . '_' . $active . '_category'; ?>[]"
+                                           value="<?php echo $category->term_id; ?>"
+                                           id="<?php echo $active; ?>_category_<?php echo $category->term_id; ?>"
+                                        <?php
+                                        if (is_array($checked_categories) && count($checked_categories) > 0)
+                                            if (in_array($category->term_id, $checked_categories))
+                                                echo 'checked';
+                                        ?>
+                                    >
+                                    <label
+                                        for="<?php echo $active; ?>_category_<?php echo $category->term_id; ?>"><?php echo $category->name; ?></label>
                                 </p>
                                 <?php
                             }

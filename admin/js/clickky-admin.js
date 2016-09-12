@@ -2476,6 +2476,7 @@ if (typeof jQuery === 'undefined') {
           disableFadeOut: false
       });
 
+    jQuery('#edit_page ul.tabs').tabs();
 
     jQuery('#copy-button').tooltip();
     // When the copy button is clicked, select the value of the text box, attempt

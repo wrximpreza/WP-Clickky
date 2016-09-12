@@ -65,14 +65,102 @@ class Clickky_Admin
             'alias' => 'clickky',
             'callback' => 'catfish',
             'id' => 'banner',
-            'js_file' => 'banner'
+            'js_file' => 'banner',
+            'default' => array(
+                    'widget_id'=>array(
+                        'type'=>'text',
+                        'name'=>'SITE ID',
+                        'hover'=>'',
+                        'help'=>''
+                    ),
+                    'hash'=>array(
+                        'type'=>'text',
+                        'name'=>'Hash',
+                        'hover'=>'',
+                        'help'=>''
+                    ),
+                    'delay'=>array(
+                        'type'=> 'text',
+                        'name'=>'Delay',
+                        'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                        'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                    ),
+                    'template' => array(
+                        'type'=> 'select',
+                        'name'=>'Template',
+                        'hover'=>'',
+                        'help'=>' <ol class="list-inline">
+                                        <li>1 - top-line ,</li>
+                                        <li>2 - catfish,</li>
+                                        <li>3 - top-line + catfish</li>
+                                    </ol>',
+                        'values' =>array(
+                            1 => 'http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2',
+                            2 => 'http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2',
+                            3 => 'http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2'
+                        )
+                    ),
+                    'countBanners'=>array(
+                        'type'=> 'hidden',
+                        'name'=>'Banners are involved in the slider',
+                        'hover'=>'banners are involved in the slider',
+                        'help'=>'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
+                                    from 2 to 4 inclusive - available for 4, 5, 6 or 7 templates
+                                    > 4 - triggered the default value - 3'
+                    )
+
+            )
         );
         $this->banners[] = array(
             'name' => 'Catfish Ads Slider',
             'alias' => 'clickky/catfish_slider',
             'callback' => 'catfish_slider',
             'id' => 'banner_slider',
-            'js_file' => 'banner'
+            'js_file' => 'banner',
+            'default' => array(
+                'widget_id'=>array(
+                    'type'=>'text',
+                    'name'=>'SITE ID',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'hash'=>array(
+                    'type'=>'text',
+                    'name'=>'Hash',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'delay'=>array(
+                    'type'=> 'text',
+                    'name'=>'Delay',
+                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                ),
+                'template' => array(
+                    'type'=> 'select',
+                    'name'=>'Template',
+                    'hover'=>'',
+                    'help'=>' <ol class="list-inline">
+                                        <li>1 - top-line ,</li>
+                                        <li>2 - catfish,</li>
+                                        <li>3 - top-line + catfish</li>
+                                    </ol>',
+                    'values' =>array(
+                        1 => 'http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2',
+                        2 => 'http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2',
+                        3 => 'http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2'
+                    )
+                ),
+                'countBanners'=>array(
+                    'type'=> 'hidden',
+                    'name'=>'Banners are involved in the slider',
+                    'hover'=>'banners are involved in the slider',
+                    'help'=>'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
+                                    from 2 to 4 inclusive - available for 4, 5, 6 or 7 templates
+                                    > 4 - triggered the default value - 3'
+                )
+
+            )
 
         );
         $this->banners[] = array(
@@ -209,29 +297,97 @@ class Clickky_Admin
                 </script>
                 <!-- {/literal} END CODE -->
              ";
-            $code = str_replace(' ','',$code);
-            echo '======================================';
-
-            $ads = '';
-            $count = preg_match('/src=(["\'])(.*?)\1/', $code, $match);
-            if ($count === FALSE) {
-                echo('not found\n');
-            }else {
-                foreach ($this->banners as $banner){
-
-                    if(strpos($match[2], $banner['js_file']) !== false ){
-                        $ads =  $banner['js_file'];
-                        break;
-                    }
-                }
-            }
-
-            echo '======================================';
-            exit();
+            $data = $this->validate_ad($code);
 
         //}
+
         require_once plugin_dir_path(__FILE__) . 'partials/clickky-add-placement.php';
 
+    }
+
+
+    public function my_placement_page()
+    {
+        if(isset($_GET['id'])){
+            //TODO: uncomment when add function to add ads in DB
+            $code ="
+                <!-- BEGIN CODE {literal} -->
+                <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
+                <script type='text/javascript'>
+            
+                    var o =
+                    {  'widget_id' : '13264',  
+                        'hash': 'e2402ac3d7ed8c5144ae589eaaeb057b1a7409d5', 
+                        'delay' : 1, 
+                        'template': 1, 
+                        'countBanners': 1 
+                    };
+            
+                    var Cliky = new Cliky(o);
+                    Cliky.init();
+            
+                </script>
+                <!-- {/literal} END CODE -->
+             ";
+            $data = $this->validate_ad($code);
+
+            require_once plugin_dir_path(__FILE__) . 'partials/clickky-edit-placement.php';
+        }else{
+            require_once plugin_dir_path(__FILE__) . 'partials/clickky-my-placement.php';
+        }
+
+    }
+
+
+    public function validate_ad($code){
+
+        $ads = '';
+        $count = preg_match('/src=(["\'])(.*?)\1/', $code, $match);
+        if ($count === FALSE) {
+            return false;
+        }else {
+            foreach ($this->banners as $banner){
+
+                if(strpos($match[2], $banner['js_file']) !== false ){
+                    $ads =  $banner;
+                    break;
+                }
+            }
+        }
+
+        if(!$ads){
+            return false;
+        }
+
+
+        preg_match_all("/('.*?'.*:.*)/", $code, $output_array);
+        $data = array();
+        if($output_array[0]) {
+            foreach ($output_array[0] as &$value) {
+                $value = str_replace(',', '', str_replace("'", "", $value));
+                $value = explode(':', $value);
+                if (count($value) == 2) {
+                    $data[trim($value[0])] = trim($value[1]);
+                }
+            }
+        }
+
+        if(empty($data) || !$ads){
+            return false;
+        }
+
+        $valid = true;
+        foreach ($data as $k=>$v){
+            if(!in_array($k, array_keys($ads['default']))){
+                $valid = false;
+                break;
+            }
+        }
+        $ads['result'] = $data;
+        if($valid){
+            return $ads;
+        }
+        return false;
     }
 
     public function global_settings_page(){
@@ -537,8 +693,12 @@ class Clickky_Admin
     {
 
         $class_global = '';
+        $my_placement = '';
         if($active == 'global'){
             $class_global = 'active';
+        }
+        if($active == 'my-placement'){
+            $my_placement = 'active';
         }
 
         $html = '<div class="row header">
@@ -547,7 +707,7 @@ class Clickky_Admin
                 </div>
                 <div class="col s10">
                     <ul class="right top_menu">
-                        <li>
+                        <li class="'.$my_placement.'">
                             <a href="#">
                                 <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/my_placement_icon.png" alt="My placement" />
                                 <span class="text">My placement</span>
