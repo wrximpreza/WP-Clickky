@@ -19,6 +19,8 @@
  * @subpackage Clickky/admin
  * @author     Your Name <email@example.com>
  */
+
+
 class Clickky_Admin
 {
 
@@ -60,7 +62,7 @@ class Clickky_Admin
         $this->version = $version;
         $this->wp_clickky_options = get_option($this->plugin_name);
 
-        $this->banners[] = array(
+        $this->banners['banner'] = array(
             'name' => 'Catfish Ads',
             'alias' => 'clickky',
             'callback' => 'catfish',
@@ -111,7 +113,7 @@ class Clickky_Admin
 
             )
         );
-        $this->banners[] = array(
+        $this->banners['banner_slider'] = array(
             'name' => 'Catfish Ads Slider',
             'alias' => 'clickky/catfish_slider',
             'callback' => 'catfish_slider',
@@ -141,18 +143,20 @@ class Clickky_Admin
                     'name'=>'Template',
                     'hover'=>'',
                     'help'=>' <ol class="list-inline">
-                                        <li>1 - top-line ,</li>
-                                        <li>2 - catfish,</li>
-                                        <li>3 - top-line + catfish</li>
+                                         <li>4 - top-line slider (horizontal) ,</li>
+                                        <li>5 - catfish slider (horizontal),</li>
+                                        <li>6 - top-line slider (vertical), </li>
+                                        <li>7 - catfish slider (vertical)</li>
                                     </ol>',
                     'values' =>array(
-                        1 => 'http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2',
-                        2 => 'http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2',
-                        3 => 'http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2'
+                        4 => 'http://confluence.cli.bz/download/thumbnails/19464938/44.jpg?version=1&modificationDate=1458901341000&api=v2',
+                        5 => 'http://confluence.cli.bz/download/thumbnails/19464938/55.jpg?version=1&modificationDate=1458901360000&api=v2',
+                        6 => 'http://confluence.cli.bz/download/thumbnails/19464938/66.jpg?version=1&modificationDate=1458901375000&api=v2',
+                        7 => 'http://confluence.cli.bz/download/thumbnails/19464938/77.jpg?version=1&modificationDate=1458901387000&api=v2'
                     )
                 ),
                 'countBanners'=>array(
-                    'type'=> 'hidden',
+                    'type'=> 'text',
                     'name'=>'Banners are involved in the slider',
                     'hover'=>'banners are involved in the slider',
                     'help'=>'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
@@ -163,47 +167,361 @@ class Clickky_Admin
             )
 
         );
-        $this->banners[] = array(
+        $this->banners['dialog'] = array(
             'name' => 'Dialog Ads',
             'alias' => 'clickky/dialog',
             'callback' => 'dialog',
             'id' => 'dialog',
-            'js_file' => 'dialogads'
+            'js_file' => 'dialogads',
+            'default' => array(
+                'widget_id'=>array(
+                    'type'=>'text',
+                    'name'=>'SITE ID',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'hash'=>array(
+                    'type'=>'text',
+                    'name'=>'Hash',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'delay'=>array(
+                    'type'=> 'text',
+                    'name'=>'Delay',
+                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                ),
+                'template' => array(
+                    'type'=> 'select',
+                    'name'=>'Template',
+                    'hover'=>'',
+                    'help'=>'  <div class="alert  alert-warning">'. __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky').'</div>',
+                    'values' =>array(
+                        0 => 'http://confluence.cli.bz/download/thumbnails/19464935/1.jpg?version=1&modificationDate=1458899948000&api=v2',
+                        1 => 'http://confluence.cli.bz/download/thumbnails/19464935/2.jpg?version=1&modificationDate=1458899961000&api=v2',
+                        2 => 'http://confluence.cli.bz/download/thumbnails/19464935/3.jpg?version=1&modificationDate=1458899972000&api=v2'
+                    )
+                ),
+                'countShow'=>array(
+                    'type'=> 'text',
+                    'name'=>'Banners rotation time in minutes',
+                    'hover'=>'banner update happens every (n) minutes',
+                    'help'=>'all positive numeric integers 0 - show the following banner each time you update the current page'
+                )
+
+            )
         );
-        $this->banners[] = array(
+        $this->banners['expandable'] = array(
             'name' => 'Expandable Banner',
             'alias' => 'clickky/expandable_banner',
             'callback' => 'expandable_banner',
             'id' => 'expandable',
-            'js_file' => 'slideads'
+            'js_file' => 'slideads',
+            'default' => array(
+                'widget_id'=>array(
+                    'type'=>'text',
+                    'name'=>'SITE ID',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'hash'=>array(
+                    'type'=>'text',
+                    'name'=>'Hash',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'template' => array(
+                    'type'=> 'select',
+                    'name'=>'Template',
+                    'hover'=>'',
+                    'help'=>'  <div class="alert  alert-warning">'. __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky').'</div>',
+                    'values' =>array(
+                        0 => '',
+                        1 => 'http://confluence.cli.bz/download/thumbnails/19465017/a.jpg?version=1&modificationDate=1458923048000&api=v2',
+                        2 => 'http://confluence.cli.bz/download/thumbnails/19465017/b.jpg?version=1&modificationDate=1458923051000&api=v2',
+                        3 => 'http://confluence.cli.bz/download/thumbnails/19465017/c.jpg?version=1&modificationDate=1458923055000&api=v2',
+                        4 => 'http://confluence.cli.bz/download/thumbnails/19465017/d.jpg?version=1&modificationDate=1458923058000&api=v2'
+                    )
+                ),
+                'background'=>array(
+                    'type'=> 'select',
+                    'name'=>'Background',
+                    'hover'=>'parameter that defines the background color of the space where the advertisement displays',
+                    'help' => 'dark or light',
+                    'values' =>array(
+                        'dark'=>'dark',
+                        'light' => 'light'
+                    )
+                ),
+                'autoShow'=>array(
+                    'type'=> 'text',
+                    'name'=>'Banners rotation time in minutes',
+                    'hover'=>'parameter that determines the delay time before opening the banner in seconds',
+                    'help'=>'from 0 to 60 inclusive  - banner will be opened immediately after the load page'
+                )
+
+            )
         );
-        $this->banners[] = array(
+        $this->banners['fullScreen'] = array(
             'name' => 'FullScreen Ads',
             'alias' => 'clickky/fullscreen',
             'callback' => 'fullscreen',
             'id' => 'fullScreen',
-            'js_file' => 'full'
+            'js_file' => 'full',
+            'default' => array(
+                'widget_id'=>array(
+                    'type'=>'text',
+                    'name'=>'SITE ID',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'hash'=>array(
+                    'type'=>'text',
+                    'name'=>'Hash',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'delay'=>array(
+                    'type'=> 'text',
+                    'name'=>'Delay',
+                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                ),
+                'pageShow'=>array(
+                    'type'=> 'text',
+                    'name'=>'Page number on what the ads appears',
+                    'hover'=>'parameter that determines the page number on what the ads appears',
+                    'help'=>'all positive numeric integers 0 - is ignored'
+                )
+
+            )
         );
-        $this->banners[] = array(
+        $this->banners['Interstitial'] = array(
             'name' => 'Interstitial',
             'alias' => 'clickky/interstitial',
             'callback' => 'interstitial',
             'id' => 'Interstitial',
-            'js_file' => 'popin'
+            'js_file' => 'popin',
+            'default' => array(
+                'widget_id'=>array(
+                    'type'=>'text',
+                    'name'=>'SITE ID',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'hash'=>array(
+                    'type'=>'text',
+                    'name'=>'Hash',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'template' => array(
+                    'type'=> 'select',
+                    'name'=>'Template',
+                    'hover'=>'',
+                    'help'=>'',
+                    'values' =>array(
+                        0 => '',
+                        1 => 'http://confluence.cli.bz/download/thumbnails/19467530/1.jpg?version=1&modificationDate=1465387309000&api=v2',
+                        2 => 'http://confluence.cli.bz/download/thumbnails/19467530/2.jpg?version=1&modificationDate=1465387309000&api=v2',
+                        3 => 'http://confluence.cli.bz/download/thumbnails/19467530/3.jpg?version=1&modificationDate=1465387309000&api=v2',
+                        4 => 'http://confluence.cli.bz/download/thumbnails/19467530/4.jpg?version=1&modificationDate=1465387309000&api=v2'
+                    )
+                ),
+                'delay'=>array(
+                    'type'=> 'text',
+                    'name'=>'Delay',
+                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                ),
+                'pageShow'=>array(
+                    'type'=> 'text',
+                    'name'=>'Page number on what the ads appears',
+                    'hover'=>'parameter that determines the page number on what the ads appears',
+                    'help'=>'all positive numeric integers 0 - is ignored'
+                )
+
+            )
+
         );
-        $this->banners[] = array(
+        $this->banners['richmedia'] = array(
             'name' => 'Rich media',
             'alias' => 'clickky/richmedia',
             'callback' => 'richmedia',
             'id' => 'richmedia',
-            'js_file' => 'media'
+            'js_file' => 'media',
+            'default' => array(
+                'site_id'=>array(
+                    'type'=>'text',
+                    'name'=>'SITE ID',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'hash'=>array(
+                    'type'=>'text',
+                    'name'=>'Hash',
+                    'hover'=>'',
+                    'help'=>''
+                ),
+                'template' => array(
+                    'type'=> 'select',
+                    'name'=>'Template',
+                    'hover'=>'',
+                    'help'=>'',
+                    'values' =>array(
+                        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+                    )
+                ),
+                'delay'=>array(
+                    'type'=> 'text',
+                    'name'=>'Delay',
+                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                ),
+                'countShow'=>array(
+                    'type'=> 'text',
+                    'name'=>'Page number on what the ads appears',
+                    'hover'=>'parameter that determines the page number on what the ads appears',
+                    'help'=>'all positive numeric integers 0 - is ignored'
+                ),
+                'second'=>array(
+                    'type'=> 'text',
+                    'name'=>'Delay time for the close button in seconds',
+                    'hover'=>'parameter that defines the delay time for the close button in seconds',
+                    'help'=>'all positive numeric integers, 0 - the script does not work'
+                )
+
+            )
+
         );
-        $this->banners[] = array(
+        $this->banners['recommended'] = array(
             'name' => 'Recommended Apps',
             'alias' => 'clickky/recommended_apps',
             'callback' => 'recommended_apps',
             'id' => 'recommended',
-            'js_file' => 'tizer'
+            'js_file' => 'tizer',
+            'default' => array(
+                'name'=>array(
+                    'type'=>'text',
+                    'name'=>'Name',
+                    'hover'=>'',
+                    'help'=>'',
+                    'show' => 0
+                ),
+                'site_id'=>array(
+                    'type'=>'text',
+                    'name'=>'SITE ID',
+                    'hover'=>'',
+                    'help'=>'',
+                    'show' => 1
+
+                ),
+                'blockId'=>array(
+                    'type'=>'hidden',
+                    'name'=>'',
+                    'hover'=>'',
+                    'help'=>'',
+                    'show' => 1
+                ),
+                'hash'=>array(
+                    'type'=>'text',
+                    'name'=>'Hash',
+                    'hover'=>'',
+                    'help'=>'',
+                    'show' => 1
+                ),
+                'template' => array(
+                    'type'=> 'select',
+                    'name'=>'Template',
+                    'hover'=>'',
+                    'help'=>'',
+                    'values' =>array(
+                        1 => 'http://confluence.cli.bz/download/thumbnails/19467530/1.jpg?version=1&modificationDate=1465387309000&api=v2',
+                        2 => 'http://confluence.cli.bz/download/thumbnails/19467530/2.jpg?version=1&modificationDate=1465387309000&api=v2',
+                        3 => 'http://confluence.cli.bz/download/thumbnails/19467530/3.jpg?version=1&modificationDate=1465387309000&api=v2',
+                        4 => 'http://confluence.cli.bz/download/thumbnails/19467530/4.jpg?version=1&modificationDate=1465387309000&api=v2'
+                    ),
+                    'show' => 1
+                ),
+                'buttonClassColor'=>array(
+                    'type'=> 'select',
+                    'name'=>'Button Color',
+                    'hover'=>'',
+                    'help'=>'',
+                    'values' => array(
+                        'white'=>'white',
+                        'red' => 'red'
+                    ),
+                    'show' => 1
+                ),
+                'background'=>array(
+                    'type'=> 'color',
+                    'name'=>'Background',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value'=>'#ffffff',
+                    'show' => 0
+                ),
+                'fontFamily'=>array(
+                    'type'=> 'text',
+                    'name'=>'Font Family',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value' => 'Helvetica,Arial,sans-serif',
+                    'show' => 0
+                ),
+                'colorFontTitle'=>array(
+                    'type'=> 'color',
+                    'name'=>'Color font title',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value' => '#000000',
+                    'show' => 0
+                ),
+                'ratingFontColor'=>array(
+                    'type'=> 'color',
+                    'name'=>'Rating Color',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value' => '#000000',
+                    'show' => 0
+                ),
+                'colorFontDescription'=>array(
+                    'type'=> 'color',
+                    'name'=>'Color description',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value' => '#000000',
+                    'show' => 0
+                ),
+                'buttonBackground'=>array(
+                    'type'=> 'color',
+                    'name'=>'Button background',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value' => '#E63517',
+                    'show' => 0
+                ),
+                'buttonFontColor'=>array(
+                    'type'=> 'color',
+                    'name'=>'Button font color',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value' => '#ffffff',
+                    'show' => 0
+                ),
+                'buttonBorderColor'=>array(
+                    'type'=> 'color',
+                    'name'=>'Button border color',
+                    'hover'=>'',
+                    'help'=>'',
+                    'value' => '#E63517',
+                    'show' => 0
+                )
+
+
+            )
         );
 
 
@@ -272,67 +590,212 @@ class Clickky_Admin
     {
 
     }
+    public function global_settings_page(){
+        require_once plugin_dir_path(__FILE__) . 'partials/clickky-global-settings.php';
+    }
 
 
     public function add_placement_page(){
-        //if(isset($_POST['code'])){
-            //$code = $_POST['code'];
-
-            $code ="
-                <!-- BEGIN CODE {literal} -->
-                <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
-                <script type='text/javascript'>
-            
-                    var o =
-                    {  'widget_id' : '13264',  
-                        'hash': 'e2402ac3d7ed8c5144ae589eaaeb057b1a7409d5', 
-                        'delay' : 1, 
-                        'template': 1, 
-                        'countBanners': 1 
-                    };
-            
-                    var Cliky = new Cliky(o);
-                    Cliky.init();
-            
-                </script>
-                <!-- {/literal} END CODE -->
-             ";
-            $data = $this->validate_ad($code);
-
-        //}
 
         require_once plugin_dir_path(__FILE__) . 'partials/clickky-add-placement.php';
 
     }
 
+    public function publish_ad_javascript(){
+        ?>
+        <script type="text/javascript">
+
+            jQuery(".switch input").on('change', function (event) {
+
+                jQuery.ajax({
+                    type: "POST",
+                    data: {
+                        'switch': jQuery(this).prop('checked'),
+                        action: 'publish_action',
+                        id: jQuery(this).data('id')
+                    },
+                    url: ajaxurl,
+                    success: function (result) {}
+                });
+                return false;
+            });
+
+            jQuery(".ads_list .delete a").on('click', function (event) {
+
+                var is = confirm("Вы действительно хотите удалить?");
+                if(is) {
+                    var self = this;
+                    jQuery.ajax({
+                        type: "POST",
+                        data: {
+                            action: 'delete_action',
+                            id: jQuery(this).data('id')
+                        },
+                        url: ajaxurl,
+                        success: function () {
+                            jQuery(self).parent().parent().remove();
+                        }
+                    });
+                }
+                return false;
+            });
+
+        </script>
+        <?php
+    }
+    public function publish_action_callback(){
+        global $wpdb;
+        $table_name = $wpdb->prefix . "clickky_ads";
+        if ($_POST['action']=='publish_action') {
+
+            $status = 1;
+            if($_POST['switch']=='false'){
+                $status = 0;
+            }
+            $wpdb->get_results("UPDATE ".$table_name." SET status = ".$status." WHERE id=".$_POST['id']." LIMIT 1");
+            wp_die();
+        }elseif($_POST['action']=='delete_action'){
+            $wpdb->get_results("DELETE  FROM ".$table_name." WHERE id=".$_POST['id']);
+            wp_die();
+        }
+    }
+
+
+
+
+    public function check_ad_javascript(){
+        ?>
+        <script type="text/javascript">
+            jQuery(".add_button").on('click', function (event) {
+                if (jQuery('#code').val() == '') {
+                    return false;
+                }
+                jQuery.ajax({
+                    type: "POST",
+                    data: {'code': jQuery('#code').val(), action: 'check_action'},
+                    url: ajaxurl,
+                    success: function (result) {
+                        if(typeof result != 'object') {
+                            jQuery("#hide_code").val(jQuery('#code').val());
+                            jQuery("#code").val(result);
+                            jQuery("#code").addClass('active');
+                            jQuery(".replace").html('<button class="btn right" type="submit">Next</button>');
+                        }
+                    }
+                });
+                return false;
+            });
+            jQuery("#code").on('click', function (event) {
+                jQuery("#code").removeClass('active');
+            });
+        </script>
+        <?php
+    }
+
+    public function check_action_callback(){
+
+            if (isset($_POST['code'])) {
+                $code = $_POST['code'];
+                $data = $this->validate_ad($code);
+                if ($data) {
+                    echo 'You put correct code! You should turn on placement on my placement page or change delivery setting to this placement there!';
+                }else{
+                    echo 'Check your code';
+                }
+
+                wp_die();
+            }
+
+    }
 
     public function my_placement_page()
     {
+
+        global $wpdb;
+        $table_name = $wpdb->prefix . "clickky_ads";
         if(isset($_GET['id'])){
-            //TODO: uncomment when add function to add ads in DB
-            $code ="
-                <!-- BEGIN CODE {literal} -->
-                <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
-                <script type='text/javascript'>
-            
-                    var o =
-                    {  'widget_id' : '13264',  
-                        'hash': 'e2402ac3d7ed8c5144ae589eaaeb057b1a7409d5', 
-                        'delay' : 1, 
-                        'template': 1, 
-                        'countBanners': 1 
-                    };
-            
-                    var Cliky = new Cliky(o);
-                    Cliky.init();
-            
-                </script>
-                <!-- {/literal} END CODE -->
-             ";
-            $data = $this->validate_ad($code);
+
+            $id = $_GET['id'];
+
+            if(isset($_POST['name'])) {
+
+                if(isset($_POST['data']['active'])){
+                    $status = $_POST['data']['active'];
+                }else{
+                    $status = 0;
+                }
+
+                if ($id == 0) {
+
+                    $rows_affected = $wpdb->insert( $table_name,
+                        array(
+                            'name' => $_POST['name'],
+                            'data' => serialize($_POST['data']),
+                            'settings' => serialize($_POST['settings']),
+                            'status' => $status
+                        )
+                    );
+
+                    if($rows_affected){
+                        echo "<script>window.location.href='admin.php?page=my_placement';</script>;";
+                        wp_die();
+                    }
+
+                }else{
+                    $rows_affected = $wpdb->update( $table_name,
+                        array(
+                            'name' => $_POST['name'],
+                            'data' => serialize($_POST['data']),
+                            'settings' => serialize($_POST['settings']),
+                            'status' => $status
+                        ),
+                        array('id'=>$id)
+                    );
+                }
+            }
+
+            $code = $_POST['code'];
+            if($id == 0) {
+                $data = $this->validate_ad($code);
+            }else{
+                $data = array();
+                $result = $wpdb->get_results("SELECT * FROM ".$table_name." WHERE id=".$id." LIMIT 1");
+
+                if($result){
+                    $result = $result[0];
+                    $settings = unserialize($result->settings);
+
+                    $data['name'] = $result->name;
+                    $data['id'] = $settings['ads'];
+                    $data['js_file'] =$settings['js_file'];
+                    $data['result'] = unserialize($result->data);
+                    $data['default'] = $this->banners[$data['id']]['default'];
+                }
+
+            }
 
             require_once plugin_dir_path(__FILE__) . 'partials/clickky-edit-placement.php';
         }else{
+
+            $data = $wpdb->get_results("SELECT * FROM ".$table_name." ");
+            $result = array();
+
+            foreach ($data as $k=>$v){
+                $settings = unserialize($v->settings);
+
+                $result[] = array(
+
+                    'original_id' => $v->id,
+                    'name' => $v->name,
+                    'status' => $v->status,
+                    'id' => $settings['ads'],
+                    'js_file' => $settings['js_file'],
+                    'result' => unserialize($v->data),
+                    'default' => $this->banners[$data['id']]['default']
+                );
+
+            }
+
             require_once plugin_dir_path(__FILE__) . 'partials/clickky-my-placement.php';
         }
 
@@ -342,20 +805,23 @@ class Clickky_Admin
     public function validate_ad($code){
 
         $ads = '';
-        $count = preg_match('/src=(["\'])(.*?)\1/', $code, $match);
-        if ($count === FALSE) {
+        $code = stripcslashes($code);
+        $count = preg_match_all('/src=(["\'])(.*?)\1/', $code, $match);
+
+        if ($count === FALSE || empty($match[2])) {
             return false;
         }else {
+
             foreach ($this->banners as $banner){
 
-                if(strpos($match[2], $banner['js_file']) !== false ){
+                if(strpos($match[2][0], $banner['js_file']) !== false ){
                     $ads =  $banner;
                     break;
                 }
             }
         }
 
-        if(!$ads){
+        if($ads == ''){
             return false;
         }
 
@@ -364,10 +830,12 @@ class Clickky_Admin
         $data = array();
         if($output_array[0]) {
             foreach ($output_array[0] as &$value) {
-                $value = str_replace(',', '', str_replace("'", "", $value));
+                $value = str_replace("'", "", $value);
                 $value = explode(':', $value);
                 if (count($value) == 2) {
-                    $data[trim($value[0])] = trim($value[1]);
+                    $v = explode(',', $value[1]);
+
+                    $data[trim($value[0])] = trim($v[0]);
                 }
             }
         }
@@ -383,103 +851,18 @@ class Clickky_Admin
                 break;
             }
         }
+        if(count($ads['default'])!=count($data)){
+            return false;
+        }
+        if($ads['id']=='banner' && $data['template']>3){
+            $ads = $this->banners['banner_slider'];
+        }
+
         $ads['result'] = $data;
         if($valid){
             return $ads;
         }
         return false;
-    }
-
-    public function global_settings_page(){
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-global-settings.php';
-    }
-
-    /**
-     * Get banner page in admin panel
-     */
-    public function catfish()
-    {
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-catfish.php';
-    }
-
-
-    /**
-     * Get Settings page in admin panel
-     */
-    public function catfish_slider()
-    {
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-catfish_slider.php';
-    }
-
-
-    /**
-     * Get Settings page in admin panel
-     */
-    public function dialog()
-    {
-        $navbar = $this->topNavigation('dialog');
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-dialog.php';
-    }
-
-    /**
-     * Get Settings page in admin panel
-     */
-    public function expandable_banner()
-    {
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-expandable_banner.php';
-    }
-
-    /**
-     * Get Settings page in admin panel
-     */
-    public function fullscreen()
-    {
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-fullscreen.php';
-    }
-
-    /**
-     * Get Settings page in admin panel
-     */
-    public function interstitial()
-    {
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-interstitial.php';
-    }
-
-    /**
-     * Get Settings page in admin panel
-     */
-    public function richmedia()
-    {
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-richmedia.php';
-    }
-
-    /**
-     * Get Settings page in admin panel
-     */
-    public function recommended_apps()
-    {
-        $recommendeds = $this->recommendeds;
-
-        $r_count = $this->r_count;
-        $recommended_page = array();
-        if (get_option($this->plugin_name . '_recommended_page')) {
-            $recommended_page = unserialize(get_option($this->plugin_name . '_recommended_page'));
-        }
-
-        $recommended_post = array();
-        if (get_option($this->plugin_name . '_recommended_post')) {
-            $recommended_post = unserialize(get_option($this->plugin_name . '_recommended_post'));
-        }
-        $recommended_category = array();
-        if (get_option($this->plugin_name . '_recommended_category')) {
-            $recommended_category = unserialize(get_option($this->plugin_name . '_recommended_category'));
-        }
-        $recommended_widget = array();
-        if (get_option($this->plugin_name . '_recommended_widget')) {
-            $recommended_widget = unserialize(get_option($this->plugin_name . '_recommended_widget'));
-        }
-
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-admin-recommended_apps.php';
     }
 
     /**
@@ -503,9 +886,7 @@ class Clickky_Admin
         add_submenu_page('clickky', 'Global settings', 'Global settings', 'manage_options', 'global_settings', array($this, 'global_settings_page'));
 
     }
-    /***
-     *
-     */
+
 
     /**
      * Update option
@@ -523,17 +904,6 @@ class Clickky_Admin
     public function validate($input)
     {
         $valid = array();
-        /**
-         * Catfish Ads valid
-         */
-        $valid[$this->plugin_name . '_banner_active'] = (isset($input[$this->plugin_name . '_banner_active']) && !empty($input[$this->plugin_name . '_banner_active'])) ? 1 : 0;
-        $valid[$this->plugin_name . '_banner_widget_id'] = (isset($input[$this->plugin_name . '_banner_widget_id']) && !empty($input[$this->plugin_name . '_banner_widget_id'])) ? 1 : 0;
-        $valid[$this->plugin_name . '_banner_hash'] = (isset($input[$this->plugin_name . '_banner_hash']) && !empty($input[$this->plugin_name . '_banner_hash'])) ? 1 : 0;
-        $valid[$this->plugin_name . '_banner_template'] = (isset($input[$this->plugin_name . '_banner_template']) && !empty($input[$this->plugin_name . '_banner_template'])) ? 1 : 0;
-        $valid[$this->plugin_name . '_banner_delay'] = (isset($input[$this->plugin_name . '_banner_delay']) && !empty($input[$this->plugin_name . '_banner_delay'])) ? 1 : 0;
-        $valid[$this->plugin_name . '_banner_countShow'] = (isset($input[$this->plugin_name . '_banner_countShow']) && !empty($input[$this->plugin_name . '_banner_countShow'])) ? 1 : 0;
-        $valid[$this->plugin_name . '_banner_countBanners'] = (isset($input[$this->plugin_name . '_banner_countBanners']) && !empty($input[$this->plugin_name . '_banner_countBanners'])) ? 1 : 0;
-
         return $valid;
     }
 
@@ -543,132 +913,11 @@ class Clickky_Admin
     public function register_settings()
     {
 
-        /**
-         * Catfish Ads
-         */
-        register_setting($this->plugin_name . '-banner-settings', $this->plugin_name . '_banner_active');
-        register_setting($this->plugin_name . '-banner-settings', $this->plugin_name . '_banner_widget_id');
-        register_setting($this->plugin_name . '-banner-settings', $this->plugin_name . '_banner_hash');
-        register_setting($this->plugin_name . '-banner-settings', $this->plugin_name . '_banner_template');
-        register_setting($this->plugin_name . '-banner-settings', $this->plugin_name . '_banner_delay');
-        register_setting($this->plugin_name . '-banner-settings', $this->plugin_name . '_banner_countShow');
-        register_setting($this->plugin_name . '-banner-settings', $this->plugin_name . '_banner_countBanners');
-
-        register_setting($this->plugin_name . '-banner-shows-settings', $this->plugin_name . '_banner_home');
-        register_setting($this->plugin_name . '-banner-shows-settings', $this->plugin_name . '_banner_main');
-        register_setting($this->plugin_name . '-banner-shows-settings', $this->plugin_name . '_banner_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-banner-shows-settings', $this->plugin_name . '_banner_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-banner-shows-settings', $this->plugin_name . '_banner_category', array($this, 'serializeData'));
-
-
-        /**
-         * Catfish Ads Slider
-         */
-        register_setting($this->plugin_name . '-banner-slider-settings', $this->plugin_name . '_banner_slider_active');
-        register_setting($this->plugin_name . '-banner-slider-settings', $this->plugin_name . '_banner_slider_widget_id');
-        register_setting($this->plugin_name . '-banner-slider-settings', $this->plugin_name . '_banner_slider_hash');
-        register_setting($this->plugin_name . '-banner-slider-settings', $this->plugin_name . '_banner_slider_template');
-        register_setting($this->plugin_name . '-banner-slider-settings', $this->plugin_name . '_banner_slider_delay');
-        register_setting($this->plugin_name . '-banner-slider-settings', $this->plugin_name . '_banner_slider_countShow');
-        register_setting($this->plugin_name . '-banner-slider-settings', $this->plugin_name . '_banner_slider_countBanners');
-
-        register_setting($this->plugin_name . '-banner-slider-shows-settings', $this->plugin_name . '_banner_slider_main');
-        register_setting($this->plugin_name . '-banner-slider-shows-settings', $this->plugin_name . '_banner_slider_home');
-        register_setting($this->plugin_name . '-banner-slider-shows-settings', $this->plugin_name . '_banner_slider_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-banner-slider-shows-settings', $this->plugin_name . '_banner_slider_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-banner-slider-shows-settings', $this->plugin_name . '_banner_slider_category', array($this, 'serializeData'));
-
-
-        /**
-         * Dialog Ads
-         */
-        register_setting($this->plugin_name . '-dialog-settings', $this->plugin_name . '_dialog_active');
-        register_setting($this->plugin_name . '-dialog-settings', $this->plugin_name . '_dialog_widget_id');
-        register_setting($this->plugin_name . '-dialog-settings', $this->plugin_name . '_dialog_hash');
-        register_setting($this->plugin_name . '-dialog-settings', $this->plugin_name . '_dialog_template');
-        register_setting($this->plugin_name . '-dialog-settings', $this->plugin_name . '_dialog_delay');
-        register_setting($this->plugin_name . '-dialog-settings', $this->plugin_name . '_dialog_countShow');
-
-        register_setting($this->plugin_name . '-dialog-shows-settings', $this->plugin_name . '_dialog_main');
-        register_setting($this->plugin_name . '-dialog-shows-settings', $this->plugin_name . '_dialog_home');
-        register_setting($this->plugin_name . '-dialog-shows-settings', $this->plugin_name . '_dialog_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-dialog-shows-settings', $this->plugin_name . '_dialog_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-dialog-shows-settings', $this->plugin_name . '_dialog_category', array($this, 'serializeData'));
-
-        /**
-         * Expandable Banner
-         */
-        register_setting($this->plugin_name . '-expandable-settings', $this->plugin_name . '_expandable_active');
-        register_setting($this->plugin_name . '-expandable-settings', $this->plugin_name . '_expandable_widget_id');
-        register_setting($this->plugin_name . '-expandable-settings', $this->plugin_name . '_expandable_hash');
-        register_setting($this->plugin_name . '-expandable-settings', $this->plugin_name . '_expandable_template');
-        register_setting($this->plugin_name . '-expandable-settings', $this->plugin_name . '_expandable_background');
-        register_setting($this->plugin_name . '-expandable-settings', $this->plugin_name . '_expandable_autoShow');
-
-        register_setting($this->plugin_name . '-expandable-shows-settings', $this->plugin_name . '_expandable_home');
-        register_setting($this->plugin_name . '-expandable-shows-settings', $this->plugin_name . '_expandable_main');
-        register_setting($this->plugin_name . '-expandable-shows-settings', $this->plugin_name . '_expandable_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-expandable-shows-settings', $this->plugin_name . '_expandable_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-expandable-shows-settings', $this->plugin_name . '_expandable_category', array($this, 'serializeData'));
-
-        /**
-         * FullScreen Ads
-         */
-        register_setting($this->plugin_name . '-fullScreen-settings', $this->plugin_name . '_fullScreen_active');
-        register_setting($this->plugin_name . '-fullScreen-settings', $this->plugin_name . '_fullScreen_widget_id');
-        register_setting($this->plugin_name . '-fullScreen-settings', $this->plugin_name . '_fullScreen_hash');
-        register_setting($this->plugin_name . '-fullScreen-settings', $this->plugin_name . '_fullScreen_delay');
-        register_setting($this->plugin_name . '-fullScreen-settings', $this->plugin_name . '_fullScreen_pageShow');
-
-        register_setting($this->plugin_name . '-fullScreen-shows-settings', $this->plugin_name . '_fullScreen_home');
-        register_setting($this->plugin_name . '-fullScreen-shows-settings', $this->plugin_name . '_fullScreen_main');
-        register_setting($this->plugin_name . '-fullScreen-shows-settings', $this->plugin_name . '_fullScreen_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-fullScreen-shows-settings', $this->plugin_name . '_fullScreen_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-fullScreen-shows-settings', $this->plugin_name . '_fullScreen_category', array($this, 'serializeData'));
-
-
-        /**
-         * Interstitial
-         */
-        register_setting($this->plugin_name . '-interstitial-settings', $this->plugin_name . '_interstitial_active');
-        register_setting($this->plugin_name . '-interstitial-settings', $this->plugin_name . '_interstitial_widget_id');
-        register_setting($this->plugin_name . '-interstitial-settings', $this->plugin_name . '_interstitial_hash');
-        register_setting($this->plugin_name . '-interstitial-settings', $this->plugin_name . '_interstitial_template');
-        register_setting($this->plugin_name . '-interstitial-settings', $this->plugin_name . '_interstitial_delay');
-        register_setting($this->plugin_name . '-interstitial-settings', $this->plugin_name . '_interstitial_pageShow');
-
-        register_setting($this->plugin_name . '-interstitial-shows-settings', $this->plugin_name . '_interstitial_home');
-        register_setting($this->plugin_name . '-interstitial-shows-settings', $this->plugin_name . '_interstitial_main');
-        register_setting($this->plugin_name . '-interstitial-shows-settings', $this->plugin_name . '_interstitial_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-interstitial-shows-settings', $this->plugin_name . '_interstitial_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-interstitial-shows-settings', $this->plugin_name . '_interstitial_category', array($this, 'serializeData'));
-
-        /**
-         * Rich media
-         */
-        register_setting($this->plugin_name . '-richmedia-settings', $this->plugin_name . '_richmedia_active');
-        register_setting($this->plugin_name . '-richmedia-settings', $this->plugin_name . '_richmedia_widget_id');
-        register_setting($this->plugin_name . '-richmedia-settings', $this->plugin_name . '_richmedia_hash');
-        register_setting($this->plugin_name . '-richmedia-settings', $this->plugin_name . '_richmedia_template');
-        register_setting($this->plugin_name . '-richmedia-settings', $this->plugin_name . '_richmedia_delay');
-        register_setting($this->plugin_name . '-richmedia-settings', $this->plugin_name . '_richmedia_countShow');
-        register_setting($this->plugin_name . '-richmedia-settings', $this->plugin_name . '_richmedia_second');
-
-        register_setting($this->plugin_name . '-richmedia-shows-settings', $this->plugin_name . '_richmedia_main');
-        register_setting($this->plugin_name . '-richmedia-shows-settings', $this->plugin_name . '_richmedia_home');
-        register_setting($this->plugin_name . '-richmedia-shows-settings', $this->plugin_name . '_richmedia_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-richmedia-shows-settings', $this->plugin_name . '_richmedia_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-richmedia-shows-settings', $this->plugin_name . '_richmedia_category', array($this, 'serializeData'));
-
-        /**
-         * Recommended Apps
-         */
-        register_setting($this->plugin_name . '-recommended-settings', $this->plugin_name . '_recommended', array($this, 'serializeData'));
-
-        register_setting($this->plugin_name . '-recommended-shows-settings', $this->plugin_name . '_recommended_page', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-recommended-shows-settings', $this->plugin_name . '_recommended_post', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-recommended-shows-settings', $this->plugin_name . '_recommended_category', array($this, 'serializeData'));
-        register_setting($this->plugin_name . '-recommended-shows-settings', $this->plugin_name . '_recommended_widget', array($this, 'serializeData'));
+        register_setting($this->plugin_name . '-settings', $this->plugin_name . '_home');
+        register_setting($this->plugin_name . '-settings', $this->plugin_name . '_main');
+        register_setting($this->plugin_name . '-settings', $this->plugin_name . '_page', array($this, 'serializeData'));
+        register_setting($this->plugin_name . '-settings', $this->plugin_name . '_post', array($this, 'serializeData'));
+        register_setting($this->plugin_name . '-settings', $this->plugin_name . '_category', array($this, 'serializeData'));
 
     }
 
@@ -701,14 +950,19 @@ class Clickky_Admin
             $my_placement = 'active';
         }
 
-        $html = '<div class="row header">
+        $html = '
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+                  integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <div class="row header">
                 <div class="col s2 logo">
                     <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/logo.png" height="42" alt="">
                 </div>
                 <div class="col s10">
                     <ul class="right top_menu">
                         <li class="'.$my_placement.'">
-                            <a href="#">
+                            <a href="admin.php?page=my_placement">
                                 <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/my_placement_icon.png" alt="My placement" />
                                 <span class="text">My placement</span>
                             </a>
@@ -731,6 +985,71 @@ class Clickky_Admin
         return $html;
     }
 
+    public function createField($name, $value, $data){
+
+
+        if($value['type'] == 'text' || $value['type'] == 'hidden' || $value['type'] == 'color' ) {
+            if($value['type'] == 'hidden') {
+                $html = '<div class="form-group" style="display: none;">';
+            }else{
+                $html = '<div class="form-group">';
+            }
+            $html .= '<label for="'.$data['id'].'_'.$name.'" class="text-uppercase"> '. __($value['name'], 'clickky');
+            if($value['hover']!='') {
+                $html .= ' <i class="fa fa-info-circle fa-lg" aria-hidden="true" data-toggle="tooltip"
+                                               data-placement="right"
+                                               title="'.$value['hover'].'"></i>';
+            }
+            $html .= '</label>';
+            if($data['result'][$name]){
+                $v = $data['result'][$name];
+            }else{
+                $v = $data['default'][$name]['value'];
+            }
+            $html .= '<input type="' . $value['type'] . '" class="form-control" id="' . $data['id'] . '_'.$name.'"
+                               placeholder="' . __($value['name'], 'clickky') . '"
+                               name="data['.$name.']"
+                               value="' . $v . '"
+                               required>';
+            $html .= '<span id="helpBlock" class="help-block">'.$value['help'].'</span>';
+            $html .= '</div>';
+        }elseif ($value['type'] =='select'){
+
+            $html = '<div class="form-group">';
+
+            $html .= '<label for="'.$data['id'].'_'.$name.'" class="text-uppercase"> '. __($value['name'], 'clickky');
+            if($value['hover']!='') {
+                $html .= ' <i class="fa fa-info-circle fa-lg" aria-hidden="true" data-toggle="tooltip"
+                                               data-placement="right"
+                                               title="'.$value['hover'].'"></i>';
+            }
+            $html .= '</label>';
+            $script = "changeTemplateImg('".$data['id']."_".$name."', '".$data['id']."-".$name."-change');";
+
+
+            $html .= '<select  id="'.$data['id'].'_'.$name.'" class="browser-default" 
+                                onchange="'.$script.'"
+                                name="data['.$name.']">';
+            foreach ($value['values'] as $k=>$img) {
+                $s = '';
+                if ($data['result'][$name] == $k)
+                    $s =  'selected';
+
+                $html .= '<option
+                                value="'.$k.'" '.$s.' 
+                                data-bannerimg="'.$img.'">
+                                '.$k.'
+                            </option>';
+            }
+
+            $html .= '</select>';
+            $html .= '<span id="helpBlock" class="help-block">'.$value['help'].'</span>';
+            $html .= '</div>';
+        }
+
+
+        return $html;
+    }
     /**
      * Html setting pages, posts, categories
      * @param $active
@@ -738,238 +1057,6 @@ class Clickky_Admin
     public function pageShow($active)
     {
 
-        ?>
-        <form class="row" method="post" name="cleanup_options" action="options.php">
-            <?php
-            settings_fields('clickky-' . $active . '-shows-settings');
-            ?>
-            <div class="panel-group">
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <?php echo _e('Select', 'clickky'); ?>
-                        </h4>
-                    </div>
-                    <div id="collapse_1" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="form-group checkbox">
-                                <label for="<?php echo $active; ?>_main" class="text-uppercase">
-                                    <input type="checkbox" id="<?php echo $active; ?>_main"
-                                           name="<?php echo $this->plugin_name; ?>_<?php echo $active; ?>_main"
-                                           value="1" <?php if (get_option($this->plugin_name . '_' . $active . '_main') == 1) echo 'checked'; ?> />
-                                    <span
-                                        class="checkbox_label"><?php _e('Show all', 'clickky'); ?></span>
-                                </label>
-                            </div>
-
-                            <div class="form-group checkbox">
-                                <label for="<?php echo $active; ?>_home" class="text-uppercase">
-                                    <input type="checkbox" id="<?php echo $active; ?>_home"
-                                           name="<?php echo $this->plugin_name; ?>_<?php echo $active; ?>_home"
-                                           value="1" <?php if (get_option($this->plugin_name . '_' . $active . '_home') == 1) echo 'checked'; ?> />
-                                    <span
-                                        class="checkbox_label"><?php _e('Home', 'clickky'); ?></span>
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <?php echo _e('Select page', 'clickky'); ?>
-                        </h4>
-                    </div>
-                    <div class="panel-collapse collapse in" id="pages_all">
-                        <div class="panel-body">
-                            <?php
-                            $checked_pages = unserialize(get_option($this->plugin_name . '_' . $active . '_page'));
-                            if (!is_array($checked_pages)) {
-                                $checked_pages = array();
-                            }
-                            $pages = get_pages();
-                            ?>
-                            <div class="checkbox">
-                                <label for="<?php echo $active; ?>_page_all">
-                                    <input id="<?php echo $active; ?>_page_all" type="checkbox"
-                                           onClick="toggleCheckbox(this, 'pages_all')"
-                                        <?php
-                                        if (count($checked_pages) == count($pages)) {
-                                            echo 'checked';
-                                        }
-                                        ?>
-                                    />
-                                    <span
-                                        class="checkbox_label"><?php _e('All', 'clickky'); ?></span>
-                                </label>
-                            </div>
-                            <?php
-                            if (count($pages) > 0) {
-                                foreach ($pages as $page) {
-                                    ?>
-
-                                    <div class="checkbox">
-                                        <label for="<?php echo $active; ?>_page_<?php echo $page->ID; ?>">
-                                            <input type="checkbox"
-                                                   name="<?php echo $this->plugin_name . '_' . $active . '_page'; ?>[]"
-                                                   value="<?php echo $page->ID; ?>"
-                                                   id="<?php echo $active; ?>_page_<?php echo $page->ID; ?>"
-                                                <?php
-                                                if (is_array($checked_pages) && count($checked_pages) > 0)
-                                                    if (in_array($page->ID, $checked_pages))
-                                                        echo 'checked';
-                                                ?>
-                                            >
-                                            <span
-                                                class="checkbox_label"><?php echo $page->post_title; ?></span>
-                                        </label>
-                                    </div>
-
-                                    <?php
-                                }
-                            }
-                            ?>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <?php echo _e('Select post', 'clickky'); ?>
-                        </h4>
-                    </div>
-                    <div class="panel-collapse collapse in" id="all_posts">
-                        <div class="panel-body">
-                            <?php
-                            $checked_posts = unserialize(get_option($this->plugin_name . '_' . $active . '_post'));
-                            if (!is_array($checked_posts)) {
-                                $checked_posts = array();
-                            }
-                            $posts = get_posts();
-
-                            ?>
-                            <div class="checkbox">
-                                <label for="<?php echo $active; ?>_post_all">
-                                    <input id="<?php echo $active; ?>_post_all" type="checkbox"
-                                           onClick="toggleCheckbox(this, 'all_posts')"
-                                        <?php
-                                        if (count($checked_posts) == count($posts)) {
-                                            echo 'checked';
-                                        }
-                                        ?>
-                                    />
-                                    <span
-                                        class="checkbox_label"><?php _e('All', 'clickky'); ?></span>
-                                </label>
-                            </div>
-                            <?php
-
-                            if (count($posts) > 0) {
-                                foreach ($posts as $post) {
-                                    ?>
-
-                                    <div class="checkbox">
-                                        <label for="<?php echo $active; ?>_post_<?php echo $post->ID; ?>">
-
-                                            <input type="checkbox"
-                                                   name="<?php echo $this->plugin_name . '_' . $active . '_post'; ?>[]"
-                                                   value="<?php echo $post->ID; ?>"
-                                                   id="<?php echo $active; ?>_post_<?php echo $post->ID; ?>"
-                                                <?php
-                                                if (is_array($checked_posts) && count($checked_posts) > 0)
-                                                    if (in_array($post->ID, $checked_posts))
-                                                        echo 'checked';
-                                                ?>
-                                            >
-                                            <span
-                                                class="checkbox_label"><?php echo $post->post_title; ?></span>
-                                        </label>
-                                    </div>
-
-                                    <?php
-                                }
-                            }
-                            ?>
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <?php echo _e('Select category', 'clickky'); ?>
-                        </h4>
-                    </div>
-                    <div class="panel-collapse collapse in" id="all_categories">
-                        <div class="panel-body">
-                            <?php
-                            $checked_categories = unserialize(get_option($this->plugin_name . '_' . $active . '_category'));
-                            if (!is_array($checked_categories)) {
-                                $checked_categories = array();
-                            }
-                            $categories = get_categories();
-                            ?>
-                            <div class="checkbox">
-                                <label for="<?php echo $active; ?>_category__all">
-                                    <input id="<?php echo $active; ?>_category__all" type="checkbox"
-                                           onClick="toggleCheckbox(this, 'all_categories')"
-                                        <?php
-                                        if (count($checked_categories) == count($categories)) {
-                                            echo 'checked';
-                                        }
-                                        ?>
-                                    />
-                                    <span
-                                        class="checkbox_label"><?php _e('All', 'clickky'); ?></span>
-                                </label>
-                            </div>
-                            <?php
-                            if (count($categories) > 0) {
-                                foreach ($categories as $category) {
-                                    ?>
-
-                                    <div class="checkbox">
-                                        <label
-                                            for="<?php echo $active; ?>_category_<?php echo $category->term_id; ?>">
-                                            <input type="checkbox"
-                                                   name="<?php echo $this->plugin_name . '_' . $active . '_category'; ?>[]"
-                                                   value="<?php echo $category->term_id; ?>"
-                                                   id="<?php echo $active; ?>_category_<?php echo $category->term_id; ?>"
-                                                <?php
-                                                if (is_array($checked_categories) && count($checked_categories) > 0)
-                                                    if (in_array($category->term_id, $checked_categories))
-                                                        echo 'checked';
-                                                ?>
-                                            >
-                                            <span
-                                                class="checkbox_label"><?php echo $category->name; ?></span>
-                                        </label>
-                                    </div>
-
-                                    <?php
-                                }
-                            }
-                            ?>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr/>
-            <div class="form-group"
-                 style="float:right; margin-bottom: 20px; margin-right: 20px;">
-                <button type="submit" class="btn btn btn-warning"><?php _e('Save', 'clickky'); ?></button>
-            </div>
-        </form>
-        <?php
     }
 
     /**

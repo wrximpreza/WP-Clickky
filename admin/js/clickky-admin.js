@@ -2461,6 +2461,8 @@ if (typeof jQuery === 'undefined') {
 
       });
 
+
+
       jQuery('#code').slimScroll({
           height: '400px',
           width: '100%',

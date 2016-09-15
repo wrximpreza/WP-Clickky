@@ -29,6 +29,8 @@
 class Clickky
 {
 
+
+
     /**
      * The loader that's responsible for maintaining and registering all hooks that power
      * the plugin.
@@ -169,6 +171,12 @@ class Clickky
 
         $this->loader->add_action('admin_init', $plugin_admin, 'register_settings');
 
+        $this->loader->add_action('admin_print_footer_scripts', $plugin_admin, 'check_ad_javascript');
+        $this->loader->add_action('wp_ajax_check_action', $plugin_admin, 'check_action_callback');
+
+        $this->loader->add_action('admin_print_footer_scripts', $plugin_admin, 'publish_ad_javascript');
+        $this->loader->add_action('wp_ajax_publish_action', $plugin_admin, 'publish_action_callback');
+
     }
 
     /**
@@ -197,6 +205,8 @@ class Clickky
 
         $plugin_widget = new Clickky_Widget($this->get_plugin_name(), $this->get_version(), $plugin_public);
         $this->loader->add_action('widgets_init', $plugin_widget, 'clickky_register_widget');
+
+
 
         add_shortcode('clickky_recommended_apps', array($plugin_public, 'get_recommended_shortcode'));
 
@@ -245,5 +255,9 @@ class Clickky
     {
         return $this->version;
     }
+
+
+
+
 
 }

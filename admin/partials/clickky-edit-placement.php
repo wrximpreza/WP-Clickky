@@ -1,7 +1,3 @@
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
-      integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-
 <?php echo $this->topNavigation('my-placement'); ?>
 <div class="row content col s12">
     <h1><?php echo $data['name']; ?></h1>
@@ -20,163 +16,359 @@
                 </li>
             </ul>
         </div>
-        <div id="test1" class="col s12 content_tab">
+        <form method="post" name="cleanup_options">
+            <div id="test1" class="col s12 content_tab">
+                <input type="hidden" name="settings[ads]" value="<?php echo $data['id']; ?>">
+                <input type="hidden" name="name" value="<?php echo $data['name']; ?>">
+                <input type="hidden" name="settings[js_file]" value="<?php echo $data['js_file']; ?>">
+                <div class="tab-pane col s12 active" id="settings">
+                    <div class="col s9 row" method="post" name="cleanup_options">
 
-            <div class="tab-pane col s12 active" id="settings">
-                <form class="col s9 row" method="post" name="cleanup_options" action="options.php">
-                    <?php settings_fields('clickky-'.$data['id'].'-settings'); ?>
+                        <p class="first">
+                            <input type="checkbox" id="banner_status" value="1"
+                                   name="data[active]" class="filled-in"
+                                   value="1" <?php if ($data['result']['active'] == '1') echo 'checked'; ?>
+                            />
+                            <label for="banner_status"><?php _e('Active', 'clickky'); ?></label>
+                        </p>
 
-                    <p class="first">
-                        <input type="checkbox" id="banner_status" value="1"
-                               name="<?php echo $this->plugin_name; ?>_banner_active"  class="filled-in"
-                               value="1" <?php if (get_option($this->plugin_name . '_banner_active') == '1') echo 'checked'; ?>
-                        />
-                        <label for="banner_status"><?php _e('Active', 'clickky'); ?></label>
-                    </p>
+                        <?php
+                        foreach ($data['default'] as $k => $value) {
+                            echo $this->createField($k, $value, $data);
+                        }
+                        ?>
 
-
-
-                    <div class="form-group">
-                        <label for="banner_widget_id" class="text-uppercase">
-                            <?php _e('SITE ID'); ?>
-                        </label>
-
-                        <input type="text" class="form-control" id="banner_widget_id"
-                               placeholder="<?php _e('SITE ID'); ?>"
-                               name="<?php echo $this->plugin_name; ?>_banner_widget_id"
-                               value="<?php echo get_option($this->plugin_name . '_banner_widget_id'); ?>"
-                               required>
-                        <span id="helpBlock" class="help-block">
-                                </span>
+                        <div class="form-group">
+                            <button type="submit"
+                                    class="btn"><?php _e('Save', 'clickky'); ?></button>
+                        </div>
                     </div>
+                    <div class="col s3 template-images">
+                        <?php if (isset($data['default']['template'])): ?>
 
-                    <div class="form-group">
-                        <label for="banner-hash" class="text-uppercase">
-                            <?php _e('Hash'); ?>
-                        </label>
-                        <input type="text" class="form-control" id="banner-hash"
-                               placeholder="<?php _e('Hash'); ?>"
-                               name="<?php echo $this->plugin_name; ?>_banner_hash"
-                               value="<?php echo get_option($this->plugin_name . '_banner_hash'); ?>"
-                               required/>
-                        <span id="helpBlock" class="help-block"></span>
+                            <?php foreach ($data['default']['template']['values'] as $k => $img) {
+                                if (get_option($this->plugin_name . '_' . $data['id'] . '_template') == $k) {
+                                    ?>
+                                    <img
+                                        src="<?php echo $img; ?>"
+                                        class="img-responsive banner-template-change" alt="">
+                                <?php }
+                            } ?>
+                        <?php endif; ?>
                     </div>
-
-
-                    <div class="form-group ">
-                        <label for="banner_template" class="text-uppercase">
-                            <?php _e('Template'); ?>
-                        </label>
-                        <select  id="banner_template" class="browser-default"
-                                onchange="changeTemplateImg('banner_template', 'banner-template-change');"
-                                name="<?php echo $this->plugin_name; ?>_banner_template">
-                            <option
-                                value="1" <?php if (get_option($this->plugin_name . '_banner_template') == 1) echo 'selected'; ?>
-                                data-bannerimg="http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2">
-                                1
-                            </option>
-                            <option
-                                value="2" <?php if (get_option($this->plugin_name . '_banner_template') == 2) echo 'selected'; ?>
-                                data-bannerimg="http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2">
-                                2
-                            </option>
-                            <option
-                                value="3" <?php if (get_option($this->plugin_name . '_banner_template') == 3) echo 'selected'; ?>
-                                data-bannerimg="http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2">
-                                3
-                            </option>
-                        </select>
-                        <span id="helpBlock" class="help-block">
-                                    <ol class="list-inline">
-                                        <li>1 - <?php _e('top-line'); ?> ,</li>
-                                        <li>2 - <?php _e('catfish'); ?>,</li>
-                                        <li>3 - <?php _e('top-line + catfish'); ?></li>
-                                    </ol>
-                                </span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="banner-delay" class="text-uppercase">
-                            <?php _e('Delay', 'clickky'); ?>
-                            <i class="fa fa-info-circle fa-lg" aria-hidden="true" data-toggle="tooltip"
-                               data-placement="right"
-                               title="<?php _e('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'); ?>"></i>
-                        </label>
-                        <input type="text"
-                               name="<?php echo $this->plugin_name; ?>_banner_delay"
-                               value="<?php if (get_option($this->plugin_name . '_banner_delay')) echo get_option($this->plugin_name . '_banner_delay'); else echo '1'; ?>"
-                               class="form-control" id="banner-delay" required
-                               placeholder="<?php _e('Delay', 'clickky'); ?>">
-                        <span id="helpBlock" class="help-block">
-                                    <?php _e('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky'); ?>
-                                </span>
-                    </div>
-
-                    <div class="form-group" style="display: none">
-                        <label
-                            for="banner-count"><?php _e('Banners rotation time in minutes', 'clickky'); ?></label>
-                        <i class="fa fa-info-circle fa-lg" aria-hidden="true" data-toggle="tooltip"
-                           data-placement="right"
-                           title="<?php _e('banner update happens every (n) minutes', 'clickky'); ?>"></i>
-                        <input type="text"
-                               name="<?php echo $this->plugin_name; ?>_banner_countShow"
-                               value="<?php if (get_option($this->plugin_name . '_banner_countShow')) echo get_option($this->plugin_name . '_banner_countShow'); else echo '1'; ?>"
-                               class="form-control" id="banner-count" required
-                               placeholder="<?php _e('Banners rotation time in minutes', 'clickky'); ?>">
-                        <span id="helpBlock" class="help-block">
-                                    <?php _e('all positive numeric integers 0 - show the following banner each time you update the current page', 'clickky'); ?>
-                                </span>
-                    </div>
-
-                    <div class="form-group" style="display: none">
-                        <label
-                            for="banner-countBanners"><?php _e('Number of banners in the slider', 'clickky'); ?></label>
-                        <i class="fa fa-info-circle fa-lg" aria-hidden="true" data-toggle="tooltip"
-                           data-placement="right"
-                           title="<?php _e('banners are involved in the slider', 'clickky'); ?>"></i>
-                        <input type="text"
-                               name="<?php echo $this->plugin_name; ?>_banner_countBanners"
-                               value="<?php if (get_option($this->plugin_name . '_banner_countBanners')) echo get_option($this->plugin_name . '_banner_countBanners'); else echo '3'; ?>"
-                               class="form-control" id="banner-countBanners" required
-                               placeholder="<?php _e('Number of banners in the slider', 'clickky'); ?>">
-                        <span id="helpBlock" class="help-block">
-                                    <?php _e('from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
-                                    from 2 to 4 inclusive - available for 4, 5, 6 or 7 templates
-                                    > 4 - triggered the default value - 3', 'clickky'); ?>
-                                </span>
-                    </div>
-
-                    <div class="form-group" >
-                        <button type="submit"
-                                class="btn"><?php _e('Save', 'clickky'); ?></button>
-                    </div>
-                </form>
-                <div class="col s3 template-images">
-                    <?php if (get_option($this->plugin_name . '_banner_template') == 1) { ?>
-                        <img
-                            src="http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2"
-                            class="img-responsive banner-template-change" alt="">
-                    <?php } elseif (get_option($this->plugin_name . '_banner_template') == 2) { ?>
-                        <img
-                            src="http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2"
-                            class="img-responsive banner-template-change" alt="">
-                    <?php } elseif (get_option($this->plugin_name . '_banner_template') == 3) { ?>
-                        <img
-                            src="http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2"
-                            class="img-responsive banner-template-change" alt="">
-                    <?php } else { ?>
-                        <img
-                            src="http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2"
-                            class="img-responsive banner-template-change" alt="">
-                    <?php } ?>
                 </div>
+
             </div>
+            <div id="test2" class="col s12 content_tab">
+                <dv class="col s12">
+                    <div class="accordion col s12">
+                        <?php if ($data['id'] == 'recommended') { ?>
+                            <ul class="collapsible" data-collapsible="accordion">
+                                <li>
+                                    <div class="collapsible-header active">
+                                        <span><?php echo _e('Shortcode', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <input type="text" class="form-control"
+                                               value='[clickky_recommended_apps hash="<?php echo $data['result']['hash']; ?>"]'
+                                               id="copy-input">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header">
+                                        <span><?php echo _e('Select page', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i>
+                                    </div>
+                                    <div class="collapsible-body">
 
-        </div>
-        <div id="test2" class="col s12 content_tab">
-            Test 2
-        </div>
+                                        <p>
+                                            <select class="browser-default"
+                                                name="settings[page]">
+                                                <option
+                                                    value=""><?php _e('Select', 'clickky'); ?></option>
 
+                                                <option <?php if ($settings[page] == 'before_comment') echo 'selected'; ?>
+                                                    value="before_comment">
+                                                    <?php _e('Before comment', 'clickky'); ?>
+                                                </option>
+                                                <option <?php if ($settings[page] == 'after_comment') echo 'selected'; ?>
+                                                    value="after_comment">
+                                                    <?php _e('After comment', 'clickky'); ?>
+                                                </option>
+                                                <option <?php if ($settings[page] == 'before_content') echo 'selected'; ?>
+                                                    value="before_content">
+                                                    <?php _e('Before content', 'clickky'); ?>
+                                                </option>
+                                                <option <?php if ($settings[page] == 'after_content') echo 'selected'; ?>
+                                                    value="after_content">
+                                                    <?php _e('After content', 'clickky'); ?>
+                                                </option>
+                                            </select>
+
+                                        </p>
+
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header">
+                                        <span><?php echo _e('Select post', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <p>
+                                            <select class="browser-default"
+                                                name="settings[post]">
+                                                <option
+                                                    value=""><?php _e('Select', 'clickky'); ?></option>
+
+                                                <option <?php if ($settings[post]  == 'after_comment') echo 'selected'; ?>
+                                                    value="after_comment"><?php _e('After comment', 'clickky'); ?>
+                                                </option>
+                                                <option <?php if ($settings[post] == 'before_content') echo 'selected'; ?>
+                                                    value="before_content"><?php _e('Before content', 'clickky'); ?>
+                                                </option>
+                                                <option <?php if ($settings[post] == 'after_content') echo 'selected'; ?>
+                                                    value="after_content"><?php _e('After content', 'clickky'); ?>
+                                                </option>
+                                            </select>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header">
+                                        <span><?php echo _e('Select category', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <p>
+                                            <select class="browser-default"
+                                                name="settings[category]">
+                                                <option
+                                                    value=""><?php _e('Select', 'clickky'); ?></option>
+                                                <option <?php if ($settings[category] == 'before_loop') echo 'selected'; ?>
+                                                    value="before_loop">
+                                                    <?php echo _e('Before articles', 'clickky'); ?>
+                                                </option>
+                                                <option <?php if ($settings[category] == 'after_loop') echo 'selected'; ?>
+                                                    value="after_loop">
+                                                    <?php echo _e('After articles', 'clickky'); ?>
+                                                </option>
+                                            </select>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header">
+                                        <span><?php echo _e('Select widget', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <p>
+                                            <select class="browser-default"
+                                                name="settings[widget]">
+                                                <option <?php
+                                                if (isset($settings['widget']))
+                                                    if ($settings['widget'] == 0)
+                                                        echo 'selected'; ?>
+                                                    value="0"><?php _e('No', 'clickky'); ?>
+                                                </option>
+                                                <option <?php
+                                                if (isset($settings['widget']))
+                                                    if ($settings['widget'] == 1)
+                                                        echo 'selected'; ?>
+                                                    value="1"><?php _e('Yes', 'clickky'); ?>
+                                                </option>
+                                            </select>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        <?php } else { ?>
+                            <ul class="collapsible" data-collapsible="accordion">
+                                <li>
+                                    <div class="collapsible-header active">
+                                        <span><?php echo _e('Select', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i>
+                                    </div>
+                                    <div class="collapsible-body">
+
+                                        <p>
+                                            <input type="checkbox" id="main"
+                                                   name="settings[main]"
+                                                   class="filled-in"
+                                                   value="1" <?php if ($settings['main'] == 1 || $_GET['id'] == 0) echo 'checked'; ?> />
+                                            <label for="main"><?php _e('Show all', 'clickky'); ?></label>
+                                        </p>
+                                        <p>
+
+                                            <input type="checkbox" id="home"
+                                                   name="settings[home]"
+                                                   class="filled-in"
+                                                   value="1" <?php if ($settings['home'] == 1) echo 'checked'; ?> />
+                                            <label for="home"><?php _e('Home', 'clickky'); ?></label>
+
+                                        </p>
+                                    </div>
+                                </li>
+                                <li id="pages_all">
+                                    <div class="collapsible-header">
+                                        <span><?php echo _e('Select page', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i></div>
+                                    <div class="collapsible-body">
+                                        <?php
+                                        $checked_pages = unserialize(get_option($this->plugin_name . '_' . $active . '_page'));
+                                        if (!is_array($checked_pages)) {
+                                            $checked_pages = array();
+                                        }
+                                        $pages = get_pages();
+                                        ?>
+                                        <p>
+                                            <input id="page_all" type="checkbox" class="filled-in"
+                                                   onClick="toggleCheckbox(this, 'pages_all')"
+                                                <?php
+                                                if (count($checked_pages) == count($pages)) {
+                                                    echo 'checked';
+                                                }
+                                                ?>
+                                            />
+                                            <label for="page_all"><?php _e('All', 'clickky'); ?></label>
+                                        </p>
+                                        <?php
+                                        if (count($pages) > 0) {
+                                            foreach ($pages as $page) {
+                                                ?>
+                                                <p>
+                                                    <input type="checkbox" class="filled-in"
+                                                           name="settings[page][]"
+                                                           value="<?php echo $page->ID; ?>"
+                                                           id="page_<?php echo $page->ID; ?>"
+                                                        <?php
+                                                        if (is_array($checked_pages) && count($checked_pages) > 0)
+                                                            if (in_array($page->ID, $checked_pages))
+                                                                echo 'checked';
+                                                        ?>
+                                                    >
+                                                    <label
+                                                        for="page_<?php echo $page->ID; ?>"><?php echo $page->post_title; ?></label>
+                                                </p>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                </li>
+                                <li id="all_posts">
+                                    <div class="collapsible-header">
+                                        <span><?php echo _e('Select post', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i></div>
+                                    <div class="collapsible-body">
+                                        <?php
+                                        $checked_posts = unserialize(get_option($this->plugin_name . '_' . $active . '_post'));
+                                        if (!is_array($checked_posts)) {
+                                            $checked_posts = array();
+                                        }
+                                        $posts = get_posts();
+
+                                        ?>
+                                        <p>
+                                            <input id="post_all" type="checkbox" class="filled-in"
+                                                   onClick="toggleCheckbox(this, 'all_posts')"
+                                                <?php
+                                                if (count($checked_posts) == count($posts)) {
+                                                    echo 'checked';
+                                                }
+                                                ?>
+                                            />
+                                            <label for="post_all"><?php _e('All', 'clickky'); ?></label>
+                                        </p>
+                                        <?php
+
+                                        if (count($posts) > 0) {
+                                            foreach ($posts as $post) {
+                                                ?>
+                                                <p>
+                                                    <input type="checkbox" class="filled-in"
+                                                           name="settings[post][]"
+                                                           value="<?php echo $post->ID; ?>"
+                                                           id="post_<?php echo $post->ID; ?>"
+                                                        <?php
+                                                        if (is_array($checked_posts) && count($checked_posts) > 0)
+                                                            if (in_array($post->ID, $checked_posts))
+                                                                echo 'checked';
+                                                        ?>
+                                                    >
+
+                                                    <label
+                                                        for="post_<?php echo $post->ID; ?>"><?php echo $post->post_title; ?></label>
+                                                </p>
+
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+
+                                    </div>
+                                </li>
+                                <li id="all_categories">
+                                    <div class="collapsible-header">
+                                        <span><?php echo _e('Select category', 'clickky'); ?></span>
+                                        <i class="material-icons">arrow_drop_down</i></div>
+                                    <div class="collapsible-body">
+                                        <?php
+                                        $checked_categories = unserialize(get_option($this->plugin_name . '_' . $active . '_category'));
+                                        if (!is_array($checked_categories)) {
+                                            $checked_categories = array();
+                                        }
+                                        $categories = get_categories();
+                                        ?>
+                                        <p>
+                                            <input id="category__all" type="checkbox" class="filled-in"
+                                                   onClick="toggleCheckbox(this, 'all_categories')"
+                                                <?php
+                                                if (count($checked_categories) == count($categories)) {
+                                                    echo 'checked';
+                                                }
+                                                ?>
+                                            />
+                                            <label for="category__all"><?php _e('All', 'clickky'); ?></label>
+                                        </p>
+                                        <?php
+                                        if (count($categories) > 0) {
+                                            foreach ($categories as $category) {
+                                                ?>
+                                                <p>
+                                                    <input type="checkbox" class="filled-in"
+                                                           name="settings[category][]"
+                                                           value="<?php echo $category->term_id; ?>"
+                                                           id="category_<?php echo $category->term_id; ?>"
+                                                        <?php
+                                                        if (is_array($checked_categories) && count($checked_categories) > 0)
+                                                            if (in_array($category->term_id, $checked_categories))
+                                                                echo 'checked';
+                                                        ?>
+                                                    >
+                                                    <label
+                                                        for="category_<?php echo $category->term_id; ?>"><?php echo $category->name; ?></label>
+                                                </p>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        <?php } ?>
+                        <div class="row">
+                            <button type="submit"
+                                    class="btn"><?php _e('Save', 'clickky'); ?></button>
+                        </div>
+                    </div>
+                </dv>
+            </div>
+        </form>
     </div>
 
 </div>

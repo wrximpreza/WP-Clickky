@@ -31,6 +31,15 @@ class Clickky_Deactivator {
 	 */
 	public static function deactivate() {
 
+        if( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+            global $wpdb;
+            $table_name = $wpdb->prefix . "clickky_ads";
+            $sql = "DROP TABLE IF EXISTS " . $table_name;
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            dbDelta($sql);
+
+            delete_option("1.0.0");
+        }
 	}
 
 }
