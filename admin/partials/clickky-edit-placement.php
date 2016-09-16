@@ -1,6 +1,13 @@
 <?php echo $this->topNavigation('my-placement'); ?>
 <div class="row content col s12">
-    <h1><?php echo $data['name']; ?></h1>
+    <h1><?php echo $data['name']; ?>
+        <?php if (isset($data['original_id'])): ?>
+            <span><?php _e('Edit', 'clickky'); ?></span>
+        <?php else: ?>
+            <span><?php _e('Add', 'clickky'); ?></span>
+        <?php endif; ?>
+
+    </h1>
 
     <div class="row" id="edit_page">
         <div class="tab-menu">
@@ -22,12 +29,12 @@
                 <input type="hidden" name="name" value="<?php echo $data['name']; ?>">
                 <input type="hidden" name="settings[js_file]" value="<?php echo $data['js_file']; ?>">
                 <div class="tab-pane col s12 active" id="settings">
-                    <div class="col s9 row" method="post" name="cleanup_options">
+                    <div class="col s8 row" method="post" name="cleanup_options">
 
                         <p class="first">
                             <input type="checkbox" id="banner_status" value="1"
                                    name="data[active]" class="filled-in"
-                                   value="1" <?php if ($data['result']['active'] == '1') echo 'checked'; ?>
+                                   value="1" <?php if ($data['status'] == 1) echo 'checked'; ?>
                             />
                             <label for="banner_status"><?php _e('Active', 'clickky'); ?></label>
                         </p>
@@ -43,11 +50,11 @@
                                     class="btn"><?php _e('Save', 'clickky'); ?></button>
                         </div>
                     </div>
-                    <div class="col s3 template-images">
+                    <div class="col s4 template-images">
                         <?php if (isset($data['default']['template'])): ?>
 
                             <?php foreach ($data['default']['template']['values'] as $k => $img) {
-                                if (get_option($this->plugin_name . '_' . $data['id'] . '_template') == $k) {
+                                if ($data['result']['template'] == $k) {
                                     ?>
                                     <img
                                         src="<?php echo $img; ?>"
@@ -71,7 +78,7 @@
                                     </div>
                                     <div class="collapsible-body">
                                         <input type="text" class="form-control"
-                                               value='[clickky_recommended_apps hash="<?php echo $data['result']['hash']; ?>"]'
+                                               value='[clickky_recommended_apps id="<?php echo $data['original_id']; ?>"]'
                                                id="copy-input">
                                     </div>
                                 </li>
@@ -188,7 +195,7 @@
                         <?php } else { ?>
                             <ul class="collapsible" data-collapsible="accordion">
                                 <li>
-                                    <div class="collapsible-header active">
+                                    <div class="collapsible-header">
                                         <span><?php echo _e('Select', 'clickky'); ?></span>
                                         <i class="material-icons">arrow_drop_down</i>
                                     </div>
@@ -218,7 +225,7 @@
                                         <i class="material-icons">arrow_drop_down</i></div>
                                     <div class="collapsible-body">
                                         <?php
-                                        $checked_pages = unserialize(get_option($this->plugin_name . '_' . $active . '_page'));
+                                        $checked_pages = $settings['page'];
                                         if (!is_array($checked_pages)) {
                                             $checked_pages = array();
                                         }
@@ -265,7 +272,7 @@
                                         <i class="material-icons">arrow_drop_down</i></div>
                                     <div class="collapsible-body">
                                         <?php
-                                        $checked_posts = unserialize(get_option($this->plugin_name . '_' . $active . '_post'));
+                                        $checked_posts = $settings['post'];
                                         if (!is_array($checked_posts)) {
                                             $checked_posts = array();
                                         }
@@ -317,7 +324,7 @@
                                         <i class="material-icons">arrow_drop_down</i></div>
                                     <div class="collapsible-body">
                                         <?php
-                                        $checked_categories = unserialize(get_option($this->plugin_name . '_' . $active . '_category'));
+                                        $checked_categories = $settings['category'];
                                         if (!is_array($checked_categories)) {
                                             $checked_categories = array();
                                         }

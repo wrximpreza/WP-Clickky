@@ -19,8 +19,6 @@
  * @subpackage Clickky/admin
  * @author     Your Name <email@example.com>
  */
-
-
 class Clickky_Admin
 {
 
@@ -69,47 +67,47 @@ class Clickky_Admin
             'id' => 'banner',
             'js_file' => 'banner',
             'default' => array(
-                    'widget_id'=>array(
-                        'type'=>'text',
-                        'name'=>'SITE ID',
-                        'hover'=>'',
-                        'help'=>''
-                    ),
-                    'hash'=>array(
-                        'type'=>'text',
-                        'name'=>'Hash',
-                        'hover'=>'',
-                        'help'=>''
-                    ),
-                    'delay'=>array(
-                        'type'=> 'text',
-                        'name'=>'Delay',
-                        'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                        'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
-                    ),
-                    'template' => array(
-                        'type'=> 'select',
-                        'name'=>'Template',
-                        'hover'=>'',
-                        'help'=>' <ol class="list-inline">
+                'widget_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => ''
+                ),
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => ''
+                ),
+                'delay' => array(
+                    'type' => 'text',
+                    'name' => 'Delay',
+                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                ),
+                'template' => array(
+                    'type' => 'select',
+                    'name' => 'Template',
+                    'hover' => '',
+                    'help' => ' <ol class="list-inline">
                                         <li>1 - top-line ,</li>
                                         <li>2 - catfish,</li>
                                         <li>3 - top-line + catfish</li>
                                     </ol>',
-                        'values' =>array(
-                            1 => 'http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2',
-                            2 => 'http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2',
-                            3 => 'http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2'
-                        )
-                    ),
-                    'countBanners'=>array(
-                        'type'=> 'hidden',
-                        'name'=>'Banners are involved in the slider',
-                        'hover'=>'banners are involved in the slider',
-                        'help'=>'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
+                    'values' => array(
+                        1 => 'http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2',
+                        2 => 'http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2',
+                        3 => 'http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2'
+                    )
+                ),
+                'countBanners' => array(
+                    'type' => 'hidden',
+                    'name' => 'Banners are involved in the slider',
+                    'hover' => 'banners are involved in the slider',
+                    'help' => 'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
                                     from 2 to 4 inclusive - available for 4, 5, 6 or 7 templates
                                     > 4 - triggered the default value - 3'
-                    )
+                )
 
             )
         );
@@ -120,46 +118,46 @@ class Clickky_Admin
             'id' => 'banner_slider',
             'js_file' => 'banner',
             'default' => array(
-                'widget_id'=>array(
-                    'type'=>'text',
-                    'name'=>'SITE ID',
-                    'hover'=>'',
-                    'help'=>''
+                'widget_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'hash'=>array(
-                    'type'=>'text',
-                    'name'=>'Hash',
-                    'hover'=>'',
-                    'help'=>''
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'delay'=>array(
-                    'type'=> 'text',
-                    'name'=>'Delay',
-                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                'delay' => array(
+                    'type' => 'text',
+                    'name' => 'Delay',
+                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
                 ),
                 'template' => array(
-                    'type'=> 'select',
-                    'name'=>'Template',
-                    'hover'=>'',
-                    'help'=>' <ol class="list-inline">
+                    'type' => 'select',
+                    'name' => 'Template',
+                    'hover' => '',
+                    'help' => ' <ol class="list-inline">
                                          <li>4 - top-line slider (horizontal) ,</li>
                                         <li>5 - catfish slider (horizontal),</li>
                                         <li>6 - top-line slider (vertical), </li>
                                         <li>7 - catfish slider (vertical)</li>
                                     </ol>',
-                    'values' =>array(
+                    'values' => array(
                         4 => 'http://confluence.cli.bz/download/thumbnails/19464938/44.jpg?version=1&modificationDate=1458901341000&api=v2',
                         5 => 'http://confluence.cli.bz/download/thumbnails/19464938/55.jpg?version=1&modificationDate=1458901360000&api=v2',
                         6 => 'http://confluence.cli.bz/download/thumbnails/19464938/66.jpg?version=1&modificationDate=1458901375000&api=v2',
                         7 => 'http://confluence.cli.bz/download/thumbnails/19464938/77.jpg?version=1&modificationDate=1458901387000&api=v2'
                     )
                 ),
-                'countBanners'=>array(
-                    'type'=> 'text',
-                    'name'=>'Banners are involved in the slider',
-                    'hover'=>'banners are involved in the slider',
-                    'help'=>'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
+                'countBanners' => array(
+                    'type' => 'text',
+                    'name' => 'Banners are involved in the slider',
+                    'hover' => 'banners are involved in the slider',
+                    'help' => 'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
                                     from 2 to 4 inclusive - available for 4, 5, 6 or 7 templates
                                     > 4 - triggered the default value - 3'
                 )
@@ -174,40 +172,40 @@ class Clickky_Admin
             'id' => 'dialog',
             'js_file' => 'dialogads',
             'default' => array(
-                'widget_id'=>array(
-                    'type'=>'text',
-                    'name'=>'SITE ID',
-                    'hover'=>'',
-                    'help'=>''
+                'widget_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'hash'=>array(
-                    'type'=>'text',
-                    'name'=>'Hash',
-                    'hover'=>'',
-                    'help'=>''
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'delay'=>array(
-                    'type'=> 'text',
-                    'name'=>'Delay',
-                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                'delay' => array(
+                    'type' => 'text',
+                    'name' => 'Delay',
+                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
                 ),
                 'template' => array(
-                    'type'=> 'select',
-                    'name'=>'Template',
-                    'hover'=>'',
-                    'help'=>'  <div class="alert  alert-warning">'. __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky').'</div>',
-                    'values' =>array(
+                    'type' => 'select',
+                    'name' => 'Template',
+                    'hover' => '',
+                    'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
+                    'values' => array(
                         0 => 'http://confluence.cli.bz/download/thumbnails/19464935/1.jpg?version=1&modificationDate=1458899948000&api=v2',
                         1 => 'http://confluence.cli.bz/download/thumbnails/19464935/2.jpg?version=1&modificationDate=1458899961000&api=v2',
                         2 => 'http://confluence.cli.bz/download/thumbnails/19464935/3.jpg?version=1&modificationDate=1458899972000&api=v2'
                     )
                 ),
-                'countShow'=>array(
-                    'type'=> 'text',
-                    'name'=>'Banners rotation time in minutes',
-                    'hover'=>'banner update happens every (n) minutes',
-                    'help'=>'all positive numeric integers 0 - show the following banner each time you update the current page'
+                'countShow' => array(
+                    'type' => 'text',
+                    'name' => 'Banners rotation time in minutes',
+                    'hover' => 'banner update happens every (n) minutes',
+                    'help' => 'all positive numeric integers 0 - show the following banner each time you update the current page'
                 )
 
             )
@@ -219,24 +217,24 @@ class Clickky_Admin
             'id' => 'expandable',
             'js_file' => 'slideads',
             'default' => array(
-                'widget_id'=>array(
-                    'type'=>'text',
-                    'name'=>'SITE ID',
-                    'hover'=>'',
-                    'help'=>''
+                'widget_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'hash'=>array(
-                    'type'=>'text',
-                    'name'=>'Hash',
-                    'hover'=>'',
-                    'help'=>''
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => ''
                 ),
                 'template' => array(
-                    'type'=> 'select',
-                    'name'=>'Template',
-                    'hover'=>'',
-                    'help'=>'  <div class="alert  alert-warning">'. __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky').'</div>',
-                    'values' =>array(
+                    'type' => 'select',
+                    'name' => 'Template',
+                    'hover' => '',
+                    'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
+                    'values' => array(
                         0 => '',
                         1 => 'http://confluence.cli.bz/download/thumbnails/19465017/a.jpg?version=1&modificationDate=1458923048000&api=v2',
                         2 => 'http://confluence.cli.bz/download/thumbnails/19465017/b.jpg?version=1&modificationDate=1458923051000&api=v2',
@@ -244,21 +242,21 @@ class Clickky_Admin
                         4 => 'http://confluence.cli.bz/download/thumbnails/19465017/d.jpg?version=1&modificationDate=1458923058000&api=v2'
                     )
                 ),
-                'background'=>array(
-                    'type'=> 'select',
-                    'name'=>'Background',
-                    'hover'=>'parameter that defines the background color of the space where the advertisement displays',
+                'background' => array(
+                    'type' => 'select',
+                    'name' => 'Background',
+                    'hover' => 'parameter that defines the background color of the space where the advertisement displays',
                     'help' => 'dark or light',
-                    'values' =>array(
-                        'dark'=>'dark',
+                    'values' => array(
+                        'dark' => 'dark',
                         'light' => 'light'
                     )
                 ),
-                'autoShow'=>array(
-                    'type'=> 'text',
-                    'name'=>'Banners rotation time in minutes',
-                    'hover'=>'parameter that determines the delay time before opening the banner in seconds',
-                    'help'=>'from 0 to 60 inclusive  - banner will be opened immediately after the load page'
+                'autoShow' => array(
+                    'type' => 'text',
+                    'name' => 'Banners rotation time in minutes',
+                    'hover' => 'parameter that determines the delay time before opening the banner in seconds',
+                    'help' => 'from 0 to 60 inclusive  - banner will be opened immediately after the load page'
                 )
 
             )
@@ -270,29 +268,29 @@ class Clickky_Admin
             'id' => 'fullScreen',
             'js_file' => 'full',
             'default' => array(
-                'widget_id'=>array(
-                    'type'=>'text',
-                    'name'=>'SITE ID',
-                    'hover'=>'',
-                    'help'=>''
+                'widget_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'hash'=>array(
-                    'type'=>'text',
-                    'name'=>'Hash',
-                    'hover'=>'',
-                    'help'=>''
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'delay'=>array(
-                    'type'=> 'text',
-                    'name'=>'Delay',
-                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                'delay' => array(
+                    'type' => 'text',
+                    'name' => 'Delay',
+                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
                 ),
-                'pageShow'=>array(
-                    'type'=> 'text',
-                    'name'=>'Page number on what the ads appears',
-                    'hover'=>'parameter that determines the page number on what the ads appears',
-                    'help'=>'all positive numeric integers 0 - is ignored'
+                'pageShow' => array(
+                    'type' => 'text',
+                    'name' => 'Page number on what the ads appears',
+                    'hover' => 'parameter that determines the page number on what the ads appears',
+                    'help' => 'all positive numeric integers 0 - is ignored'
                 )
 
             )
@@ -304,24 +302,24 @@ class Clickky_Admin
             'id' => 'Interstitial',
             'js_file' => 'popin',
             'default' => array(
-                'widget_id'=>array(
-                    'type'=>'text',
-                    'name'=>'SITE ID',
-                    'hover'=>'',
-                    'help'=>''
+                'widget_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'hash'=>array(
-                    'type'=>'text',
-                    'name'=>'Hash',
-                    'hover'=>'',
-                    'help'=>''
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => ''
                 ),
                 'template' => array(
-                    'type'=> 'select',
-                    'name'=>'Template',
-                    'hover'=>'',
-                    'help'=>'',
-                    'values' =>array(
+                    'type' => 'select',
+                    'name' => 'Template',
+                    'hover' => '',
+                    'help' => '',
+                    'values' => array(
                         0 => '',
                         1 => 'http://confluence.cli.bz/download/thumbnails/19467530/1.jpg?version=1&modificationDate=1465387309000&api=v2',
                         2 => 'http://confluence.cli.bz/download/thumbnails/19467530/2.jpg?version=1&modificationDate=1465387309000&api=v2',
@@ -329,17 +327,17 @@ class Clickky_Admin
                         4 => 'http://confluence.cli.bz/download/thumbnails/19467530/4.jpg?version=1&modificationDate=1465387309000&api=v2'
                     )
                 ),
-                'delay'=>array(
-                    'type'=> 'text',
-                    'name'=>'Delay',
-                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                'delay' => array(
+                    'type' => 'text',
+                    'name' => 'Delay',
+                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
                 ),
-                'pageShow'=>array(
-                    'type'=> 'text',
-                    'name'=>'Page number on what the ads appears',
-                    'hover'=>'parameter that determines the page number on what the ads appears',
-                    'help'=>'all positive numeric integers 0 - is ignored'
+                'pageShow' => array(
+                    'type' => 'text',
+                    'name' => 'Page number on what the ads appears',
+                    'hover' => 'parameter that determines the page number on what the ads appears',
+                    'help' => 'all positive numeric integers 0 - is ignored'
                 )
 
             )
@@ -352,44 +350,44 @@ class Clickky_Admin
             'id' => 'richmedia',
             'js_file' => 'media',
             'default' => array(
-                'site_id'=>array(
-                    'type'=>'text',
-                    'name'=>'SITE ID',
-                    'hover'=>'',
-                    'help'=>''
+                'site_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => ''
                 ),
-                'hash'=>array(
-                    'type'=>'text',
-                    'name'=>'Hash',
-                    'hover'=>'',
-                    'help'=>''
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => ''
                 ),
                 'template' => array(
-                    'type'=> 'select',
-                    'name'=>'Template',
-                    'hover'=>'',
-                    'help'=>'',
-                    'values' =>array(
+                    'type' => 'select',
+                    'name' => 'Template',
+                    'hover' => '',
+                    'help' => '',
+                    'values' => array(
                         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
                     )
                 ),
-                'delay'=>array(
-                    'type'=> 'text',
-                    'name'=>'Delay',
-                    'hover'=>'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help'=>'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                'delay' => array(
+                    'type' => 'text',
+                    'name' => 'Delay',
+                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
+                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
                 ),
-                'countShow'=>array(
-                    'type'=> 'text',
-                    'name'=>'Page number on what the ads appears',
-                    'hover'=>'parameter that determines the page number on what the ads appears',
-                    'help'=>'all positive numeric integers 0 - is ignored'
+                'countShow' => array(
+                    'type' => 'text',
+                    'name' => 'Page number on what the ads appears',
+                    'hover' => 'parameter that determines the page number on what the ads appears',
+                    'help' => 'all positive numeric integers 0 - is ignored'
                 ),
-                'second'=>array(
-                    'type'=> 'text',
-                    'name'=>'Delay time for the close button in seconds',
-                    'hover'=>'parameter that defines the delay time for the close button in seconds',
-                    'help'=>'all positive numeric integers, 0 - the script does not work'
+                'second' => array(
+                    'type' => 'text',
+                    'name' => 'Delay time for the close button in seconds',
+                    'hover' => 'parameter that defines the delay time for the close button in seconds',
+                    'help' => 'all positive numeric integers, 0 - the script does not work'
                 )
 
             )
@@ -402,41 +400,41 @@ class Clickky_Admin
             'id' => 'recommended',
             'js_file' => 'tizer',
             'default' => array(
-                'name'=>array(
-                    'type'=>'text',
-                    'name'=>'Name',
-                    'hover'=>'',
-                    'help'=>'',
+                'name' => array(
+                    'type' => 'text',
+                    'name' => 'Name',
+                    'hover' => '',
+                    'help' => '',
                     'show' => 0
                 ),
-                'site_id'=>array(
-                    'type'=>'text',
-                    'name'=>'SITE ID',
-                    'hover'=>'',
-                    'help'=>'',
+                'site_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => '',
                     'show' => 1
 
                 ),
-                'blockId'=>array(
-                    'type'=>'hidden',
-                    'name'=>'',
-                    'hover'=>'',
-                    'help'=>'',
+                'blockId' => array(
+                    'type' => 'hidden',
+                    'name' => '',
+                    'hover' => '',
+                    'help' => '',
                     'show' => 1
                 ),
-                'hash'=>array(
-                    'type'=>'text',
-                    'name'=>'Hash',
-                    'hover'=>'',
-                    'help'=>'',
+                'hash' => array(
+                    'type' => 'text',
+                    'name' => 'Hash',
+                    'hover' => '',
+                    'help' => '',
                     'show' => 1
                 ),
                 'template' => array(
-                    'type'=> 'select',
-                    'name'=>'Template',
-                    'hover'=>'',
-                    'help'=>'',
-                    'values' =>array(
+                    'type' => 'select',
+                    'name' => 'Template',
+                    'hover' => '',
+                    'help' => '',
+                    'values' => array(
                         1 => 'http://confluence.cli.bz/download/thumbnails/19467530/1.jpg?version=1&modificationDate=1465387309000&api=v2',
                         2 => 'http://confluence.cli.bz/download/thumbnails/19467530/2.jpg?version=1&modificationDate=1465387309000&api=v2',
                         3 => 'http://confluence.cli.bz/download/thumbnails/19467530/3.jpg?version=1&modificationDate=1465387309000&api=v2',
@@ -444,78 +442,78 @@ class Clickky_Admin
                     ),
                     'show' => 1
                 ),
-                'buttonClassColor'=>array(
-                    'type'=> 'select',
-                    'name'=>'Button Color',
-                    'hover'=>'',
-                    'help'=>'',
+                'buttonClassColor' => array(
+                    'type' => 'select',
+                    'name' => 'Button Color',
+                    'hover' => '',
+                    'help' => '',
                     'values' => array(
-                        'white'=>'white',
+                        'white' => 'white',
                         'red' => 'red'
                     ),
                     'show' => 1
                 ),
-                'background'=>array(
-                    'type'=> 'color',
-                    'name'=>'Background',
-                    'hover'=>'',
-                    'help'=>'',
-                    'value'=>'#ffffff',
-                    'show' => 0
-                ),
-                'fontFamily'=>array(
-                    'type'=> 'text',
-                    'name'=>'Font Family',
-                    'hover'=>'',
-                    'help'=>'',
-                    'value' => 'Helvetica,Arial,sans-serif',
-                    'show' => 0
-                ),
-                'colorFontTitle'=>array(
-                    'type'=> 'color',
-                    'name'=>'Color font title',
-                    'hover'=>'',
-                    'help'=>'',
-                    'value' => '#000000',
-                    'show' => 0
-                ),
-                'ratingFontColor'=>array(
-                    'type'=> 'color',
-                    'name'=>'Rating Color',
-                    'hover'=>'',
-                    'help'=>'',
-                    'value' => '#000000',
-                    'show' => 0
-                ),
-                'colorFontDescription'=>array(
-                    'type'=> 'color',
-                    'name'=>'Color description',
-                    'hover'=>'',
-                    'help'=>'',
-                    'value' => '#000000',
-                    'show' => 0
-                ),
-                'buttonBackground'=>array(
-                    'type'=> 'color',
-                    'name'=>'Button background',
-                    'hover'=>'',
-                    'help'=>'',
-                    'value' => '#E63517',
-                    'show' => 0
-                ),
-                'buttonFontColor'=>array(
-                    'type'=> 'color',
-                    'name'=>'Button font color',
-                    'hover'=>'',
-                    'help'=>'',
+                'background' => array(
+                    'type' => 'color',
+                    'name' => 'Background',
+                    'hover' => '',
+                    'help' => '',
                     'value' => '#ffffff',
                     'show' => 0
                 ),
-                'buttonBorderColor'=>array(
-                    'type'=> 'color',
-                    'name'=>'Button border color',
-                    'hover'=>'',
-                    'help'=>'',
+                'fontFamily' => array(
+                    'type' => 'text',
+                    'name' => 'Font Family',
+                    'hover' => '',
+                    'help' => '',
+                    'value' => 'Helvetica,Arial,sans-serif',
+                    'show' => 0
+                ),
+                'colorFontTitle' => array(
+                    'type' => 'color',
+                    'name' => 'Color font title',
+                    'hover' => '',
+                    'help' => '',
+                    'value' => '#000000',
+                    'show' => 0
+                ),
+                'ratingFontColor' => array(
+                    'type' => 'color',
+                    'name' => 'Rating Color',
+                    'hover' => '',
+                    'help' => '',
+                    'value' => '#000000',
+                    'show' => 0
+                ),
+                'colorFontDescription' => array(
+                    'type' => 'color',
+                    'name' => 'Color description',
+                    'hover' => '',
+                    'help' => '',
+                    'value' => '#000000',
+                    'show' => 0
+                ),
+                'buttonBackground' => array(
+                    'type' => 'color',
+                    'name' => 'Button background',
+                    'hover' => '',
+                    'help' => '',
+                    'value' => '#E63517',
+                    'show' => 0
+                ),
+                'buttonFontColor' => array(
+                    'type' => 'color',
+                    'name' => 'Button font color',
+                    'hover' => '',
+                    'help' => '',
+                    'value' => '#ffffff',
+                    'show' => 0
+                ),
+                'buttonBorderColor' => array(
+                    'type' => 'color',
+                    'name' => 'Button border color',
+                    'hover' => '',
+                    'help' => '',
                     'value' => '#E63517',
                     'show' => 0
                 )
@@ -523,14 +521,6 @@ class Clickky_Admin
 
             )
         );
-
-
-        $this->recommendeds = unserialize(get_option($this->plugin_name . '_recommended'));
-        if ($this->recommendeds) {
-            $this->r_count = count($this->recommendeds['widget_id']);
-        } else {
-            $this->r_count = 0;
-        }
 
 
     }
@@ -555,8 +545,9 @@ class Clickky_Admin
          * class.
          */
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/clickky-admin.css', array(), $this->version, 'all');
-
+        if (!empty($_GET)) {
+            wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/clickky-admin.css', array(), $this->version, 'all');
+        }
     }
 
     /**
@@ -578,9 +569,9 @@ class Clickky_Admin
          * between the defined hooks and the functions defined in this
          * class.
          */
-
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/clickky-admin.js', array('jquery'), $this->version, false);
-
+        if (!empty($_GET)) {
+            wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/clickky-admin.js', array('jquery'), $this->version, false);
+        }
     }
 
     /**
@@ -590,18 +581,31 @@ class Clickky_Admin
     {
 
     }
-    public function global_settings_page(){
+
+    /**
+     *
+     */
+    public function global_settings_page()
+    {
         require_once plugin_dir_path(__FILE__) . 'partials/clickky-global-settings.php';
     }
 
 
-    public function add_placement_page(){
+    /**
+     *
+     */
+    public function add_placement_page()
+    {
 
         require_once plugin_dir_path(__FILE__) . 'partials/clickky-add-placement.php';
 
     }
 
-    public function publish_ad_javascript(){
+    /**
+     *
+     */
+    public function publish_ad_javascript()
+    {
         ?>
         <script type="text/javascript">
 
@@ -611,11 +615,13 @@ class Clickky_Admin
                     type: "POST",
                     data: {
                         'switch': jQuery(this).prop('checked'),
+                        status: 'publish',
                         action: 'publish_action',
                         id: jQuery(this).data('id')
                     },
                     url: ajaxurl,
-                    success: function (result) {}
+                    success: function (result) {
+                    }
                 });
                 return false;
             });
@@ -623,12 +629,13 @@ class Clickky_Admin
             jQuery(".ads_list .delete a").on('click', function (event) {
 
                 var is = confirm("Вы действительно хотите удалить?");
-                if(is) {
+                if (is) {
                     var self = this;
                     jQuery.ajax({
                         type: "POST",
                         data: {
-                            action: 'delete_action',
+                            action: 'publish_action',
+                            status: 'delete',
                             id: jQuery(this).data('id')
                         },
                         url: ajaxurl,
@@ -643,27 +650,35 @@ class Clickky_Admin
         </script>
         <?php
     }
-    public function publish_action_callback(){
+
+    /**
+     *
+     */
+    public function publish_action_callback()
+    {
         global $wpdb;
         $table_name = $wpdb->prefix . "clickky_ads";
-        if ($_POST['action']=='publish_action') {
+        if ($_POST['status'] == 'publish') {
 
             $status = 1;
-            if($_POST['switch']=='false'){
+            if ($_POST['switch'] == 'false') {
                 $status = 0;
             }
-            $wpdb->get_results("UPDATE ".$table_name." SET status = ".$status." WHERE id=".$_POST['id']." LIMIT 1");
+            $wpdb->get_results("UPDATE " . $table_name . " SET status = " . $status . " WHERE id=" . $_POST['id'] . " LIMIT 1");
             wp_die();
-        }elseif($_POST['action']=='delete_action'){
-            $wpdb->get_results("DELETE  FROM ".$table_name." WHERE id=".$_POST['id']);
+        } elseif ($_POST['status'] == 'delete') {
+
+            $wpdb->get_results("DELETE  FROM " . $table_name . " WHERE id=" . $_POST['id']);
             wp_die();
         }
     }
 
 
-
-
-    public function check_ad_javascript(){
+    /**
+     *
+     */
+    public function check_ad_javascript()
+    {
         ?>
         <script type="text/javascript">
             jQuery(".add_button").on('click', function (event) {
@@ -675,11 +690,14 @@ class Clickky_Admin
                     data: {'code': jQuery('#code').val(), action: 'check_action'},
                     url: ajaxurl,
                     success: function (result) {
-                        if(typeof result != 'object') {
+                        result = JSON.parse(result);
+                        if (typeof result == 'object') {
                             jQuery("#hide_code").val(jQuery('#code').val());
-                            jQuery("#code").val(result);
+                            jQuery("#code").val(result.message);
                             jQuery("#code").addClass('active');
-                            jQuery(".replace").html('<button class="btn right" type="submit">Next</button>');
+                            if (result.status) {
+                                jQuery(".replace").html('<button class="btn right" type="submit"><?php _e('Next'); ?></button>');
+                            }
                         }
                     }
                 });
@@ -692,42 +710,49 @@ class Clickky_Admin
         <?php
     }
 
-    public function check_action_callback(){
+    /**
+     *
+     */
+    public function check_action_callback()
+    {
 
-            if (isset($_POST['code'])) {
-                $code = $_POST['code'];
-                $data = $this->validate_ad($code);
-                if ($data) {
-                    echo 'You put correct code! You should turn on placement on my placement page or change delivery setting to this placement there!';
-                }else{
-                    echo 'Check your code';
-                }
-
-                wp_die();
+        if (isset($_POST['code'])) {
+            $code = $_POST['code'];
+            $data = $this->validate_ad($code);
+            if ($data) {
+                echo '{"status":1, "message":"' . _e('You put correct code! You should turn on placement on my placement page or change delivery setting to this placement there!', 'clickky') . '"}';
+            } else {
+                echo '{"status":0, "message":"' . _e('Check your code') . '"}';
             }
+
+            wp_die();
+        }
 
     }
 
+    /**
+     *
+     */
     public function my_placement_page()
     {
 
         global $wpdb;
         $table_name = $wpdb->prefix . "clickky_ads";
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
 
             $id = $_GET['id'];
 
-            if(isset($_POST['name'])) {
+            if (isset($_POST['name'])) {
 
-                if(isset($_POST['data']['active'])){
+                if (isset($_POST['data']['active'])) {
                     $status = $_POST['data']['active'];
-                }else{
+                } else {
                     $status = 0;
                 }
 
                 if ($id == 0) {
 
-                    $rows_affected = $wpdb->insert( $table_name,
+                    $rows_affected = $wpdb->insert($table_name,
                         array(
                             'name' => $_POST['name'],
                             'data' => serialize($_POST['data']),
@@ -736,38 +761,40 @@ class Clickky_Admin
                         )
                     );
 
-                    if($rows_affected){
+                    if ($rows_affected) {
                         echo "<script>window.location.href='admin.php?page=my_placement';</script>;";
                         wp_die();
                     }
 
-                }else{
-                    $rows_affected = $wpdb->update( $table_name,
+                } else {
+                    $rows_affected = $wpdb->update($table_name,
                         array(
                             'name' => $_POST['name'],
                             'data' => serialize($_POST['data']),
                             'settings' => serialize($_POST['settings']),
                             'status' => $status
                         ),
-                        array('id'=>$id)
+                        array('id' => $id)
                     );
                 }
             }
 
-            $code = $_POST['code'];
-            if($id == 0) {
-                $data = $this->validate_ad($code);
-            }else{
-                $data = array();
-                $result = $wpdb->get_results("SELECT * FROM ".$table_name." WHERE id=".$id." LIMIT 1");
 
-                if($result){
+            if ($id == 0) {
+                $code = $_POST['code'];
+                $data = $this->validate_ad($code);
+            } else {
+                $data = array();
+                $result = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE id=" . $id . " LIMIT 1");
+
+                if ($result) {
                     $result = $result[0];
                     $settings = unserialize($result->settings);
-
+                    $data['original_id'] = $result->id;
                     $data['name'] = $result->name;
+                    $data['status'] = $result->status;
                     $data['id'] = $settings['ads'];
-                    $data['js_file'] =$settings['js_file'];
+                    $data['js_file'] = $settings['js_file'];
                     $data['result'] = unserialize($result->data);
                     $data['default'] = $this->banners[$data['id']]['default'];
                 }
@@ -775,12 +802,12 @@ class Clickky_Admin
             }
 
             require_once plugin_dir_path(__FILE__) . 'partials/clickky-edit-placement.php';
-        }else{
+        } else {
 
-            $data = $wpdb->get_results("SELECT * FROM ".$table_name." ");
+            $data = $wpdb->get_results("SELECT * FROM " . $table_name . " ");
             $result = array();
 
-            foreach ($data as $k=>$v){
+            foreach ($data as $k => $v) {
                 $settings = unserialize($v->settings);
 
                 $result[] = array(
@@ -802,7 +829,12 @@ class Clickky_Admin
     }
 
 
-    public function validate_ad($code){
+    /**
+     * @param $code
+     * @return bool|mixed|string
+     */
+    public function validate_ad($code)
+    {
 
         $ads = '';
         $code = stripcslashes($code);
@@ -810,25 +842,25 @@ class Clickky_Admin
 
         if ($count === FALSE || empty($match[2])) {
             return false;
-        }else {
+        } else {
 
-            foreach ($this->banners as $banner){
+            foreach ($this->banners as $banner) {
 
-                if(strpos($match[2][0], $banner['js_file']) !== false ){
-                    $ads =  $banner;
+                if (strpos($match[2][0], $banner['js_file']) !== false) {
+                    $ads = $banner;
                     break;
                 }
             }
         }
 
-        if($ads == ''){
+        if ($ads == '') {
             return false;
         }
 
 
         preg_match_all("/('.*?'.*:.*)/", $code, $output_array);
         $data = array();
-        if($output_array[0]) {
+        if ($output_array[0]) {
             foreach ($output_array[0] as &$value) {
                 $value = str_replace("'", "", $value);
                 $value = explode(':', $value);
@@ -840,26 +872,26 @@ class Clickky_Admin
             }
         }
 
-        if(empty($data) || !$ads){
+        if (empty($data) || !$ads) {
             return false;
         }
 
         $valid = true;
-        foreach ($data as $k=>$v){
-            if(!in_array($k, array_keys($ads['default']))){
+        foreach ($data as $k => $v) {
+            if (!in_array($k, array_keys($ads['default']))) {
                 $valid = false;
                 break;
             }
         }
-        if(count($ads['default'])!=count($data)){
+        if (count($ads['default']) != count($data)) {
             return false;
         }
-        if($ads['id']=='banner' && $data['template']>3){
+        if ($ads['id'] == 'banner' && $data['template'] > 3) {
             $ads = $this->banners['banner_slider'];
         }
 
         $ads['result'] = $data;
-        if($valid){
+        if ($valid) {
             return $ads;
         }
         return false;
@@ -943,10 +975,10 @@ class Clickky_Admin
 
         $class_global = '';
         $my_placement = '';
-        if($active == 'global'){
+        if ($active == 'global') {
             $class_global = 'active';
         }
-        if($active == 'my-placement'){
+        if ($active == 'my-placement') {
             $my_placement = 'active';
         }
 
@@ -957,19 +989,19 @@ class Clickky_Admin
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <div class="row header">
                 <div class="col s2 logo">
-                    <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/logo.png" height="42" alt="">
+                    <img src="' . CLICKKY_PLUGIN_URL . '/admin/img/logo.png" height="42" alt="">
                 </div>
                 <div class="col s10">
                     <ul class="right top_menu">
-                        <li class="'.$my_placement.'">
+                        <li class="' . $my_placement . '">
                             <a href="admin.php?page=my_placement">
-                                <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/my_placement_icon.png" alt="My placement" />
+                                <img src="' . CLICKKY_PLUGIN_URL . '/admin/img/my_placement_icon.png" width="40" alt="My placement" />
                                 <span class="text">My placement</span>
                             </a>
                         </li>
-                        <li class="'.$class_global.'">
+                        <li class="' . $class_global . '">
                             <a href="admin.php?page=global_settings">
-                                <img src="'.CLICKKY_PLUGIN_URL.'/admin/img/global_settings_icon.png" alt="Global settings" />
+                                <img src="' . CLICKKY_PLUGIN_URL . '/admin/img/global_settings_icon.png"  width="40" alt="Global settings" />
                                 <span>Global settings</span>
                             </a>
                         </li>
@@ -985,71 +1017,79 @@ class Clickky_Admin
         return $html;
     }
 
-    public function createField($name, $value, $data){
+    /**
+     * @param $name
+     * @param $value
+     * @param $data
+     * @return string
+     */
+    public function createField($name, $value, $data)
+    {
 
 
-        if($value['type'] == 'text' || $value['type'] == 'hidden' || $value['type'] == 'color' ) {
-            if($value['type'] == 'hidden') {
+        if ($value['type'] == 'text' || $value['type'] == 'hidden' || $value['type'] == 'color') {
+            if ($value['type'] == 'hidden') {
                 $html = '<div class="form-group" style="display: none;">';
-            }else{
+            } else {
                 $html = '<div class="form-group">';
             }
-            $html .= '<label for="'.$data['id'].'_'.$name.'" class="text-uppercase"> '. __($value['name'], 'clickky');
-            if($value['hover']!='') {
+            $html .= '<label for="' . $data['id'] . '_' . $name . '" class="text-uppercase"> ' . __($value['name'], 'clickky');
+            if ($value['hover'] != '') {
                 $html .= ' <i class="fa fa-info-circle fa-lg" aria-hidden="true" data-toggle="tooltip"
                                                data-placement="right"
-                                               title="'.$value['hover'].'"></i>';
+                                               title="' . __($value['hover'], 'clickky') . '"></i>';
             }
             $html .= '</label>';
-            if($data['result'][$name]){
+            if ($data['result'][$name] != '') {
                 $v = $data['result'][$name];
-            }else{
+            } else {
                 $v = $data['default'][$name]['value'];
             }
-            $html .= '<input type="' . $value['type'] . '" class="form-control" id="' . $data['id'] . '_'.$name.'"
+            $html .= '<input type="' . $value['type'] . '" class="form-control" id="' . $data['id'] . '_' . $name . '"
                                placeholder="' . __($value['name'], 'clickky') . '"
-                               name="data['.$name.']"
+                               name="data[' . $name . ']"
                                value="' . $v . '"
                                required>';
-            $html .= '<span id="helpBlock" class="help-block">'.$value['help'].'</span>';
+            $html .= '<span id="helpBlock" class="help-block">' . __($value['help'], 'clickky') . '</span>';
             $html .= '</div>';
-        }elseif ($value['type'] =='select'){
+        } elseif ($value['type'] == 'select') {
 
             $html = '<div class="form-group">';
 
-            $html .= '<label for="'.$data['id'].'_'.$name.'" class="text-uppercase"> '. __($value['name'], 'clickky');
-            if($value['hover']!='') {
+            $html .= '<label for="' . $data['id'] . '_' . $name . '" class="text-uppercase"> ' . __($value['name'], 'clickky');
+            if ($value['hover'] != '') {
                 $html .= ' <i class="fa fa-info-circle fa-lg" aria-hidden="true" data-toggle="tooltip"
                                                data-placement="right"
-                                               title="'.$value['hover'].'"></i>';
+                                               title="' . __($value['hover'], 'clickky') . '"></i>';
             }
             $html .= '</label>';
-            $script = "changeTemplateImg('".$data['id']."_".$name."', '".$data['id']."-".$name."-change');";
+            $script = "changeTemplateImg('" . $data['id'] . "_" . $name . "', '" . $data['id'] . "-" . $name . "-change');";
 
 
-            $html .= '<select  id="'.$data['id'].'_'.$name.'" class="browser-default" 
-                                onchange="'.$script.'"
-                                name="data['.$name.']">';
-            foreach ($value['values'] as $k=>$img) {
+            $html .= '<select  id="' . $data['id'] . '_' . $name . '" class="browser-default" 
+                                onchange="' . $script . '"
+                                name="data[' . $name . ']">';
+            foreach ($value['values'] as $k => $img) {
                 $s = '';
                 if ($data['result'][$name] == $k)
-                    $s =  'selected';
+                    $s = 'selected';
 
                 $html .= '<option
-                                value="'.$k.'" '.$s.' 
-                                data-bannerimg="'.$img.'">
-                                '.$k.'
+                                value="' . $k . '" ' . $s . ' 
+                                data-bannerimg="' . $img . '">
+                                ' . $k . '
                             </option>';
             }
 
             $html .= '</select>';
-            $html .= '<span id="helpBlock" class="help-block">'.$value['help'].'</span>';
+            $html .= '<span id="helpBlock" class="help-block">' . __($value['help'], 'clickky') . '</span>';
             $html .= '</div>';
         }
 
 
         return $html;
     }
+
     /**
      * Html setting pages, posts, categories
      * @param $active

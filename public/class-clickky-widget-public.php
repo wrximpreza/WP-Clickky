@@ -50,19 +50,18 @@ class Clickky_Widget
      * @param      string $clickky The name of the plugin.
      * @param      string $version The version of this plugin.
      */
-    public function __construct($clickky, $version, $clickky_public)
+    public function __construct($clickky, $version, $clickky_public, $result)
     {
+
         $this->plugin_name = $clickky;
         $this->version = $version;
         $this->clickky_public = $clickky_public;
-        $this->recommendeds = array();
-        if (get_option($this->plugin_name . '_recommended')) {
-            $this->recommendeds = unserialize(get_option($this->plugin_name . '_recommended'));
-        }
-        $this->r_count = 0;
-        if ($this->recommendeds) {
-            $this->r_count = count($this->recommendeds['widget_id']);
-        }
+        $this->result = $result;
+
+        $this->settings = unserialize($this->result->settings);
+        $this->recommend = $this->result->id;
+        $this->ad = unserialize($this->result->data);
+
     }
 
     /**
@@ -70,34 +69,15 @@ class Clickky_Widget
      */
     public function clickky_register_widget()
     {
-        $recommended_widget = array();
-        if (get_option($this->plugin_name . '_recommended_widget')) {
-            $recommended_widget = unserialize(get_option($this->plugin_name . '_recommended_widget'));
-        }
 
-        if ($this->r_count > 0) {
-            for ($i = 0; $i < $this->r_count; $i++) {
-                if(!isset($recommended_widget[$this->recommendeds['hash'][$i]]))
-                    continue;
-                if ($this->recommendeds['active'][$i] == 1 && $recommended_widget[$this->recommendeds['hash'][$i]] == 1) {
-
-                    $clickky_id = $this->recommendeds['name'][$i];
-                    $this->recommend = $this->recommendeds['hash'][$i];
-
-                    wp_register_sidebar_widget(
-                        'clickky_widget_'.$this->recommend,
-                        sprintf('Clickky: ID: %s', $clickky_id),
-                        function (){
-                            echo "<div class='clickky_widget_$this->recommend'>" . $this->clickky_public->generate_recommended($this->recommend) . '</div>';
-                        },
-                        array('description' => sprintf('%s ID: %s', __('Widget displays Clickky Recommended Apps', 'clickky'), $clickky_id))
-                    );
-
-
-                }
-            }
-        }
-
+        wp_register_sidebar_widget(
+            'clickky_widget_' . $this->result->id,
+            sprintf('Clickky: ID: %s', $this->result->id),
+            function () {
+                echo "<div class='clickky_widget_$this->recommend'>" . $this->clickky_public->generate_recommended($this->ad) . '</div>';
+            },
+            array('description' => sprintf('%s ID: %s', __('Widget displays Clickky Recommended Apps', 'clickky'), $this->result->id))
+        );
 
     }
 
@@ -118,7 +98,7 @@ class Clickky_Widget
      */
     public function clickky_widget_display()
     {
-        echo "<div class='clickky_widget'>" . $this->clickky_public->generate_recommended($this->recommend) . '</div>';
+        echo "<div class='clickky_widget'>" . $this->clickky_public->generate_recommended($this->ad) . '</div>';
     }
 
 }

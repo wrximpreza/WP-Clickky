@@ -202,10 +202,20 @@ class Clickky
 
         $this->loader->add_action('loop_start', $plugin_public, 'enqueue_recommend_banner_loop_start');
         $this->loader->add_action('loop_end', $plugin_public, 'enqueue_recommend_banner_loop_end');
+        global $wpdb;
+        $table_name = $wpdb->prefix . "clickky_ads";
 
-        $plugin_widget = new Clickky_Widget($this->get_plugin_name(), $this->get_version(), $plugin_public);
-        $this->loader->add_action('widgets_init', $plugin_widget, 'clickky_register_widget');
 
+        $this->recommendeds = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE name='Recommended Apps' AND status=1");
+        if (count($this->recommendeds) > 0) {
+            foreach ($this->recommendeds as $result) {
+                $settings = unserialize($result->settings);
+                if ($settings['widget'] == 1) {
+                    $plugin_widget = new Clickky_Widget($this->get_plugin_name(), $this->get_version(), $plugin_public, $result);
+                    $this->loader->add_action('widgets_init', $plugin_widget, 'clickky_register_widget');
+                }
+            }
+        }
 
 
         add_shortcode('clickky_recommended_apps', array($plugin_public, 'get_recommended_shortcode'));

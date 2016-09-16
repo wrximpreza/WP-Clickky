@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="row replace">
-            <button class="btn right add_button" type="submit">CHECK</button>
+            <button class="btn right add_button" type="submit"><?php _e('CHECK', 'clickky'); ?></button>
         </div>
     </form>
 

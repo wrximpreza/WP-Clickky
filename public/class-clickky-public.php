@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * The public-facing functionality of the plugin.
  *
@@ -46,6 +47,7 @@ class Clickky_Public
      * @var bool Alredy has js recommended ads
      */
     private $show = false;
+
     /**
      * Initialize the class and set its properties.
      *
@@ -55,16 +57,14 @@ class Clickky_Public
      */
     public function __construct($clickky, $version)
     {
+        global $wpdb;
+        $this->wpdb = $wpdb;
+        $this->table_name = $wpdb->prefix . "clickky_ads";
         $this->plugin_name = $clickky;
         $this->version = $version;
-        $this->recommendeds = array();
-        if (get_option($this->plugin_name . '_recommended')) {
-            $this->recommendeds = unserialize(get_option($this->plugin_name . '_recommended'));
-        }
-        $this->r_count = 0;
-        if ($this->recommendeds) {
-            $this->r_count = count($this->recommendeds['widget_id']);
-        }
+        //$this->settings = unserialize(get_option($this->plugin_name . '-settings'));
+
+        $this->recommendeds = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Recommended Apps' AND status=1");
 
     }
 
@@ -88,27 +88,13 @@ class Clickky_Public
          * class.
          */
 
-        if (get_option($this->plugin_name . '_banner_active') == 1) {
-            echo $this->get_banner();
-        } elseif (get_option($this->plugin_name . '_banner_slider_active') == 1) {
-            echo $this->get_banner_slider();
-        }
-
-        if (get_option($this->plugin_name . '_dialog_active') == 1) {
-            echo $this->get_dialog();
-        }
-        if (get_option($this->plugin_name . '_expandable_active') == 1) {
-            echo $this->get_expandable();
-        }
-        if (get_option($this->plugin_name . '_fullScreen_active') == 1) {
-            echo $this->get_fullScreen();
-        }
-        if (get_option($this->plugin_name . '_interstitial_active') == 1) {
-            echo $this->get_interstitial();
-        }
-        if (get_option($this->plugin_name . '_richmedia_active') == 1) {
-            echo $this->get_richmedia();
-        }
+        echo $this->get_banner();
+        echo $this->get_banner_slider();
+        echo $this->get_dialog();
+        echo $this->get_expandable();
+        echo $this->get_fullScreen();
+        echo $this->get_interstitial();
+        echo $this->get_richmedia();
 
 
     }
@@ -123,22 +109,22 @@ class Clickky_Public
         if (!isset($data->query["cat"])) {
             return false;
         }
-        if ($this->r_count > 0) {
-            for ($i = 0; $i < $this->r_count; $i++) {
-                if ($this->recommendeds['active'][$i] == 1) {
+        if (count($this->recommendeds) > 0) {
+            foreach ($this->recommendeds as $result) {
+                $ad = unserialize($result->data);
+                $settings = unserialize($result->settings);
 
-                    if (is_category()) {
-                        $categories = unserialize(get_option($this->plugin_name . '_recommended_category'));
+                if (is_category()) {
 
-                        if ($categories[$this->recommendeds['hash'][$i]] == 'before_loop') {
+                    if ($settings['category'] == 'before_loop') {
 
-                            echo $this->get_recommend($this->recommendeds['hash'][$i]);
-                        }
+                        echo $this->get_recommend($ad);
                     }
-
                 }
+
             }
         }
+
 
     }
 
@@ -153,21 +139,21 @@ class Clickky_Public
         if (!isset($data->query["cat"])) {
             return false;
         }
-        if ($this->r_count > 0) {
-            for ($i = 0; $i < $this->r_count; $i++) {
-                if ($this->recommendeds['active'][$i] == 1) {
+        if (count($this->recommendeds) > 0) {
+            foreach ($this->recommendeds as $result) {
+                $ad = unserialize($result->data);
+                $settings = unserialize($result->settings);
 
-                    if (is_category() && get_the_ID() == $data->query["cat"]) {
-                        $categories = unserialize(get_option($this->plugin_name . '_recommended_category'));
+                if (is_category()) {
 
-                        if ($categories[$this->recommendeds['hash'][$i]] == 'after_loop') {
-                            echo $this->get_recommend($this->recommendeds['hash'][$i]);
-                        }
+                    if ($settings['category'] == 'after_loop') {
+                        echo $this->get_recommend($ad);
                     }
-
                 }
+
             }
         }
+
 
     }
 
@@ -177,30 +163,30 @@ class Clickky_Public
      */
     public function enqueue_recommend_banner_comment_after()
     {
-        if ($this->r_count > 0) {
-            for ($i = 0; $i < $this->r_count; $i++) {
-                if ($this->recommendeds['active'][$i] == 1) {
+        if (count($this->recommendeds) > 0) {
+            foreach ($this->recommendeds as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
 
-                    if (is_page()) {
-                        $pages = unserialize(get_option($this->plugin_name . '_recommended_page'));
+                if (is_page()) {
 
-                        if ($pages[$this->recommendeds['hash'][$i]] == 'after_comment') {
-                            echo $this->get_recommend($this->recommendeds['hash'][$i]);
-                        }
+                    if ($settings['page'] == 'after_comment') {
+                        echo $this->get_recommend($data);
                     }
+                }
 
-                    if (is_single()) {
-                        $post = unserialize(get_option($this->plugin_name . '_recommended_post'));
+                if (is_single()) {
 
-                        if ($post[$this->recommendeds['hash'][$i]] == 'after_comment') {
-                            echo $this->get_recommend($this->recommendeds['hash'][$i]);
-                        }
 
+                    if ($settings['post'] == 'after_comment') {
+                        echo $this->get_recommend($data);
                     }
 
                 }
+
             }
         }
+
     }
 
     /**
@@ -208,30 +194,29 @@ class Clickky_Public
      */
     public function enqueue_recommend_banner_comment_before()
     {
-        if ($this->r_count > 0) {
-            for ($i = 0; $i < $this->r_count; $i++) {
-                if ($this->recommendeds['active'][$i] == 1) {
+        if (count($this->recommendeds) > 0) {
+            foreach ($this->recommendeds as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
 
-                    if (is_page()) {
-                        $pages = unserialize(get_option($this->plugin_name . '_recommended_page'));
+                if (is_page()) {
 
-                        if ($pages[$this->recommendeds['hash'][$i]] == 'before_comment') {
-                            echo $this->get_recommend($this->recommendeds['hash'][$i]);
-                        }
+                    if ($settings['page'] == 'before_comment') {
+                        echo $this->get_recommend($data);
                     }
+                }
 
-                    if (is_single()) {
-                        $post = unserialize(get_option($this->plugin_name . '_recommended_post'));
+                if (is_single()) {
 
-                        if ($post[$this->recommendeds['hash'][$i]] == 'before_comment') {
-                            echo $this->get_recommend($this->recommendeds['hash'][$i]);
-                        }
-
+                    if ($settings['post'] == 'before_comment') {
+                        echo $this->get_recommend($data);
                     }
 
                 }
+
             }
         }
+
     }
 
     /**
@@ -242,37 +227,36 @@ class Clickky_Public
     public function enqueue_recommend_banner_content($content)
     {
 
-        if ($this->r_count > 0) {
-            for ($i = 0; $i < $this->r_count; $i++) {
-                if ($this->recommendeds['active'][$i] == 1) {
-                    //echo $recommendeds['hash'][$i];
+        if (count($this->recommendeds) > 0) {
+            foreach ($this->recommendeds as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
 
-                    if (is_page()) {
-                        $pages = unserialize(get_option($this->plugin_name . '_recommended_page'));
+                if (is_page()) {
 
-                        if ($pages[$this->recommendeds['hash'][$i]] == 'after_content') {
-                            return $content . $this->get_recommend($this->recommendeds['hash'][$i]);
-                        } elseif ($pages[$this->recommendeds['hash'][$i]] == 'before_content') {
-                            return $this->get_recommend($this->recommendeds['hash'][$i]) . $content;
-                        } else {
-                            return $content;
-                        }
-
-                    }
-
-                    if (is_single()) {
-                        $posts = unserialize(get_option($this->plugin_name . '_recommended_post'));
-
-                        if ($posts[$this->recommendeds['hash'][$i]] == 'after_content') {
-                            return $content . $this->get_recommend($this->recommendeds['hash'][$i]);
-                        } elseif ($posts[$this->recommendeds['hash'][$i]] == 'before_content') {
-                            return $this->get_recommend($this->recommendeds['hash'][$i]) . $content;
-                        } else {
-                            return $content;
-                        }
+                    if ($settings['page'] == 'after_content') {
+                        return $content . $this->get_recommend($data);
+                    } elseif ($settings['page'] == 'before_content') {
+                        return $this->get_recommend($data) . $content;
+                    } else {
+                        return $content;
                     }
 
                 }
+
+                if (is_single()) {
+
+
+                    if ($settings['post'] == 'after_content') {
+                        return $content . $this->get_recommend($data);
+                    } elseif ($settings['post'] == 'before_content') {
+                        return $this->get_recommend($data) . $content;
+                    } else {
+                        return $content;
+                    }
+                }
+
+
             }
         }
     }
@@ -284,19 +268,26 @@ class Clickky_Public
     public function get_banner()
     {
 
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Catfish Ads' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+                unset($settings['ads']);
+                unset($settings['js_file']);
 
-        if ($this->check_where_show('banner')) {
-            return "
+                if ($this->check_where_show($settings)) {
+                    return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
                 <script type='text/javascript'>
                
                     var o = {
-                        'widget_id' : '" . get_option($this->plugin_name . '_banner_widget_id') . "', 
-                        'hash': '" . get_option($this->plugin_name . '_banner_hash') . "', 
-                        'delay' : " . get_option($this->plugin_name . '_banner_delay') . ",
-                        'template': " . get_option($this->plugin_name . '_banner_template') . ",
-                        'countBanners': " . get_option($this->plugin_name . '_banner_countShow') . "
+                        'widget_id' : '" . $data['widget_id'] . "', 
+                        'hash': '" . $data['hash'] . "', 
+                        'delay' : " . $data['delay'] . ",
+                        'template': " . $data['template'] . ",
+                        'countBanners': " . $data['countBanners'] . "
                     };
                     var Cliky = new Cliky(o);
                     Cliky.init();
@@ -304,7 +295,10 @@ class Clickky_Public
                 </script>
                 <!-- {/literal} END CODE -->
             ";
+                }
+            }
         }
+
     }
 
     /**
@@ -313,25 +307,35 @@ class Clickky_Public
      */
     public function get_banner_slider()
     {
-        if ($this->check_where_show('banner_slider')) {
-            return "
-                <!-- BEGIN CODE {literal} -->
-                <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
-                <script type='text/javascript'>
-               
-                    var o = {
-                        'widget_id' : '" . get_option($this->plugin_name . '_banner_slider_widget_id') . "', 
-                        'hash': '" . get_option($this->plugin_name . '_banner_slider_hash') . "', 
-                        'delay' : " . get_option($this->plugin_name . '_banner_slider_delay') . ",
-                        'template': " . get_option($this->plugin_name . '_banner_slider_template') . ",
-                        'countBanners': " . get_option($this->plugin_name . '_banner_slider_countShow') . "
-                    };
-                    var Cliky = new Cliky(o);
-                    Cliky.init();
-           
-                </script>
-                <!-- {/literal} END CODE -->
-            ";
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Catfish Ads Slider' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+
+                unset($settings['ads']);
+                unset($settings['js_file']);
+                if ($this->check_where_show($settings)) {
+                    return "
+                        <!-- BEGIN CODE {literal} -->
+                        <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
+                        <script type='text/javascript'>
+                       
+                            var o = {
+                                'widget_id' : '" . $data['widget_id'] . "', 
+                                'hash': '" . $data['hash'] . "', 
+                                'delay' : " . $data['delay'] . ",
+                                'template': " . $data['template'] . ",
+                                'countBanners': " . $data['countBanners'] . "
+                            };
+                            var Cliky = new Cliky(o);
+                            Cliky.init();
+                   
+                        </script>
+                        <!-- {/literal} END CODE -->
+                    ";
+                }
+            }
         }
     }
 
@@ -341,18 +345,25 @@ class Clickky_Public
      */
     public function get_dialog()
     {
-        if ($this->check_where_show('dialog')) {
-            return "
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Dialog Ads' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+                unset($settings['ads']);
+                unset($settings['js_file']);
+                if ($this->check_where_show($settings)) {
+                    return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/dialogads/js/main.js'></script>
                 <script type='text/javascript'>
                   
                     var o = {
-                        'widget_id' : '" . get_option($this->plugin_name . '_dialog_widget_id') . "', 
-                        'hash': '" . get_option($this->plugin_name . '_dialog_hash') . "', 
-                        'delay' : " . get_option($this->plugin_name . '_dialog_delay') . ",
-                        'template': " . get_option($this->plugin_name . '_dialog_template') . ",
-                        'countShow': " . get_option($this->plugin_name . '_dialog_countShow') . "
+                        'widget_id' : '" . $data['widget_id'] . "', 
+                        'hash': '" . $data['hash'] . "', 
+                        'delay' : " . $data['delay'] . ",
+                        'template': " . $data['template'] . ",
+                        'countShow': " . $data['countShow'] . "
                     };
                     var Cliky = new Cliky(o);
                     Cliky.init();
@@ -360,6 +371,8 @@ class Clickky_Public
                 </script>
                 <!-- {/literal} END CODE -->
             ";
+                }
+            }
         }
     }
 
@@ -369,23 +382,32 @@ class Clickky_Public
      */
     public function get_expandable()
     {
-        if ($this->check_where_show('expandable')) {
-            return "
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Expandable Banner' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+                unset($settings['ads']);
+                unset($settings['js_file']);
+                if ($this->check_where_show($settings)) {
+                    return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/slideads/js/main.js'></script>
             <script type='text/javascript'>
                 var o = {
-                    'widget_id' : '" . get_option($this->plugin_name . '_expandable_widget_id') . "', 
-                    'hash': '" . get_option($this->plugin_name . '_expandable_hash') . "', 
-                    'template': " . get_option($this->plugin_name . '_expandable_template') . ",
-                    'background': '" . get_option($this->plugin_name . '_expandable_background') . "',
-                    'autoShow': " . get_option($this->plugin_name . '_expandable_autoShow') . "
+                    'widget_id' : '" . $data['widget_id'] . "', 
+                    'hash': '" . $data['hash'] . "', 
+                    'template': " . $data['template'] . ",
+                    'background': '" . $data['background'] . "',
+                    'autoShow': " . $data['autoShow'] . "
                 };
                 var ClickkyMultiBanner = new ClickkyMultiBanner(o);
                 ClickkyMultiBanner.init();
             </script>
             <!-- {/literal} END CODE -->
         ";
+                }
+            }
         }
     }
 
@@ -395,22 +417,31 @@ class Clickky_Public
      */
     public function get_fullScreen()
     {
-        if ($this->check_where_show('fullScreen')) {
-            return "
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='FullScreen Ads' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+                unset($settings['ads']);
+                unset($settings['js_file']);
+                if ($this->check_where_show($settings)) {
+                    return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/full/js/main.js'></script>
                 <script type='text/javascript'>
                     var o = {
-                        'widget_id' : '" . get_option($this->plugin_name . '_fullScreen_widget_id') . "',
-                        'hash': '" . get_option($this->plugin_name . '_fullScreen_hash') . "', 
-                        'delay' : " . get_option($this->plugin_name . '_fullScreen_delay') . ",
-                        'pageShow': " . get_option($this->plugin_name . '_fullScreen_pageShow') . "
+                        'widget_id' : '" . $data['widget_id'] . "',
+                        'hash': '" . $data['hash'] . "', 
+                        'delay' : " . $data['delay'] . ",
+                        'pageShow': " . $data['pageShow'] . "
                     };
                     var ClickkyFull = new ClickkyFull(o);
                     ClickkyFull.init();
                 </script>
                 <!-- {/literal} END CODE -->
         ";
+                }
+            }
         }
     }
 
@@ -420,22 +451,31 @@ class Clickky_Public
      */
     public function get_interstitial()
     {
-        if ($this->check_where_show('interstitial')) {
-            return "
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Interstitial' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+                unset($settings['ads']);
+                unset($settings['js_file']);
+                if ($this->check_where_show($settings)) {
+                    return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/popin/js/main.js'></script>
             <script type='text/javascript'>
                    var o = {
-                       'widget_id' : '" . get_option($this->plugin_name . '_interstitial_widget_id') . "', //set up site_id value
-                       'hash': '" . get_option($this->plugin_name . '_interstitial_hash') . "', //set up hash value
-                       'template':" . get_option($this->plugin_name . '_interstitial_template') . ",
-                       'delay' : " . get_option($this->plugin_name . '_interstitial_delay') . ",
-                       'pageShow': " . get_option($this->plugin_name . '_interstitial_pageShow') . "
+                       'widget_id' : '" . $data['widget_id'] . "', //set up site_id value
+                       'hash': '" . $data['hash'] . "', //set up hash value
+                       'template':" . $data['template'] . ",
+                       'delay' : " . $data['delay'] . ",
+                       'pageShow': " . $data['pageShow'] . "
                    };
                    new ClickkyPopin(o).init();
             </script>
             <!-- {/literal} END CODE -->
         ";
+                }
+            }
         }
     }
 
@@ -445,24 +485,33 @@ class Clickky_Public
      */
     public function get_richmedia()
     {
-        if ($this->check_where_show('richmedia')) {
-            return "
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Rich media' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+                unset($settings['ads']);
+                unset($settings['js_file']);
+                if ($this->check_where_show($settings)) {
+                    return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/media/js/main.js'></script>
             <script type='text/javascript'>
                    var o = {
-                       'site_id' : '" . get_option($this->plugin_name . '_richmedia_widget_id') . "', 
-                       'second': " . get_option($this->plugin_name . '_richmedia_second') . ",
-                       'hash': '" . get_option($this->plugin_name . '_richmedia_hash') . "', 
-                       'template': " . get_option($this->plugin_name . '_richmedia_template') . ",
-                       'delay': " . get_option($this->plugin_name . '_richmedia_delay') . ",
-                       'countShow': " . get_option($this->plugin_name . '_richmedia_countShow') . "
+                       'site_id' : '" . $data['site_id'] . "', 
+                       'second': " . $data['second'] . ",
+                       'hash': '" . $data['hash'] . "', 
+                       'template': " . $data['template'] . ",
+                       'delay': " . $data['delay'] . ",
+                       'countShow': " . $data['countShow'] . "
                    };
                    var ClickkyRichmedia = new ClickkyRichmedia(o);
                    ClickkyRichmedia.init();
             </script>
             <!-- {/literal} END CODE -->
         ";
+                }
+            }
         }
     }
 
@@ -486,19 +535,25 @@ class Clickky_Public
     public function get_recommended_shortcode($args)
     {
 
-        if (!isset($args['hash']) && $args['hash'] == '') {
+        if (!isset($args['id']) && $args['id'] == '') {
             return false;
         }
-        return $this->generate_recommended($args['hash']);
+        $result = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE id=" . $args['id'] . " LIMIT 1");
 
+        if ($result) {
+            $result = $result[0];
+            $data = unserialize($result->data);
+            return $this->generate_recommended($data);
+        }
 
     }
 
     /**
      *
      */
-    public function loadTizerJs() {
-        wp_register_script( $this.$this->plugin_name.'-tizer', 'http://native.cli.bz/nativeads/tizer/js/main.js');
+    public function loadTizerJs()
+    {
+        wp_register_script($this . $this->plugin_name . '-tizer', 'http://native.cli.bz/nativeads/tizer/js/main.js');
     }
 
     /**
@@ -506,17 +561,15 @@ class Clickky_Public
      * @param $hash
      * @return bool|string
      */
-    public function generate_recommended($hash)
+    public function generate_recommended($data)
     {
-
-        $data = $this->sort_recommend_array($hash);
         if (!$data) {
             return false;
         }
         $id = uniqid();
         $html = '';
         //add_action( 'wp_enqueue_scripts', array($this, 'loadTizerJs'));
-        if(!$this->show){
+        if (!$this->show) {
             $html .= "<script src='http://native.cli.bz/nativeads/tizer/js/main.js'></script>";
             $this->show = true;
         }
@@ -526,7 +579,7 @@ class Clickky_Public
                 <!-- BEGIN CODE {literal} -->
                 <script type='text/javascript'>
                         var o = {
-                            'site_id' : '" . $data['widget_id'] . "', 
+                            'site_id' : '" . $data['site_id'] . "', 
                             'blockId': '" . $id . "',
                             'hash' : '" . $data['hash'] . "',
                             'template': " . $data['template'] . ",
@@ -553,78 +606,90 @@ class Clickky_Public
 
     /**
      * Check where show banner
-     * @param $type
+     * @param $setting
      * @return bool
      */
-    private function check_where_show($type)
+    private function check_where_show($setting)
     {
 
-        if (get_option($this->plugin_name . '_' . $type . '_main') == 1) {
+        if (!$setting) {
+
+            if (get_option($this->plugin_name . '_home')==1) {
+                return true;
+            }
+
+            if (get_option($this->plugin_name . '_main')==1) {
+                return true;
+            }
+
+            if (is_page()) {
+                $banner_pages = unserialize(get_option($this->plugin_name . '_page'));
+                if(isset($banner_pages)) {
+                    if (in_array(get_the_ID(), $banner_pages)) {
+                        return true;
+                    }
+                }
+            }
+
+            if (is_single()) {
+                $banner_posts = unserialize(get_option($this->plugin_name . '_post'));
+                if(isset($banner_posts)) {
+                    if (in_array(get_the_ID(), $banner_posts)) {
+                        return true;
+                    }
+                }
+            }
+
+            if (is_category()) {
+                $category = get_queried_object();
+                $banner_categories = unserialize(get_option($this->plugin_name . '_category'));
+                if(isset($banner_categories)) {
+                    if (in_array($category->term_id, $banner_categories)) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        if (isset($setting['main'])) {
             return true;
         }
 
-        if (is_home() && get_option($this->plugin_name . '_' . $type . '_home') == 1) {
+        if (isset($setting['home'])) {
             return true;
         }
 
         if (is_page()) {
-            $banner_pages = unserialize(get_option($this->plugin_name . '_' . $type . '_page'));
-            if (in_array(get_the_ID(), $banner_pages)) {
-                return true;
+            $banner_pages = $setting['page'];
+            if(isset($banner_pages)) {
+                if (in_array(get_the_ID(), $banner_pages)) {
+                    return true;
+                }
             }
         }
 
         if (is_single()) {
-            $banner_posts = unserialize(get_option($this->plugin_name . '_' . $type . '_post'));
-            if (in_array(get_the_ID(), $banner_posts)) {
-                return true;
+            $banner_posts = $setting['post'];
+            if(isset($banner_posts)) {
+                if (in_array(get_the_ID(), $banner_posts)) {
+                    return true;
+                }
             }
         }
 
         if (is_category()) {
             $category = get_queried_object();
-            $banner_categories = unserialize(get_option($this->plugin_name . '_' . $type . '_category'));
-
-            if (in_array($category->term_id, $banner_categories)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Return selected recommended ads data
-     * @param $hash
-     * @return array|bool
-     */
-    public function sort_recommend_array($hash)
-    {
-
-        $results = array();
-        for ($i = 0; $i < $this->r_count; $i++) {
-            if ($this->recommendeds['hash'][$i] === $hash) {
-                $results['name'] = $this->recommendeds['name'][$i];
-                $results['active'] = $this->recommendeds['active'][$i];
-                $results['widget_id'] = $this->recommendeds['widget_id'][$i];
-                $results['hash'] = $this->recommendeds['hash'][$i];
-                $results['template'] = $this->recommendeds['template'][$i];
-                $results['buttonClassColor'] = $this->recommendeds['buttonClassColor'][$i];
-                $results['background'] = $this->recommendeds['background'][$i];
-                $results['fontFamily'] = $this->recommendeds['fontFamily'][$i];
-                $results['colorFontTitle'] = $this->recommendeds['colorFontTitle'][$i];
-                $results['buttonBackground'] = $this->recommendeds['buttonBackground'][$i];
-                $results['buttonFontColor'] = $this->recommendeds['buttonFontColor'][$i];
-                $results['buttonFontColor'] = $this->recommendeds['buttonFontColor'][$i];
-                $results['colorFontDescription'] = $this->recommendeds['colorFontDescription'][$i];
-                $results['ratingFontColor'] = $this->recommendeds['ratingFontColor'][$i];
+            $banner_categories = $setting['category'];
+            if(isset($banner_categories)) {
+                if (in_array($category->term_id, $banner_categories)) {
+                    return true;
+                }
             }
         }
 
-        if ($results) {
-            return $results;
-        }
         return false;
-
     }
 
 }

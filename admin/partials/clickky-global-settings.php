@@ -2,7 +2,7 @@
 <?php echo $this->topNavigation('global'); ?>
 
 <div class="row content col s12">
-    <h1>Global settings</h1>
+    <h1><?php _e('Global settings', 'clickky'); ?></h1>
     <dv class="row">
         <div class="accordion">
             <form action="options.php" method="post">
@@ -182,7 +182,7 @@
                 </li>
             </ul>
             <div class="row">
-                <button type="submit" class="btn">SAVE</button>
+                <button type="submit" class="btn"><?php _e('Save', 'clickky'); ?></button>
             </div>
             </form>
         </div>
