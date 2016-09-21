@@ -1,10 +1,10 @@
 <?php echo $this->topNavigation('my-placement'); ?>
 <div class="row content col s12">
-    <h1><?php echo $data['name']; ?>
+    <h1>
         <?php if (isset($data['original_id'])): ?>
-            <span><?php _e('Edit', 'clickky'); ?></span>
+            <?php echo $data['name']; ?><span><?php _e('Edit', 'clickky'); ?></span>
         <?php else: ?>
-            <span><?php _e('Add', 'clickky'); ?></span>
+           <?php _e('Add', 'clickky'); ?>
         <?php endif; ?>
 
     </h1>
@@ -193,6 +193,25 @@
                                 </li>
                             </ul>
                         <?php } else { ?>
+                            <p class="first">
+                                <input type="checkbox" id="global" value="1"
+                                       name="settings[global]" class="filled-in"
+                                       value="1" <?php if ($settings['global'] == 1 || $_GET['id']==0) echo 'checked'; ?>
+                                />
+                                <label for="global"><?php _e('Use global settings', 'clickky'); ?></label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="main"
+                                       name="settings[main]"
+                                       class="filled-in"
+                                       value="1" <?php
+                                if($_GET['id']==0 && get_option($this->plugin_name . '_main')==1)
+                                    echo 'checked';
+                                elseif ($settings['main'] == 1)
+                                    echo 'checked';
+                                ?> />
+                                <label for="main"><?php _e('Сheck all pages', 'clickky'); ?></label>
+                            </p>
                             <ul class="collapsible" data-collapsible="accordion">
                                 <li>
                                     <div class="collapsible-header">
@@ -200,20 +219,18 @@
                                         <i class="material-icons">arrow_drop_down</i>
                                     </div>
                                     <div class="collapsible-body">
-
-                                        <p>
-                                            <input type="checkbox" id="main"
-                                                   name="settings[main]"
-                                                   class="filled-in"
-                                                   value="1" <?php if ($settings['main'] == 1 || $_GET['id'] == 0) echo 'checked'; ?> />
-                                            <label for="main"><?php _e('Show all', 'clickky'); ?></label>
-                                        </p>
                                         <p>
 
                                             <input type="checkbox" id="home"
                                                    name="settings[home]"
                                                    class="filled-in"
-                                                   value="1" <?php if ($settings['home'] == 1) echo 'checked'; ?> />
+                                                   value="1" <?php
+                                                        if($_GET['id']==0 && get_option($this->plugin_name . '_home')==1)
+                                                            echo 'checked';
+                                                        elseif ($settings['home'] == 1)
+                                                            echo 'checked';
+                                                        ?>
+                                            />
                                             <label for="home"><?php _e('Home', 'clickky'); ?></label>
 
                                         </p>
@@ -225,6 +242,11 @@
                                         <i class="material-icons">arrow_drop_down</i></div>
                                     <div class="collapsible-body">
                                         <?php
+                                        $checked_global_pages = unserialize(get_option($this->plugin_name  . '_page'));
+                                        if (!is_array($checked_global_pages)) {
+                                            $checked_global_pages = array();
+                                        }
+
                                         $checked_pages = $settings['page'];
                                         if (!is_array($checked_pages)) {
                                             $checked_pages = array();
@@ -235,9 +257,13 @@
                                             <input id="page_all" type="checkbox" class="filled-in"
                                                    onClick="toggleCheckbox(this, 'pages_all')"
                                                 <?php
-                                                if (count($checked_pages) == count($pages)) {
+
+                                                if($_GET['id']==0 && count($checked_global_pages) == count($pages)){
+                                                    echo 'checked';
+                                                }elseif (count($checked_pages) == count($pages)) {
                                                     echo 'checked';
                                                 }
+
                                                 ?>
                                             />
                                             <label for="page_all"><?php _e('All', 'clickky'); ?></label>
@@ -252,9 +278,13 @@
                                                            value="<?php echo $page->ID; ?>"
                                                            id="page_<?php echo $page->ID; ?>"
                                                         <?php
-                                                        if (is_array($checked_pages) && count($checked_pages) > 0)
+                                                        if($_GET['id']==0 && is_array($checked_global_pages) && count($checked_global_pages) > 0){
+                                                            if (in_array($page->ID, $checked_global_pages))
+                                                                echo 'checked';
+                                                        }elseif (is_array($checked_pages) && count($checked_pages) > 0) {
                                                             if (in_array($page->ID, $checked_pages))
                                                                 echo 'checked';
+                                                        }
                                                         ?>
                                                     >
                                                     <label
@@ -276,6 +306,12 @@
                                         if (!is_array($checked_posts)) {
                                             $checked_posts = array();
                                         }
+
+                                        $checked_global_posts = unserialize(get_option($this->plugin_name . '_post'));
+                                        if (!is_array($checked_global_posts)) {
+                                            $checked_global_posts = array();
+                                        }
+
                                         $posts = get_posts();
 
                                         ?>
@@ -283,7 +319,9 @@
                                             <input id="post_all" type="checkbox" class="filled-in"
                                                    onClick="toggleCheckbox(this, 'all_posts')"
                                                 <?php
-                                                if (count($checked_posts) == count($posts)) {
+                                                if($_GET['id']==0 && count($checked_global_posts) == count($posts)){
+                                                    echo 'checked';
+                                                }elseif (count($checked_posts) == count($posts)) {
                                                     echo 'checked';
                                                 }
                                                 ?>
@@ -301,7 +339,10 @@
                                                            value="<?php echo $post->ID; ?>"
                                                            id="post_<?php echo $post->ID; ?>"
                                                         <?php
-                                                        if (is_array($checked_posts) && count($checked_posts) > 0)
+                                                        if($_GET['id']==0 && is_array($checked_global_posts) && count($checked_global_posts) > 0){
+                                                            if (in_array($post->ID, $checked_global_posts))
+                                                                echo 'checked';
+                                                        }elseif (is_array($checked_posts) && count($checked_posts) > 0)
                                                             if (in_array($post->ID, $checked_posts))
                                                                 echo 'checked';
                                                         ?>
@@ -328,13 +369,21 @@
                                         if (!is_array($checked_categories)) {
                                             $checked_categories = array();
                                         }
+                                        $checked_global_categories = unserialize(get_option($this->plugin_name . '_category'));
+                                        if (!is_array($checked_global_categories)) {
+                                            $checked_global_categories = array();
+                                        }
+
+
                                         $categories = get_categories();
                                         ?>
                                         <p>
                                             <input id="category__all" type="checkbox" class="filled-in"
                                                    onClick="toggleCheckbox(this, 'all_categories')"
                                                 <?php
-                                                if (count($checked_categories) == count($categories)) {
+                                                if($_GET['id']==0 && count($checked_global_categories) == count($categories)){
+                                                    echo 'checked';
+                                                }elseif (count($checked_categories) == count($categories)) {
                                                     echo 'checked';
                                                 }
                                                 ?>
@@ -351,7 +400,10 @@
                                                            value="<?php echo $category->term_id; ?>"
                                                            id="category_<?php echo $category->term_id; ?>"
                                                         <?php
-                                                        if (is_array($checked_categories) && count($checked_categories) > 0)
+                                                        if($_GET['id']==0 && is_array($checked_global_categories) && count($checked_global_categories) > 0){
+                                                            if (in_array($category->term_id, $checked_global_categories))
+                                                                echo 'checked';
+                                                        }elseif (is_array($checked_categories) && count($checked_categories) > 0)
                                                             if (in_array($category->term_id, $checked_categories))
                                                                 echo 'checked';
                                                         ?>

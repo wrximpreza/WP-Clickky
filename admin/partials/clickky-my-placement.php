@@ -31,7 +31,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-
+        <!--
         <ul class="pagination">
             <li class="disabled"><a href="#!" class="btn"><?php _e('PREV', 'clickky'); ?></a></li>
             <li class="waves-effect active"><a href="#!"></a></li>
@@ -41,7 +41,7 @@
             <li class="waves-effect"><a href="#!"></a></li>
             <li><a href="#!" class="btn"><?php _e('NEXT', 'clickky'); ?></a></li>
         </ul>
-
+        -->
 
     </div>
 </div>

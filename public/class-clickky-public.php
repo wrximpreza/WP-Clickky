@@ -114,7 +114,7 @@ class Clickky_Public
                 $ad = unserialize($result->data);
                 $settings = unserialize($result->settings);
 
-                if (is_category()) {
+                if (is_category() && $ad->status == 1) {
 
                     if ($settings['category'] == 'before_loop') {
 
@@ -144,7 +144,7 @@ class Clickky_Public
                 $ad = unserialize($result->data);
                 $settings = unserialize($result->settings);
 
-                if (is_category()) {
+                if (is_category() && $ad->status == 1) {
 
                     if ($settings['category'] == 'after_loop') {
                         echo $this->get_recommend($ad);
@@ -168,14 +168,14 @@ class Clickky_Public
                 $data = unserialize($result->data);
                 $settings = unserialize($result->settings);
 
-                if (is_page()) {
+                if (is_page() && $data->status == 1) {
 
                     if ($settings['page'] == 'after_comment') {
                         echo $this->get_recommend($data);
                     }
                 }
 
-                if (is_single()) {
+                if (is_single() && $data->status == 1) {
 
 
                     if ($settings['post'] == 'after_comment') {
@@ -199,14 +199,14 @@ class Clickky_Public
                 $data = unserialize($result->data);
                 $settings = unserialize($result->settings);
 
-                if (is_page()) {
+                if (is_page() && $data->status == 1) {
 
                     if ($settings['page'] == 'before_comment') {
                         echo $this->get_recommend($data);
                     }
                 }
 
-                if (is_single()) {
+                if (is_single() && $data->status == 1) {
 
                     if ($settings['post'] == 'before_comment') {
                         echo $this->get_recommend($data);
@@ -232,7 +232,7 @@ class Clickky_Public
                 $data = unserialize($result->data);
                 $settings = unserialize($result->settings);
 
-                if (is_page()) {
+                if (is_page() && $data->status == 1) {
 
                     if ($settings['page'] == 'after_content') {
                         return $content . $this->get_recommend($data);
@@ -244,7 +244,7 @@ class Clickky_Public
 
                 }
 
-                if (is_single()) {
+                if (is_single() && $data->status == 1) {
 
 
                     if ($settings['post'] == 'after_content') {
@@ -276,7 +276,7 @@ class Clickky_Public
                 unset($settings['ads']);
                 unset($settings['js_file']);
 
-                if ($this->check_where_show($settings)) {
+                if ($this->check_where_show($settings) && $result->status==1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
@@ -312,10 +312,10 @@ class Clickky_Public
             foreach ($results as $result) {
                 $data = unserialize($result->data);
                 $settings = unserialize($result->settings);
-
                 unset($settings['ads']);
+
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings)) {
+                if ($this->check_where_show($settings) && $result->status==1) {
                     return "
                         <!-- BEGIN CODE {literal} -->
                         <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
@@ -352,7 +352,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings)) {
+                if ($this->check_where_show($settings) && $result->status==1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/dialogads/js/main.js'></script>
@@ -389,7 +389,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings)) {
+                if ($this->check_where_show($settings) && $result->status==1) {
                     return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/slideads/js/main.js'></script>
@@ -424,7 +424,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings)) {
+                if ($this->check_where_show($settings) && $result->status==1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/full/js/main.js'></script>
@@ -458,7 +458,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings)) {
+                if ($this->check_where_show($settings) && $result->status==1) {
                     return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/popin/js/main.js'></script>
@@ -492,7 +492,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings)) {
+                if ($this->check_where_show($settings) && $result->status==1) {
                     return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/media/js/main.js'></script>
@@ -612,7 +612,7 @@ class Clickky_Public
     private function check_where_show($setting)
     {
 
-        if (!$setting) {
+        if ($setting['global']==1) {
 
             if (get_option($this->plugin_name . '_home')==1) {
                 return true;

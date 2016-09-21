@@ -6727,6 +6727,48 @@ if (typeof jQuery === 'undefined') {
     jQuery(document).ready(function () {
 
 
+        jQuery('table.ads_list').each(function () {
+            var currentPage = 0;
+            var numPerPage = 10;
+            var $table = jQuery(this);
+            $table.bind('repaginate', function () {
+                $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+            });
+            $table.trigger('repaginate');
+            var numRows = $table.find('tbody tr').length;
+            var numPages = Math.ceil(numRows / numPerPage);
+            var $pager = jQuery('<ul class="pagination"></ul>');
+            if(numPages!=1) {
+                jQuery('<li><a href="#!" class="btn prev" data-id="">PREV</a></li>').appendTo($pager);
+                for (var page = 0; page < numPages; page++) {
+                    jQuery('<li class="waves-effect"><a href="#!"></a></li>').bind('click', {
+                        newPage: page
+                    }, function (event) {
+                        currentPage = event.data['newPage'];
+                        $table.trigger('repaginate');
+                        jQuery(this).addClass('active').siblings().removeClass('active');
+                    }).appendTo($pager).addClass('clickable');
+                }
+                jQuery('<li><a href="#!" class="btn next"  data-id="2">NEXT</a></li>').appendTo($pager);
+
+                $pager.insertAfter($table).find('li.waves-effect:nth-child(2)').addClass('active');
+            }
+        });
+
+        jQuery('.pagination .next').on('click', function(){
+            if(jQuery('.pagination .active').next().hasClass('waves-effect')) {
+                jQuery('.pagination .active').next().find('a').trigger('click');
+            }
+        });
+
+        jQuery('.pagination .prev').on('click', function(){
+            if(jQuery('.pagination .active').prev().hasClass('waves-effect')) {
+                jQuery('.pagination .active').prev().find('a').trigger('click');
+            }
+        });
+
+
+
         jQuery('.collapsible').collapsible({
             accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
         });
@@ -6802,6 +6844,8 @@ if (typeof jQuery === 'undefined') {
         });
 
     });
+
+
 
 })(jQuery);
 

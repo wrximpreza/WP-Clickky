@@ -71,13 +71,15 @@ class Clickky_Admin
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -122,13 +124,15 @@ class Clickky_Admin
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -176,13 +180,15 @@ class Clickky_Admin
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -221,13 +227,15 @@ class Clickky_Admin
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -272,13 +280,15 @@ class Clickky_Admin
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -306,13 +316,15 @@ class Clickky_Admin
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -350,17 +362,19 @@ class Clickky_Admin
             'id' => 'richmedia',
             'js_file' => 'media',
             'default' => array(
-                'site_id' => array(
+                'widget_id' => array(
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
-                    'help' => ''
+                    'help' => '',
+                    'attr'=> 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -412,7 +426,8 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'show' => 1
+                    'show' => 1,
+                    'attr'=> 'disabled'
 
                 ),
                 'blockId' => array(
@@ -420,14 +435,16 @@ class Clickky_Admin
                     'name' => '',
                     'hover' => '',
                     'help' => '',
-                    'show' => 1
+                    'show' => 1,
+                    'attr'=> 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'show' => 1
+                    'show' => 1,
+                    'attr'=> 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -692,6 +709,7 @@ class Clickky_Admin
                     success: function (result) {
                         result = JSON.parse(result);
                         if (typeof result == 'object') {
+                            console.log(result.status);
                             jQuery("#hide_code").val(jQuery('#code').val());
                             jQuery("#code").val(result.message);
                             jQuery("#code").addClass('active');
@@ -720,9 +738,9 @@ class Clickky_Admin
             $code = $_POST['code'];
             $data = $this->validate_ad($code);
             if ($data) {
-                echo '{"status":1, "message":"' . _e('You put correct code! You should turn on placement on my placement page or change delivery setting to this placement there!', 'clickky') . '"}';
+                echo '{"status":1, "message":"' . 'You put correct code! You should turn on placement on my placement page or change delivery setting to this placement there!' . '"}';
             } else {
-                echo '{"status":0, "message":"' . _e('Check your code') . '"}';
+                echo '{"status":0, "message":"' . 'Check your code' . '"}';
             }
 
             wp_die();
@@ -857,11 +875,22 @@ class Clickky_Admin
             return false;
         }
 
+//{*('.*'.*:.*)}
 
-        preg_match_all("/('.*?'.*:.*)/", $code, $output_array);
+        preg_match_all("/(.'.*?'*:.*)/", $code, $output_array);
+
+        if(count($output_array[0])==1) {
+            preg_match_all("/{(.'.*?'*:.*)}/", $code, $output);
+
+        }
+
+        if(count($output[1])>0){
+            $output_array[0] = explode(',', $output[1][0]);
+        }
         $data = array();
         if ($output_array[0]) {
             foreach ($output_array[0] as &$value) {
+
                 $value = str_replace("'", "", $value);
                 $value = explode(':', $value);
                 if (count($value) == 2) {
@@ -1026,7 +1055,6 @@ class Clickky_Admin
     public function createField($name, $value, $data)
     {
 
-
         if ($value['type'] == 'text' || $value['type'] == 'hidden' || $value['type'] == 'color') {
             if ($value['type'] == 'hidden') {
                 $html = '<div class="form-group" style="display: none;">';
@@ -1040,12 +1068,17 @@ class Clickky_Admin
                                                title="' . __($value['hover'], 'clickky') . '"></i>';
             }
             $html .= '</label>';
+
             if ($data['result'][$name] != '') {
                 $v = $data['result'][$name];
             } else {
                 $v = $data['default'][$name]['value'];
             }
-            $html .= '<input type="' . $value['type'] . '" class="form-control" id="' . $data['id'] . '_' . $name . '"
+            $disabled = '';
+            if(isset($data['default'][$name]['attr'])){
+                $disabled = 'readonly';
+            }
+            $html .= '<input '.$disabled.' type="' . $value['type'] . '" class="form-control" id="' . $data['id'] . '_' . $name . '"
                                placeholder="' . __($value['name'], 'clickky') . '"
                                name="data[' . $name . ']"
                                value="' . $v . '"

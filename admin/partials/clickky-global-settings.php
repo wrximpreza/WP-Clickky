@@ -7,6 +7,13 @@
         <div class="accordion">
             <form action="options.php" method="post">
                 <?php settings_fields($this->plugin_name.'-settings'); ?>
+                <p>
+                    <input type="checkbox" id="main"
+                           name="<?php echo $this->plugin_name; ?>_main"
+                           class="filled-in"
+                           value="1" <?php if (get_option($this->plugin_name . '_main') == 1) echo 'checked'; ?> />
+                    <label for="main"><?php _e('Сheck all pages', 'clickky'); ?></label>
+                </p>
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
                     <div class="collapsible-header">
@@ -15,13 +22,6 @@
                     </div>
                     <div class="collapsible-body">
 
-                        <p>
-                            <input type="checkbox" id="main"
-                                   name="<?php echo $this->plugin_name; ?>_main"
-                                   class="filled-in"
-                                   value="1" <?php if (get_option($this->plugin_name . '_main') == 1) echo 'checked'; ?> />
-                            <label for="main"><?php _e('Show all', 'clickky'); ?></label>
-                        </p>
                         <p>
 
                             <input type="checkbox" id="home"

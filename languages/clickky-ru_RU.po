@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: clickky\n"
-"POT-Creation-Date: 2016-08-31 12:20+0300\n"
-"PO-Revision-Date: 2016-08-31 12:23+0300\n"
+"POT-Creation-Date: 2016-09-21 12:23+0300\n"
+"PO-Revision-Date: 2016-09-21 12:25+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -21,288 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/class-clickky-admin.php:547
-#: admin/partials/clickky-admin-catfish_slider.php:44
-#: admin/partials/clickky-admin-recommended_apps.php:75
-#: admin/partials/clickky-admin-recommended_apps.php:142
-#: admin/partials/clickky-admin-recommended_apps.php:201
-msgid "Select"
-msgstr "Выбрать"
-
-#: admin/class-clickky-admin.php:558
-#: admin/partials/clickky-admin-catfish_slider.php:56
-msgid "Show all"
-msgstr "Показать все"
-
-#: admin/class-clickky-admin.php:568
-#: admin/partials/clickky-admin-catfish_slider.php:65
-msgid "Home"
-msgstr "Главная"
-
-#: admin/class-clickky-admin.php:579
-#: admin/partials/clickky-admin-catfish_slider.php:76
-#: admin/partials/clickky-admin-recommended_apps.php:43
-msgid "Select page"
-msgstr "Выбрать страницу"
-
-#: admin/class-clickky-admin.php:602 admin/class-clickky-admin.php:663
-#: admin/class-clickky-admin.php:726
-#: admin/partials/clickky-admin-catfish_slider.php:96
-#: admin/partials/clickky-admin-catfish_slider.php:154
-#: admin/partials/clickky-admin-catfish_slider.php:212
-msgid "All"
-msgstr "Выбрать все"
-
-#: admin/class-clickky-admin.php:639
-#: admin/partials/clickky-admin-catfish_slider.php:134
-#: admin/partials/clickky-admin-recommended_apps.php:110
-msgid "Select post"
-msgstr "Выберите статью"
-
-#: admin/class-clickky-admin.php:703
-#: admin/partials/clickky-admin-catfish_slider.php:192
-#: admin/partials/clickky-admin-recommended_apps.php:169
-msgid "Select category"
-msgstr "Выберите категорию"
-
-#: admin/class-clickky-admin.php:765
-#: admin/partials/clickky-admin-catfish.php:165
-#: admin/partials/clickky-admin-catfish_slider.php:249
-#: admin/partials/clickky-admin-catfish_slider.php:384
-#: admin/partials/clickky-admin-dialog.php:143
-#: admin/partials/clickky-admin-expandable_banner.php:162
-#: admin/partials/clickky-admin-fullscreen.php:110
-#: admin/partials/clickky-admin-interstitial.php:147
-#: admin/partials/clickky-admin-recommended_apps.php:281
-#: admin/partials/clickky-admin-recommended_apps.php:1004
-#: admin/partials/clickky-admin-richmedia.php:190
-msgid "Save"
-msgstr "Сохранить"
-
-#: admin/partials/clickky-admin-catfish.php:26
-msgid "Catfish Ads"
-msgstr "Catfish Ads"
-
-#: admin/partials/clickky-admin-catfish.php:29
-#: admin/partials/clickky-admin-catfish_slider.php:30
-#: admin/partials/clickky-admin-dialog.php:29
-#: admin/partials/clickky-admin-expandable_banner.php:29
-#: admin/partials/clickky-admin-fullscreen.php:29
-#: admin/partials/clickky-admin-interstitial.php:29
-#: admin/partials/clickky-admin-recommended_apps.php:29
-#: admin/partials/clickky-admin-richmedia.php:29
-msgid "Settings"
-msgstr "Настройки"
-
-#: admin/partials/clickky-admin-catfish.php:31
-#: admin/partials/clickky-admin-catfish_slider.php:32
-#: admin/partials/clickky-admin-dialog.php:31
-#: admin/partials/clickky-admin-expandable_banner.php:31
-#: admin/partials/clickky-admin-fullscreen.php:31
-#: admin/partials/clickky-admin-interstitial.php:31
-#: admin/partials/clickky-admin-recommended_apps.php:31
-#: admin/partials/clickky-admin-richmedia.php:31
-msgid "Pages to show"
-msgstr "Страницы для показа"
-
-#: admin/partials/clickky-admin-catfish.php:50
-#: admin/partials/clickky-admin-catfish_slider.php:264
-#: admin/partials/clickky-admin-dialog.php:48
-#: admin/partials/clickky-admin-expandable_banner.php:48
-#: admin/partials/clickky-admin-fullscreen.php:48
-#: admin/partials/clickky-admin-interstitial.php:48
-#: admin/partials/clickky-admin-recommended_apps.php:53
-#: admin/partials/clickky-admin-recommended_apps.php:120
-#: admin/partials/clickky-admin-recommended_apps.php:179
-#: admin/partials/clickky-admin-recommended_apps.php:233
-#: admin/partials/clickky-admin-recommended_apps.php:322
-#: admin/partials/clickky-admin-recommended_apps.php:679
-#: admin/partials/clickky-admin-richmedia.php:49
-msgid "Active"
-msgstr "Активировать"
-
-#: admin/partials/clickky-admin-catfish.php:56
-#: admin/partials/clickky-admin-catfish.php:60
-#: admin/partials/clickky-admin-catfish_slider.php:270
-#: admin/partials/clickky-admin-catfish_slider.php:274
-#: admin/partials/clickky-admin-dialog.php:54
-#: admin/partials/clickky-admin-dialog.php:58
-#: admin/partials/clickky-admin-expandable_banner.php:54
-#: admin/partials/clickky-admin-expandable_banner.php:58
-#: admin/partials/clickky-admin-fullscreen.php:54
-#: admin/partials/clickky-admin-fullscreen.php:57
-#: admin/partials/clickky-admin-interstitial.php:54
-#: admin/partials/clickky-admin-interstitial.php:58
-#: admin/partials/clickky-admin-recommended_apps.php:338
-#: admin/partials/clickky-admin-recommended_apps.php:342
-#: admin/partials/clickky-admin-recommended_apps.php:699
-#: admin/partials/clickky-admin-recommended_apps.php:704
-#: admin/partials/clickky-admin-richmedia.php:55
-#: admin/partials/clickky-admin-richmedia.php:59
-msgid "SITE ID"
-msgstr "SITE ID"
-
-#: admin/partials/clickky-admin-catfish.php:71
-#: admin/partials/clickky-admin-catfish.php:74
-#: admin/partials/clickky-admin-catfish_slider.php:285
-#: admin/partials/clickky-admin-catfish_slider.php:289
-#: admin/partials/clickky-admin-dialog.php:69
-#: admin/partials/clickky-admin-dialog.php:73
-#: admin/partials/clickky-admin-expandable_banner.php:69
-#: admin/partials/clickky-admin-expandable_banner.php:73
-#: admin/partials/clickky-admin-fullscreen.php:68
-#: admin/partials/clickky-admin-fullscreen.php:71
-#: admin/partials/clickky-admin-interstitial.php:69
-#: admin/partials/clickky-admin-interstitial.php:73
-#: admin/partials/clickky-admin-recommended_apps.php:352
-#: admin/partials/clickky-admin-recommended_apps.php:356
-#: admin/partials/clickky-admin-recommended_apps.php:714
-#: admin/partials/clickky-admin-recommended_apps.php:718
-#: admin/partials/clickky-admin-richmedia.php:70
-#: admin/partials/clickky-admin-richmedia.php:74
-msgid "Hash"
-msgstr "Hash"
-
-#: admin/partials/clickky-admin-catfish.php:83
-#: admin/partials/clickky-admin-catfish_slider.php:298
-#: admin/partials/clickky-admin-dialog.php:82
-#: admin/partials/clickky-admin-expandable_banner.php:82
-#: admin/partials/clickky-admin-interstitial.php:82
-#: admin/partials/clickky-admin-recommended_apps.php:365
-#: admin/partials/clickky-admin-recommended_apps.php:727
-#: admin/partials/clickky-admin-richmedia.php:83
-msgid "Template"
-msgstr "Шаблон"
-
-#: admin/partials/clickky-admin-catfish.php:106
-msgid "top-line"
-msgstr "top-line"
-
-#: admin/partials/clickky-admin-catfish.php:107
-msgid "catfish"
-msgstr "catfish"
-
-#: admin/partials/clickky-admin-catfish.php:108
-msgid "top-line + catfish"
-msgstr "top-line + catfish"
-
-#: admin/partials/clickky-admin-catfish.php:115
-#: admin/partials/clickky-admin-catfish.php:124
-#: admin/partials/clickky-admin-catfish_slider.php:336
-#: admin/partials/clickky-admin-catfish_slider.php:344
-#: admin/partials/clickky-admin-dialog.php:113
-#: admin/partials/clickky-admin-dialog.php:120
-#: admin/partials/clickky-admin-fullscreen.php:80
-#: admin/partials/clickky-admin-fullscreen.php:87
-#: admin/partials/clickky-admin-interstitial.php:117
-#: admin/partials/clickky-admin-interstitial.php:124
-#: admin/partials/clickky-admin-richmedia.php:146
-#: admin/partials/clickky-admin-richmedia.php:153
-msgid "Delay"
-msgstr "Задержка"
-
-#: admin/partials/clickky-admin-catfish.php:118
-#: admin/partials/clickky-admin-catfish_slider.php:339
-#: admin/partials/clickky-admin-dialog.php:116
-#: admin/partials/clickky-admin-fullscreen.php:83
-#: admin/partials/clickky-admin-interstitial.php:120
-#: admin/partials/clickky-admin-richmedia.php:149
-msgid ""
-"parameter responsible for the delay time before displaying an advertising "
-"banner in seconds"
-msgstr ""
-"параметр, отвечающий за время задержки перед отображением рекламного баннера "
-"в секундах"
-
-#: admin/partials/clickky-admin-catfish.php:126
-#: admin/partials/clickky-admin-catfish_slider.php:346
-#: admin/partials/clickky-admin-dialog.php:122
-#: admin/partials/clickky-admin-fullscreen.php:89
-#: admin/partials/clickky-admin-interstitial.php:126
-msgid ""
-"all positive numeric integers 0 - ad unit display at web page loading "
-"without a delay"
-msgstr ""
-"все положительные числовые целые числа, 0 - рекламный блок отображения "
-"загрузки веб-страницы без задержки"
-
-#: admin/partials/clickky-admin-catfish.php:132
-#: admin/partials/clickky-admin-catfish.php:140
-#: admin/partials/clickky-admin-catfish_slider.php:351
-#: admin/partials/clickky-admin-catfish_slider.php:359
-#: admin/partials/clickky-admin-dialog.php:127
-#: admin/partials/clickky-admin-dialog.php:135
-#: admin/partials/clickky-admin-expandable_banner.php:146
-#: admin/partials/clickky-admin-expandable_banner.php:154
-msgid "Banners rotation time in minutes"
-msgstr "Время ротации баннеров в минутах"
-
-#: admin/partials/clickky-admin-catfish.php:135
-#: admin/partials/clickky-admin-catfish_slider.php:354
-#: admin/partials/clickky-admin-dialog.php:130
-msgid "banner update happens every (n) minutes"
-msgstr "обновление баннера происходит каждые (N) минут"
-
-#: admin/partials/clickky-admin-catfish.php:142
-#: admin/partials/clickky-admin-catfish_slider.php:361
-#: admin/partials/clickky-admin-dialog.php:137
-msgid ""
-"all positive numeric integers 0 - show the following banner each time you "
-"update the current page"
-msgstr ""
-"все положительные числовые целые числа, 0 - показывают банера каждый раз, "
-"когда вы обновляете текущую страницу"
-
-#: admin/partials/clickky-admin-catfish.php:148
-#: admin/partials/clickky-admin-catfish.php:156
-#: admin/partials/clickky-admin-catfish_slider.php:367
-#: admin/partials/clickky-admin-catfish_slider.php:375
-msgid "Number of banners in the slider"
-msgstr "Количество баннеров в слайдере"
-
-#: admin/partials/clickky-admin-catfish.php:151
-#: admin/partials/clickky-admin-catfish_slider.php:370
-msgid "banners are involved in the slider"
-msgstr "баннеры участвуют в слайдере"
-
-#: admin/partials/clickky-admin-catfish.php:158
-#: admin/partials/clickky-admin-catfish_slider.php:377
-msgid ""
-"from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered\n"
-"                                    from 2 to 4 inclusive - available for 4, "
-"5, 6 or 7 templates\n"
-"                                    > 4 - triggered the default value - 3"
-msgstr ""
-"от 0 до 1 включительно - автоматически 1, 2 или 3 шаблоны запускаются от 2 "
-"до 4 включительно - для 4, 5, 6 или 7 шаблонов > 4 - срабатывает значение по "
-"умолчанию - 3"
-
-#: admin/partials/clickky-admin-catfish_slider.php:27
-msgid "Catfish Ads Slider"
-msgstr "Catfish Ads Slider"
-
-#: admin/partials/clickky-admin-catfish_slider.php:326
-msgid "top-line slider (horizontal)"
-msgstr "top-line slider (horizontal)"
-
-#: admin/partials/clickky-admin-catfish_slider.php:327
-msgid "catfish slider (horizontal)"
-msgstr "catfish slider (horizontal)"
-
-#: admin/partials/clickky-admin-catfish_slider.php:328
-msgid "top-line slider (vertical)"
-msgstr "top-line slider (vertical)"
-
-#: admin/partials/clickky-admin-catfish_slider.php:329
-msgid "catfish slider (vertical)"
-msgstr "catfish slider (vertical)"
-
-#: admin/partials/clickky-admin-dialog.php:26
-msgid "Dialog Ads"
-msgstr "Dialog Ads"
-
-#: admin/partials/clickky-admin-dialog.php:106
-#: admin/partials/clickky-admin-expandable_banner.php:114
+#: admin/class-clickky-admin.php:203 admin/class-clickky-admin.php:244
 msgid ""
 "<strong>Warning!</strong> Any other values for this type of advertising "
 "makes the script useless character set, be careful."
@@ -311,263 +30,165 @@ msgstr ""
 "рекламы делает сценарий работы бесполезным набором символов, будьте "
 "осторожны."
 
-#: admin/partials/clickky-admin-expandable_banner.php:26
-msgid "Expandable Banner"
-msgstr "Expandable Banner"
+#: admin/class-clickky-admin.php:717
+msgid "Next"
+msgstr "Далее"
 
-#: admin/partials/clickky-admin-expandable_banner.php:121
-#: admin/partials/clickky-admin-recommended_apps.php:422
-#: admin/partials/clickky-admin-recommended_apps.php:429
-#: admin/partials/clickky-admin-recommended_apps.php:784
-#: admin/partials/clickky-admin-recommended_apps.php:790
-msgid "Background"
-msgstr "Фон"
+#: admin/partials/clickky-add-placement.php:20
+msgid "CHECK"
+msgstr "ПРОВЕРИТЬ"
 
-#: admin/partials/clickky-admin-expandable_banner.php:124
-msgid ""
-"parameter that defines the background color of the space where the "
-"advertisement displays"
-msgstr "параметр, который определяет цвет фона рекламного блока"
+#: admin/partials/clickky-edit-placement.php:5
+#: admin/partials/clickky-my-placement.php:22
+msgid "Edit"
+msgstr "Изменить"
 
-#: admin/partials/clickky-admin-expandable_banner.php:140
-msgid "dark or light"
-msgstr "темный или светлый"
+#: admin/partials/clickky-edit-placement.php:7
+msgid "Add"
+msgstr "Добавить"
 
-#: admin/partials/clickky-admin-expandable_banner.php:149
-msgid ""
-"parameter that determines the delay time before opening the banner in seconds"
-msgstr ""
-"Параметр, который определяет время задержки перед открытием баннера в "
-"секундах"
+#: admin/partials/clickky-edit-placement.php:17
+msgid "Settings"
+msgstr "Настройки"
 
-#: admin/partials/clickky-admin-expandable_banner.php:156
-msgid ""
-"from 0 to 60 inclusive  - banner will be opened immediately after the load "
-"page"
-msgstr "1-60, 0 - не открывает баннер"
+#: admin/partials/clickky-edit-placement.php:21
+msgid "Pages to show"
+msgstr "Страницы для показа"
 
-#: admin/partials/clickky-admin-fullscreen.php:26
-msgid "FullScreen Ads"
-msgstr "FullScreen Ads"
+#: admin/partials/clickky-edit-placement.php:39
+msgid "Active"
+msgstr "Активировать"
 
-#: admin/partials/clickky-admin-fullscreen.php:94
-#: admin/partials/clickky-admin-fullscreen.php:102
-#: admin/partials/clickky-admin-interstitial.php:131
-#: admin/partials/clickky-admin-interstitial.php:139
-#: admin/partials/clickky-admin-richmedia.php:160
-#: admin/partials/clickky-admin-richmedia.php:168
-msgid "Page number on what the ads appears"
-msgstr "Номер страницы показа рекламы"
+#: admin/partials/clickky-edit-placement.php:50
+#: admin/partials/clickky-edit-placement.php:425
+#: admin/partials/clickky-global-settings.php:185
+msgid "Save"
+msgstr "Сохранить"
 
-#: admin/partials/clickky-admin-fullscreen.php:97
-#: admin/partials/clickky-admin-interstitial.php:134
-#: admin/partials/clickky-admin-richmedia.php:163
-msgid "parameter that determines the page number on what the ads appears"
-msgstr ""
-"параметр, который определяет номер страницы, на которой появится реклама"
-
-#: admin/partials/clickky-admin-fullscreen.php:104
-#: admin/partials/clickky-admin-interstitial.php:141
-#: admin/partials/clickky-admin-richmedia.php:170
-msgid "all positive numeric integers 0 - is ignored"
-msgstr "все положительные числовые целые числа, 0 - игнорируется"
-
-#: admin/partials/clickky-admin-interstitial.php:26
-msgid "Interstitial"
-msgstr "Interstitial"
-
-#: admin/partials/clickky-admin-recommended_apps.php:26
-msgid "Recommended Apps"
-msgstr "Recommended Apps"
-
-#: admin/partials/clickky-admin-recommended_apps.php:51
-#: admin/partials/clickky-admin-recommended_apps.php:118
-#: admin/partials/clickky-admin-recommended_apps.php:177
-#: admin/partials/clickky-admin-recommended_apps.php:231
-msgid "Id"
-msgstr "Id"
-
-#: admin/partials/clickky-admin-recommended_apps.php:52
-#: admin/partials/clickky-admin-recommended_apps.php:119
-#: admin/partials/clickky-admin-recommended_apps.php:178
-#: admin/partials/clickky-admin-recommended_apps.php:232
-#: admin/partials/clickky-admin-recommended_apps.php:308
-#: admin/partials/clickky-admin-recommended_apps.php:312
-#: admin/partials/clickky-admin-recommended_apps.php:663
-#: admin/partials/clickky-admin-recommended_apps.php:668
-msgid "Name"
-msgstr "Название"
-
-#: admin/partials/clickky-admin-recommended_apps.php:54
-#: admin/partials/clickky-admin-recommended_apps.php:121
-#: admin/partials/clickky-admin-recommended_apps.php:180
-msgid "Position"
-msgstr "Размещение"
-
-#: admin/partials/clickky-admin-recommended_apps.php:66
-#: admin/partials/clickky-admin-recommended_apps.php:133
-#: admin/partials/clickky-admin-recommended_apps.php:192
-#: admin/partials/clickky-admin-recommended_apps.php:246
-#: admin/partials/clickky-admin-recommended_apps.php:265
-#: admin/partials/clickky-admin-recommended_apps.php:328
-#: admin/partials/clickky-admin-recommended_apps.php:689
-msgid "Yes"
-msgstr "Да"
-
-#: admin/partials/clickky-admin-recommended_apps.php:68
-#: admin/partials/clickky-admin-recommended_apps.php:135
-#: admin/partials/clickky-admin-recommended_apps.php:194
-#: admin/partials/clickky-admin-recommended_apps.php:248
-#: admin/partials/clickky-admin-recommended_apps.php:259
-#: admin/partials/clickky-admin-recommended_apps.php:327
-#: admin/partials/clickky-admin-recommended_apps.php:687
-msgid "No"
-msgstr "Нет"
-
-#: admin/partials/clickky-admin-recommended_apps.php:81
-msgid "Before comment"
-msgstr "Перед комментариями"
-
-#: admin/partials/clickky-admin-recommended_apps.php:85
-#: admin/partials/clickky-admin-recommended_apps.php:148
-msgid "After comment"
-msgstr "После комментариев"
-
-#: admin/partials/clickky-admin-recommended_apps.php:89
-#: admin/partials/clickky-admin-recommended_apps.php:151
-msgid "Before content"
-msgstr "Перед контентом"
-
-#: admin/partials/clickky-admin-recommended_apps.php:93
-#: admin/partials/clickky-admin-recommended_apps.php:154
-msgid "After content"
-msgstr "После контента"
-
-#: admin/partials/clickky-admin-recommended_apps.php:204
-msgid "Before articles"
-msgstr "Перед статьями"
-
-#: admin/partials/clickky-admin-recommended_apps.php:208
-msgid "After articles"
-msgstr "После статей"
-
-#: admin/partials/clickky-admin-recommended_apps.php:223
-msgid "Select widget"
-msgstr "Выбрать виджет"
-
-#: admin/partials/clickky-admin-recommended_apps.php:234
-msgid "Widget status"
-msgstr "Статус виджета"
-
-#: admin/partials/clickky-admin-recommended_apps.php:396
-#: admin/partials/clickky-admin-recommended_apps.php:758
-msgid "Button Color"
-msgstr "Цвет кнопки"
-
-#: admin/partials/clickky-admin-recommended_apps.php:440
-#: admin/partials/clickky-admin-recommended_apps.php:446
-#: admin/partials/clickky-admin-recommended_apps.php:802
-#: admin/partials/clickky-admin-recommended_apps.php:808
-msgid "Font Family"
-msgstr "Семейство шрифтов"
-
-#: admin/partials/clickky-admin-recommended_apps.php:458
-#: admin/partials/clickky-admin-recommended_apps.php:464
-#: admin/partials/clickky-admin-recommended_apps.php:863
-#: admin/partials/clickky-admin-recommended_apps.php:869
-#: admin/partials/clickky-admin-recommended_apps.php:883
-#: admin/partials/clickky-admin-recommended_apps.php:889
-msgid "Color font title"
-msgstr "Цвет шрифта заголовка"
-
-#: admin/partials/clickky-admin-recommended_apps.php:478
-#: admin/partials/clickky-admin-recommended_apps.php:484
-#: admin/partials/clickky-admin-recommended_apps.php:829
-#: admin/partials/clickky-admin-recommended_apps.php:903
-#: admin/partials/clickky-admin-recommended_apps.php:909
-msgid "Rating Color"
-msgstr "Цвет рейтинга"
-
-#: admin/partials/clickky-admin-recommended_apps.php:497
-#: admin/partials/clickky-admin-recommended_apps.php:503
-#: admin/partials/clickky-admin-recommended_apps.php:823
-#: admin/partials/clickky-admin-recommended_apps.php:842
-#: admin/partials/clickky-admin-recommended_apps.php:848
-msgid "Color description"
-msgstr "Цвет описания"
-
-#: admin/partials/clickky-admin-recommended_apps.php:518
-#: admin/partials/clickky-admin-recommended_apps.php:524
-#: admin/partials/clickky-admin-recommended_apps.php:922
-#: admin/partials/clickky-admin-recommended_apps.php:928
-msgid "Button background"
-msgstr "Цвет кнопки"
-
-#: admin/partials/clickky-admin-recommended_apps.php:537
-#: admin/partials/clickky-admin-recommended_apps.php:543
-#: admin/partials/clickky-admin-recommended_apps.php:941
-#: admin/partials/clickky-admin-recommended_apps.php:947
-msgid "Button font color"
-msgstr "Цвет шрифта кнопки"
-
-#: admin/partials/clickky-admin-recommended_apps.php:556
-#: admin/partials/clickky-admin-recommended_apps.php:562
-#: admin/partials/clickky-admin-recommended_apps.php:960
-#: admin/partials/clickky-admin-recommended_apps.php:966
-msgid "Button border color"
-msgstr "Цвет окантовки кнопки"
-
-#: admin/partials/clickky-admin-recommended_apps.php:601
-msgid "Add banner"
-msgstr "Добавить баннер"
-
-#: admin/partials/clickky-admin-recommended_apps.php:640
+#: admin/partials/clickky-edit-placement.php:76
 msgid "Shortcode"
 msgstr "Шорткод"
 
-#: admin/partials/clickky-admin-recommended_apps.php:643
-msgid "promotional code to integrate the ad unit inside of article manually"
-msgstr "Рекламный код, для интеграции рекламного блока внутри статьи вручную"
+#: admin/partials/clickky-edit-placement.php:87
+#: admin/partials/clickky-edit-placement.php:241
+#: admin/partials/clickky-global-settings.php:38
+msgid "Select page"
+msgstr "Выбрать страницу"
 
-#: admin/partials/clickky-admin-recommended_apps.php:654
-msgid "Copy to Clipboard"
-msgstr "Копировать"
+#: admin/partials/clickky-edit-placement.php:96
+#: admin/partials/clickky-edit-placement.php:131
+#: admin/partials/clickky-edit-placement.php:156
+#: admin/partials/clickky-edit-placement.php:218
+#: admin/partials/clickky-global-settings.php:13
+msgid "Select"
+msgstr "Выбрать"
 
-#: admin/partials/clickky-admin-recommended_apps.php:655
-msgid "Copy"
-msgstr "Копировать"
+#: admin/partials/clickky-edit-placement.php:100
+msgid "Before comment"
+msgstr "Перед комментариями"
 
-#: admin/partials/clickky-admin-richmedia.php:26
-msgid "Rich media"
-msgstr "Rich media"
+#: admin/partials/clickky-edit-placement.php:104
+#: admin/partials/clickky-edit-placement.php:134
+msgid "After comment"
+msgstr "После комментариев"
 
-#: admin/partials/clickky-admin-richmedia.php:155
-msgid "1-60, 0 - do not open the banner"
-msgstr "1-60, 0 - не открывает баннер"
+#: admin/partials/clickky-edit-placement.php:108
+#: admin/partials/clickky-edit-placement.php:137
+msgid "Before content"
+msgstr "Перед контентом"
 
-#: admin/partials/clickky-admin-richmedia.php:176
-#: admin/partials/clickky-admin-richmedia.php:183
-msgid "Delay time for the close button in seconds"
-msgstr "Время задержки для кнопки закрытия в секундах"
+#: admin/partials/clickky-edit-placement.php:112
+#: admin/partials/clickky-edit-placement.php:140
+msgid "After content"
+msgstr "После контента"
 
-#: admin/partials/clickky-admin-richmedia.php:179
-msgid "parameter that defines the delay time for the close button in seconds"
-msgstr ""
-"Параметр, который определяет время задержки для кнопки закрытия в секундах"
+#: admin/partials/clickky-edit-placement.php:123
+#: admin/partials/clickky-edit-placement.php:301
+#: admin/partials/clickky-global-settings.php:85
+msgid "Select post"
+msgstr "Выберите статью"
 
-#: admin/partials/clickky-admin-richmedia.php:185
-msgid "all positive numeric integers, 0 - the script does not work"
-msgstr "все положительные целые числа, числовые 0 - скрипт не работает"
+#: admin/partials/clickky-edit-placement.php:148
+#: admin/partials/clickky-edit-placement.php:364
+#: admin/partials/clickky-global-settings.php:137
+msgid "Select category"
+msgstr "Выберите категорию"
 
-#: public/class-clickky-widget-public.php:93
+#: admin/partials/clickky-edit-placement.php:159
+msgid "Before articles"
+msgstr "Перед статьями"
+
+#: admin/partials/clickky-edit-placement.php:163
+msgid "After articles"
+msgstr "После статей"
+
+#: admin/partials/clickky-edit-placement.php:171
+msgid "Select widget"
+msgstr "Выбрать виджет"
+
+#: admin/partials/clickky-edit-placement.php:182
+msgid "No"
+msgstr "Нет"
+
+#: admin/partials/clickky-edit-placement.php:188
+msgid "Yes"
+msgstr "Да"
+
+#: admin/partials/clickky-edit-placement.php:201
+msgid "Use global settings"
+msgstr "Использовать глобальные настройки"
+
+#: admin/partials/clickky-edit-placement.php:213
+msgid "Сheck all pages"
+msgstr "Выбрать все страницы"
+
+#: admin/partials/clickky-edit-placement.php:234
+#: admin/partials/clickky-global-settings.php:31
+msgid "Home"
+msgstr "Главная"
+
+#: admin/partials/clickky-edit-placement.php:269
+#: admin/partials/clickky-edit-placement.php:329
+#: admin/partials/clickky-edit-placement.php:391
+#: admin/partials/clickky-global-settings.php:57
+#: admin/partials/clickky-global-settings.php:105
+#: admin/partials/clickky-global-settings.php:156
+msgid "All"
+msgstr "Выбрать все"
+
+#: admin/partials/clickky-global-settings.php:5
+msgid "Global settings"
+msgstr "Глобальные настройки"
+
+#: admin/partials/clickky-global-settings.php:23
+msgid "Show all"
+msgstr "Показать все страницы"
+
+#: admin/partials/clickky-my-placement.php:4
+msgid "MY PLACEMENT"
+msgstr "Мои размещения"
+
+#: admin/partials/clickky-my-placement.php:27
+msgid "Delete"
+msgstr "Удалить"
+
+#: admin/partials/clickky-my-placement.php:36
+msgid "PREV"
+msgstr "ПРЕД"
+
+#: admin/partials/clickky-my-placement.php:42
+msgid "NEXT"
+msgstr "СЛЕД"
+
+#: public/class-clickky-widget-public.php:79
 msgid "Widget displays Clickky Recommended Apps"
 msgstr "Виджет отображающий в Clickky Recommended Apps"
 
-#: public/class-clickky-widget-public.php:111
+#: public/class-clickky-widget-public.php:91
 msgid "Please note:"
 msgstr "Пожалуйста, обратите внимание:"
 
-#: public/class-clickky-widget-public.php:111
+#: public/class-clickky-widget-public.php:91
 msgid ""
 "Select ad block to display in the widget you can on the plugin settings page "
 "in the 'Widget' tab."
@@ -595,6 +216,202 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://clickky.biz/"
 msgstr "http://clickky.biz/"
+
+#~ msgid "Catfish Ads"
+#~ msgstr "Catfish Ads"
+
+#~ msgid "SITE ID"
+#~ msgstr "SITE ID"
+
+#~ msgid "Hash"
+#~ msgstr "Hash"
+
+#~ msgid "Template"
+#~ msgstr "Шаблон"
+
+#~ msgid "top-line"
+#~ msgstr "top-line"
+
+#~ msgid "catfish"
+#~ msgstr "catfish"
+
+#~ msgid "top-line + catfish"
+#~ msgstr "top-line + catfish"
+
+#~ msgid "Delay"
+#~ msgstr "Задержка"
+
+#~ msgid ""
+#~ "parameter responsible for the delay time before displaying an advertising "
+#~ "banner in seconds"
+#~ msgstr ""
+#~ "параметр, отвечающий за время задержки перед отображением рекламного "
+#~ "баннера в секундах"
+
+#~ msgid ""
+#~ "all positive numeric integers 0 - ad unit display at web page loading "
+#~ "without a delay"
+#~ msgstr ""
+#~ "все положительные числовые целые числа, 0 - рекламный блок отображения "
+#~ "загрузки веб-страницы без задержки"
+
+#~ msgid "Banners rotation time in minutes"
+#~ msgstr "Время ротации баннеров в минутах"
+
+#~ msgid "banner update happens every (n) minutes"
+#~ msgstr "обновление баннера происходит каждые (N) минут"
+
+#~ msgid ""
+#~ "all positive numeric integers 0 - show the following banner each time you "
+#~ "update the current page"
+#~ msgstr ""
+#~ "все положительные числовые целые числа, 0 - показывают банера каждый раз, "
+#~ "когда вы обновляете текущую страницу"
+
+#~ msgid "Number of banners in the slider"
+#~ msgstr "Количество баннеров в слайдере"
+
+#~ msgid "banners are involved in the slider"
+#~ msgstr "баннеры участвуют в слайдере"
+
+#~ msgid ""
+#~ "from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered\n"
+#~ "                                    from 2 to 4 inclusive - available for "
+#~ "4, 5, 6 or 7 templates\n"
+#~ "                                    > 4 - triggered the default value - 3"
+#~ msgstr ""
+#~ "от 0 до 1 включительно - автоматически 1, 2 или 3 шаблоны запускаются от "
+#~ "2 до 4 включительно - для 4, 5, 6 или 7 шаблонов > 4 - срабатывает "
+#~ "значение по умолчанию - 3"
+
+#~ msgid "Catfish Ads Slider"
+#~ msgstr "Catfish Ads Slider"
+
+#~ msgid "top-line slider (horizontal)"
+#~ msgstr "top-line slider (horizontal)"
+
+#~ msgid "catfish slider (horizontal)"
+#~ msgstr "catfish slider (horizontal)"
+
+#~ msgid "top-line slider (vertical)"
+#~ msgstr "top-line slider (vertical)"
+
+#~ msgid "catfish slider (vertical)"
+#~ msgstr "catfish slider (vertical)"
+
+#~ msgid "Dialog Ads"
+#~ msgstr "Dialog Ads"
+
+#~ msgid "Expandable Banner"
+#~ msgstr "Expandable Banner"
+
+#~ msgid "Background"
+#~ msgstr "Фон"
+
+#~ msgid ""
+#~ "parameter that defines the background color of the space where the "
+#~ "advertisement displays"
+#~ msgstr "параметр, который определяет цвет фона рекламного блока"
+
+#~ msgid "dark or light"
+#~ msgstr "темный или светлый"
+
+#~ msgid ""
+#~ "parameter that determines the delay time before opening the banner in "
+#~ "seconds"
+#~ msgstr ""
+#~ "Параметр, который определяет время задержки перед открытием баннера в "
+#~ "секундах"
+
+#~ msgid ""
+#~ "from 0 to 60 inclusive  - banner will be opened immediately after the "
+#~ "load page"
+#~ msgstr "1-60, 0 - не открывает баннер"
+
+#~ msgid "FullScreen Ads"
+#~ msgstr "FullScreen Ads"
+
+#~ msgid "Page number on what the ads appears"
+#~ msgstr "Номер страницы показа рекламы"
+
+#~ msgid "parameter that determines the page number on what the ads appears"
+#~ msgstr ""
+#~ "параметр, который определяет номер страницы, на которой появится реклама"
+
+#~ msgid "all positive numeric integers 0 - is ignored"
+#~ msgstr "все положительные числовые целые числа, 0 - игнорируется"
+
+#~ msgid "Interstitial"
+#~ msgstr "Interstitial"
+
+#~ msgid "Recommended Apps"
+#~ msgstr "Recommended Apps"
+
+#~ msgid "Id"
+#~ msgstr "Id"
+
+#~ msgid "Name"
+#~ msgstr "Название"
+
+#~ msgid "Position"
+#~ msgstr "Размещение"
+
+#~ msgid "Widget status"
+#~ msgstr "Статус виджета"
+
+#~ msgid "Button Color"
+#~ msgstr "Цвет кнопки"
+
+#~ msgid "Font Family"
+#~ msgstr "Семейство шрифтов"
+
+#~ msgid "Color font title"
+#~ msgstr "Цвет шрифта заголовка"
+
+#~ msgid "Rating Color"
+#~ msgstr "Цвет рейтинга"
+
+#~ msgid "Color description"
+#~ msgstr "Цвет описания"
+
+#~ msgid "Button background"
+#~ msgstr "Цвет кнопки"
+
+#~ msgid "Button font color"
+#~ msgstr "Цвет шрифта кнопки"
+
+#~ msgid "Button border color"
+#~ msgstr "Цвет окантовки кнопки"
+
+#~ msgid "Add banner"
+#~ msgstr "Добавить баннер"
+
+#~ msgid "promotional code to integrate the ad unit inside of article manually"
+#~ msgstr ""
+#~ "Рекламный код, для интеграции рекламного блока внутри статьи вручную"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Копировать"
+
+#~ msgid "Copy"
+#~ msgstr "Копировать"
+
+#~ msgid "Rich media"
+#~ msgstr "Rich media"
+
+#~ msgid "1-60, 0 - do not open the banner"
+#~ msgstr "1-60, 0 - не открывает баннер"
+
+#~ msgid "Delay time for the close button in seconds"
+#~ msgstr "Время задержки для кнопки закрытия в секундах"
+
+#~ msgid ""
+#~ "parameter that defines the delay time for the close button in seconds"
+#~ msgstr ""
+#~ "Параметр, который определяет время задержки для кнопки закрытия в секундах"
+
+#~ msgid "all positive numeric integers, 0 - the script does not work"
+#~ msgstr "все положительные целые числа, числовые 0 - скрипт не работает"
 
 #~ msgid "Status"
 #~ msgstr "Статус"
