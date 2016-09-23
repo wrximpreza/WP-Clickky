@@ -97,9 +97,9 @@ class Clickky_Admin
                                         <li>3 - top-line + catfish</li>
                                     </ol>',
                     'values' => array(
-                        1 => 'http://confluence.cli.bz/download/thumbnails/19466495/1%20%281%29.jpg?version=1&modificationDate=1463399202000&api=v2',
-                        2 => 'http://confluence.cli.bz/download/thumbnails/19466495/2%20%281%29.jpg?version=1&modificationDate=1463399214000&api=v2',
-                        3 => 'http://confluence.cli.bz/download/thumbnails/19466495/33.jpg?version=1&modificationDate=1463399226000&api=v2'
+                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topcatfish.jpg',
+                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/bottomcatfish.jpg',
+                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topplusbottom.jpg'
                     )
                 ),
                 'countBanners' => array(
@@ -151,10 +151,10 @@ class Clickky_Admin
                                         <li>7 - catfish slider (vertical)</li>
                                     </ol>',
                     'values' => array(
-                        4 => 'http://confluence.cli.bz/download/thumbnails/19464938/44.jpg?version=1&modificationDate=1458901341000&api=v2',
-                        5 => 'http://confluence.cli.bz/download/thumbnails/19464938/55.jpg?version=1&modificationDate=1458901360000&api=v2',
-                        6 => 'http://confluence.cli.bz/download/thumbnails/19464938/66.jpg?version=1&modificationDate=1458901375000&api=v2',
-                        7 => 'http://confluence.cli.bz/download/thumbnails/19464938/77.jpg?version=1&modificationDate=1458901387000&api=v2'
+                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topcatfishslider.jpg',
+                        5 => CLICKKY_PLUGIN_URL.'/admin/img/ads/bottomcatfishslider.jpg',
+                        6 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topcatfishslider.jpg',
+                        7 => CLICKKY_PLUGIN_URL.'/admin/img/ads/bottomcatfishslider.jpg'
                     )
                 ),
                 'countBanners' => array(
@@ -202,9 +202,9 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
                     'values' => array(
-                        0 => 'http://confluence.cli.bz/download/thumbnails/19464935/1.jpg?version=1&modificationDate=1458899948000&api=v2',
-                        1 => 'http://confluence.cli.bz/download/thumbnails/19464935/2.jpg?version=1&modificationDate=1458899961000&api=v2',
-                        2 => 'http://confluence.cli.bz/download/thumbnails/19464935/3.jpg?version=1&modificationDate=1458899972000&api=v2'
+                        0 => CLICKKY_PLUGIN_URL.'/admin/img/ads/dialogone.jpg',
+                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/dialogone.jpg',
+                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/dialogtwo.jpg'
                     )
                 ),
                 'countShow' => array(
@@ -244,10 +244,10 @@ class Clickky_Admin
                     'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
                     'values' => array(
                         0 => '',
-                        1 => 'http://confluence.cli.bz/download/thumbnails/19465017/a.jpg?version=1&modificationDate=1458923048000&api=v2',
-                        2 => 'http://confluence.cli.bz/download/thumbnails/19465017/b.jpg?version=1&modificationDate=1458923051000&api=v2',
-                        3 => 'http://confluence.cli.bz/download/thumbnails/19465017/c.jpg?version=1&modificationDate=1458923055000&api=v2',
-                        4 => 'http://confluence.cli.bz/download/thumbnails/19465017/d.jpg?version=1&modificationDate=1458923058000&api=v2'
+                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
+                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
+                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
+                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
                     )
                 ),
                 'background' => array(
@@ -333,10 +333,10 @@ class Clickky_Admin
                     'help' => '',
                     'values' => array(
                         0 => '',
-                        1 => 'http://confluence.cli.bz/download/thumbnails/19467530/1.jpg?version=1&modificationDate=1465387309000&api=v2',
-                        2 => 'http://confluence.cli.bz/download/thumbnails/19467530/2.jpg?version=1&modificationDate=1465387309000&api=v2',
-                        3 => 'http://confluence.cli.bz/download/thumbnails/19467530/3.jpg?version=1&modificationDate=1465387309000&api=v2',
-                        4 => 'http://confluence.cli.bz/download/thumbnails/19467530/4.jpg?version=1&modificationDate=1465387309000&api=v2'
+                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialhorcenter.jpg',
+                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialhorbottom.jpg',
+                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialvertcenter.jpg',
+                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialvertbottom1.jpg'
                     )
                 ),
                 'delay' => array(
@@ -382,7 +382,19 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '',
                     'values' => array(
-                        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+                        0=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        1=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        2=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        3=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        4=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        5=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        6=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        7=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        8=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        9=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        10=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        11=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        12=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
                     )
                 ),
                 'delay' => array(
@@ -452,10 +464,10 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '',
                     'values' => array(
-                        1 => 'http://confluence.cli.bz/download/thumbnails/19467530/1.jpg?version=1&modificationDate=1465387309000&api=v2',
-                        2 => 'http://confluence.cli.bz/download/thumbnails/19467530/2.jpg?version=1&modificationDate=1465387309000&api=v2',
-                        3 => 'http://confluence.cli.bz/download/thumbnails/19467530/3.jpg?version=1&modificationDate=1465387309000&api=v2',
-                        4 => 'http://confluence.cli.bz/download/thumbnails/19467530/4.jpg?version=1&modificationDate=1465387309000&api=v2'
+                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec1.jpg',
+                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec2.jpg',
+                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec3.jpg',
+                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec4.jpg',
                     ),
                     'show' => 1
                 ),
@@ -1096,7 +1108,7 @@ class Clickky_Admin
                                                title="' . __($value['hover'], 'clickky') . '"></i>';
             }
             $html .= '</label>';
-            $script = "changeTemplateImg('" . $data['id'] . "_" . $name . "', '" . $data['id'] . "-" . $name . "-change');";
+            $script = "changeTemplateImg('" . $data['id'] . "_" . $name . "', 'banner-" . $name . "-change');";
 
 
             $html .= '<select  id="' . $data['id'] . '_' . $name . '" class="browser-default" 

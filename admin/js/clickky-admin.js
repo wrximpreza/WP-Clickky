@@ -6726,6 +6726,17 @@ if (typeof jQuery === 'undefined') {
 
     jQuery(document).ready(function () {
 
+        jQuery('#main').click(function () {
+            //jQuery('#home').trigger('click');
+
+            if (jQuery(this).is(':checked')) {
+                jQuery('.collapsible input').prop('checked', true);
+            } else {
+                jQuery('.collapsible input').prop('checked', false);
+            }
+
+
+        });
 
         jQuery('table.ads_list').each(function () {
             var currentPage = 0;

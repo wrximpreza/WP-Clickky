@@ -51,17 +51,26 @@
                         </div>
                     </div>
                     <div class="col s4 template-images">
-                        <?php if (isset($data['default']['template'])): ?>
+                        <?php if($data['id']=='fullScreen'){
+
+                            ?>
+                            <img
+                                src="<?php echo CLICKKY_PLUGIN_URL.'/admin/img/ads/full.jpg'; ?>"
+                                class="img-responsive banner-template-change" alt="">
+                            <?php
+                        }elseif (isset($data['default']['template'])){ ?>
 
                             <?php foreach ($data['default']['template']['values'] as $k => $img) {
                                 if ($data['result']['template'] == $k) {
-                                    ?>
-                                    <img
-                                        src="<?php echo $img; ?>"
-                                        class="img-responsive banner-template-change" alt="">
-                                <?php }
+                                    if ($img!='') {
+                                        ?>
+                                        <img
+                                            src="<?php echo $img; ?>"
+                                            class="img-responsive banner-template-change" alt="">
+                                    <?php }
+                                }
                             } ?>
-                        <?php endif; ?>
+                        <?php } ?>
                     </div>
                 </div>
 
