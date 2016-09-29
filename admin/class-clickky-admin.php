@@ -72,14 +72,14 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -97,9 +97,9 @@ class Clickky_Admin
                                         <li>3 - top-line + catfish</li>
                                     </ol>',
                     'values' => array(
-                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topcatfish.jpg',
-                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/bottomcatfish.jpg',
-                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topplusbottom.jpg'
+                        1 => CLICKKY_PLUGIN_URL . '/admin/img/ads/topcatfish.jpg',
+                        2 => CLICKKY_PLUGIN_URL . '/admin/img/ads/bottomcatfish.jpg',
+                        3 => CLICKKY_PLUGIN_URL . '/admin/img/ads/topplusbottom.jpg'
                     )
                 ),
                 'countBanners' => array(
@@ -125,14 +125,14 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -151,10 +151,10 @@ class Clickky_Admin
                                         <li>7 - catfish slider (vertical)</li>
                                     </ol>',
                     'values' => array(
-                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topcatfishslider.jpg',
-                        5 => CLICKKY_PLUGIN_URL.'/admin/img/ads/bottomcatfishslider.jpg',
-                        6 => CLICKKY_PLUGIN_URL.'/admin/img/ads/topcatfishslider.jpg',
-                        7 => CLICKKY_PLUGIN_URL.'/admin/img/ads/bottomcatfishslider.jpg'
+                        4 => CLICKKY_PLUGIN_URL . '/admin/img/ads/topcatfishslider.jpg',
+                        5 => CLICKKY_PLUGIN_URL . '/admin/img/ads/bottomcatfishslider.jpg',
+                        6 => CLICKKY_PLUGIN_URL . '/admin/img/ads/topcatfishslider.jpg',
+                        7 => CLICKKY_PLUGIN_URL . '/admin/img/ads/bottomcatfishslider.jpg'
                     )
                 ),
                 'countBanners' => array(
@@ -181,14 +181,14 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -202,9 +202,9 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
                     'values' => array(
-                        0 => CLICKKY_PLUGIN_URL.'/admin/img/ads/dialogone.jpg',
-                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/dialogone.jpg',
-                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/dialogtwo.jpg'
+                        0 => CLICKKY_PLUGIN_URL . '/admin/img/ads/dialogone.jpg',
+                        1 => CLICKKY_PLUGIN_URL . '/admin/img/ads/dialogone.jpg',
+                        2 => CLICKKY_PLUGIN_URL . '/admin/img/ads/dialogtwo.jpg'
                     )
                 ),
                 'countShow' => array(
@@ -228,14 +228,14 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -244,10 +244,10 @@ class Clickky_Admin
                     'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
                     'values' => array(
                         0 => '',
-                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
-                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
-                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
-                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/expand.jpg',
+                        1 => CLICKKY_PLUGIN_URL . '/admin/img/ads/expand.jpg',
+                        2 => CLICKKY_PLUGIN_URL . '/admin/img/ads/expand.jpg',
+                        3 => CLICKKY_PLUGIN_URL . '/admin/img/ads/expand.jpg',
+                        4 => CLICKKY_PLUGIN_URL . '/admin/img/ads/expand.jpg',
                     )
                 ),
                 'background' => array(
@@ -270,7 +270,7 @@ class Clickky_Admin
             )
         );
         $this->banners['fullScreen'] = array(
-            'name' => 'FullScreen Ads',
+            'name' => 'Full-screen Ads',
             'alias' => 'clickky/fullscreen',
             'callback' => 'fullscreen',
             'id' => 'fullScreen',
@@ -281,14 +281,14 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
@@ -317,14 +317,14 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -333,10 +333,10 @@ class Clickky_Admin
                     'help' => '',
                     'values' => array(
                         0 => '',
-                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialhorcenter.jpg',
-                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialhorbottom.jpg',
-                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialvertcenter.jpg',
-                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/interstitialvertbottom1.jpg'
+                        1 => CLICKKY_PLUGIN_URL . '/admin/img/ads/interstitialhorcenter.jpg',
+                        2 => CLICKKY_PLUGIN_URL . '/admin/img/ads/interstitialhorbottom.jpg',
+                        3 => CLICKKY_PLUGIN_URL . '/admin/img/ads/interstitialvertcenter.jpg',
+                        4 => CLICKKY_PLUGIN_URL . '/admin/img/ads/interstitialvertbottom1.jpg'
                     )
                 ),
                 'delay' => array(
@@ -367,14 +367,14 @@ class Clickky_Admin
                     'name' => 'SITE ID',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
                     'name' => 'Hash',
                     'hover' => '',
                     'help' => '',
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -382,19 +382,19 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '',
                     'values' => array(
-                        0=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        1=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        2=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        3=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        4=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        5=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        6=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        7=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        8=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        9=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        10=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        11=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
-                        12=>CLICKKY_PLUGIN_URL.'/admin/img/ads/rich.jpg',
+                        0 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        1 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        2 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        3 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        4 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        5 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        6 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        7 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        8 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        9 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        10 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        11 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
+                        12 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rich.jpg',
                     )
                 ),
                 'delay' => array(
@@ -439,7 +439,7 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '',
                     'show' => 1,
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
 
                 ),
                 'blockId' => array(
@@ -448,7 +448,7 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '',
                     'show' => 1,
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'hash' => array(
                     'type' => 'text',
@@ -456,7 +456,7 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '',
                     'show' => 1,
-                    'attr'=> 'disabled'
+                    'attr' => 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
@@ -464,10 +464,10 @@ class Clickky_Admin
                     'hover' => '',
                     'help' => '',
                     'values' => array(
-                        1 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec1.jpg',
-                        2 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec2.jpg',
-                        3 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec3.jpg',
-                        4 => CLICKKY_PLUGIN_URL.'/admin/img/ads/rec4.jpg',
+                        1 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rec1.jpg',
+                        2 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rec2.jpg',
+                        3 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rec3.jpg',
+                        4 => CLICKKY_PLUGIN_URL . '/admin/img/ads/rec4.jpg',
                     ),
                     'show' => 1
                 ),
@@ -551,6 +551,28 @@ class Clickky_Admin
             )
         );
 
+
+    }
+
+    /**
+     * Add plugin menu
+     */
+    public function add_admin_menu()
+    {
+
+        add_menu_page(
+            'clickky',
+            'Clickky Banner',
+            'manage_options',
+            'clickky',
+            array($this, 'clickky'),
+            plugin_dir_url(__FILE__) . 'img/icon.png',
+            '2.1'
+        );
+        remove_submenu_page('clickky', 'clickky');
+        add_submenu_page('clickky', __('Add placement', 'clickky'), __('Add placement', 'clickky'), 'manage_options', 'clickky', array($this, 'add_placement_page'));
+        add_submenu_page('clickky', __('My placement', 'clickky'), __('My placement', 'clickky'), 'manage_options', 'my_placement', array($this, 'my_placement_page'));
+        add_submenu_page('clickky', __('Global settings', 'clickky'), __('Global settings', 'clickky'), 'manage_options', 'global_settings', array($this, 'global_settings_page'));
 
     }
 
@@ -750,9 +772,9 @@ class Clickky_Admin
             $code = $_POST['code'];
             $data = $this->validate_ad($code);
             if ($data) {
-                echo '{"status":1, "message":"' . 'You put correct code! You should turn on placement on my placement page or change delivery setting to this placement there!' . '"}';
+                echo '{"status":1, "message":"' . __('You put correct code! You should turn on placement on my placement page or change delivery setting to this placement there!', 'clickky') . '"}';
             } else {
-                echo '{"status":0, "message":"' . 'Check your code' . '"}';
+                echo '{"status":0, "message":"' . __('Check your code', 'clickky') . '"}';
             }
 
             wp_die();
@@ -887,16 +909,15 @@ class Clickky_Admin
             return false;
         }
 
-//{*('.*'.*:.*)}
 
         preg_match_all("/(.'.*?'*:.*)/", $code, $output_array);
 
-        if(count($output_array[0])==1) {
+        if (count($output_array[0]) == 1) {
             preg_match_all("/{(.'.*?'*:.*)}/", $code, $output);
 
         }
 
-        if(count($output[1])>0){
+        if (count($output[1]) > 0) {
             $output_array[0] = explode(',', $output[1][0]);
         }
         $data = array();
@@ -936,28 +957,6 @@ class Clickky_Admin
             return $ads;
         }
         return false;
-    }
-
-    /**
-     * Add plugin menu
-     */
-    public function add_admin_menu()
-    {
-
-        add_menu_page(
-            'clickky',
-            'Clickky Banner',
-            'manage_options',
-            'clickky',
-            array($this, 'clickky'),
-            plugin_dir_url(__FILE__) . 'img/icon.png',
-            '2.1'
-        );
-        remove_submenu_page('clickky', 'clickky');
-        add_submenu_page('clickky', 'Add placement', 'Add placement', 'manage_options', 'clickky', array($this, 'add_placement_page'));
-        add_submenu_page('clickky', 'My placement', 'My placement', 'manage_options', 'my_placement', array($this, 'my_placement_page'));
-        add_submenu_page('clickky', 'Global settings', 'Global settings', 'manage_options', 'global_settings', array($this, 'global_settings_page'));
-
     }
 
 
@@ -1037,17 +1036,17 @@ class Clickky_Admin
                         <li class="' . $my_placement . '">
                             <a href="admin.php?page=my_placement">
                                 <img src="' . CLICKKY_PLUGIN_URL . '/admin/img/my_placement_icon.png" width="40" alt="My placement" />
-                                <span class="text">My placement</span>
+                                <span class="text">' . __('My placement', 'clickky') . '</span>
                             </a>
                         </li>
                         <li class="' . $class_global . '">
                             <a href="admin.php?page=global_settings">
                                 <img src="' . CLICKKY_PLUGIN_URL . '/admin/img/global_settings_icon.png"  width="40" alt="Global settings" />
-                                <span>Global settings</span>
+                                <span>' . __('Global settings', 'clickky') . '</span>
                             </a>
                         </li>
                         <li>
-                            <a class="btn" href="admin.php?page=clickky">ADD PLACEMENT</a>
+                            <a class="btn" href="admin.php?page=clickky">' . __('ADD PLACEMENT', 'clickky') . '</a>
                         </li>
                     </ul>
                 </div>
@@ -1087,10 +1086,10 @@ class Clickky_Admin
                 $v = $data['default'][$name]['value'];
             }
             $disabled = '';
-            if(isset($data['default'][$name]['attr'])){
+            if (isset($data['default'][$name]['attr'])) {
                 $disabled = 'readonly';
             }
-            $html .= '<input '.$disabled.' type="' . $value['type'] . '" class="form-control" id="' . $data['id'] . '_' . $name . '"
+            $html .= '<input ' . $disabled . ' type="' . $value['type'] . '" class="form-control" id="' . $data['id'] . '_' . $name . '"
                                placeholder="' . __($value['name'], 'clickky') . '"
                                name="data[' . $name . ']"
                                value="' . $v . '"

@@ -10,16 +10,6 @@
  * @subpackage Clickky/includes
  */
 
-/**
- * Fired during plugin deactivation.
- *
- * This class defines all code necessary to run during the plugin's deactivation.
- *
- * @since      1.0.0
- * @package    Clickky
- * @subpackage Clickky/includes
- * @author     Your Name <email@example.com>
- */
 class Clickky_Deactivator {
 
 	/**

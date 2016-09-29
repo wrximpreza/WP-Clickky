@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: clickky\n"
-"POT-Creation-Date: 2016-09-21 12:23+0300\n"
-"PO-Revision-Date: 2016-09-21 12:25+0300\n"
+"POT-Creation-Date: 2016-09-29 09:36+0300\n"
+"PO-Revision-Date: 2016-09-29 09:36+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -30,9 +30,54 @@ msgstr ""
 "рекламы делает сценарий работы бесполезным набором символов, будьте "
 "осторожны."
 
-#: admin/class-clickky-admin.php:717
+#: admin/class-clickky-admin.php:573
+msgid "Add placement"
+msgstr "Добавить плейсмент"
+
+#: admin/class-clickky-admin.php:574 admin/class-clickky-admin.php:1039
+msgid "My placement"
+msgstr "Мои плейсменты"
+
+#: admin/class-clickky-admin.php:575 admin/class-clickky-admin.php:1045
+#: admin/partials/clickky-global-settings.php:5
+msgid "Global settings"
+msgstr "Общие настройки"
+
+#: admin/class-clickky-admin.php:751
 msgid "Next"
 msgstr "Далее"
+
+#: admin/class-clickky-admin.php:775
+msgid ""
+"You put correct code! You should turn on placement on my placement page or "
+"change delivery setting to this placement there!"
+msgstr ""
+" Вы вставили правильный код! Вы должны включить плейсмент на странице \"Мои "
+"плейсменты\" или изменить настройки отображения данного плейсмента в его "
+"настройках."
+
+#: admin/class-clickky-admin.php:777
+msgid "Check your code"
+msgstr "Проверьте Ваш код"
+
+#: admin/class-clickky-admin.php:1049
+msgid "ADD PLACEMENT"
+msgstr "ДОБАВИТЬ  ПЛЕЙСМЕНТ"
+
+#: admin/partials/clickky-add-placement.php:6
+msgid "Hi, you can monetize your site with Clickky!"
+msgstr ""
+"Привет, теперь вы можете монетизировать ваш сайт с помощью платформы Clickky!"
+
+#: admin/partials/clickky-add-placement.php:8
+msgid ""
+"Paste the code into the form below and that`s all.<br />\n"
+"        If you don't have the code, you can sign up to Clickky`s publisher "
+"platform and get code!"
+msgstr ""
+"Вставьте код в форму ниже.<br />\n"
+"Если у вас нет кода, вы можете зарегистрироваться в платформе Clickky для "
+"паблишеров и получить код."
 
 #: admin/partials/clickky-add-placement.php:20
 msgid "CHECK"
@@ -60,113 +105,106 @@ msgid "Active"
 msgstr "Активировать"
 
 #: admin/partials/clickky-edit-placement.php:50
-#: admin/partials/clickky-edit-placement.php:425
+#: admin/partials/clickky-edit-placement.php:434
 #: admin/partials/clickky-global-settings.php:185
 msgid "Save"
 msgstr "Сохранить"
 
-#: admin/partials/clickky-edit-placement.php:76
+#: admin/partials/clickky-edit-placement.php:85
 msgid "Shortcode"
 msgstr "Шорткод"
 
-#: admin/partials/clickky-edit-placement.php:87
-#: admin/partials/clickky-edit-placement.php:241
+#: admin/partials/clickky-edit-placement.php:96
+#: admin/partials/clickky-edit-placement.php:250
 #: admin/partials/clickky-global-settings.php:38
 msgid "Select page"
 msgstr "Выбрать страницу"
 
-#: admin/partials/clickky-edit-placement.php:96
-#: admin/partials/clickky-edit-placement.php:131
-#: admin/partials/clickky-edit-placement.php:156
-#: admin/partials/clickky-edit-placement.php:218
-#: admin/partials/clickky-global-settings.php:13
+#: admin/partials/clickky-edit-placement.php:105
+#: admin/partials/clickky-edit-placement.php:140
+#: admin/partials/clickky-edit-placement.php:165
+#: admin/partials/clickky-edit-placement.php:227
+#: admin/partials/clickky-global-settings.php:20
 msgid "Select"
 msgstr "Выбрать"
 
-#: admin/partials/clickky-edit-placement.php:100
+#: admin/partials/clickky-edit-placement.php:109
 msgid "Before comment"
 msgstr "Перед комментариями"
 
-#: admin/partials/clickky-edit-placement.php:104
-#: admin/partials/clickky-edit-placement.php:134
+#: admin/partials/clickky-edit-placement.php:113
+#: admin/partials/clickky-edit-placement.php:143
 msgid "After comment"
 msgstr "После комментариев"
 
-#: admin/partials/clickky-edit-placement.php:108
-#: admin/partials/clickky-edit-placement.php:137
+#: admin/partials/clickky-edit-placement.php:117
+#: admin/partials/clickky-edit-placement.php:146
 msgid "Before content"
 msgstr "Перед контентом"
 
-#: admin/partials/clickky-edit-placement.php:112
-#: admin/partials/clickky-edit-placement.php:140
+#: admin/partials/clickky-edit-placement.php:121
+#: admin/partials/clickky-edit-placement.php:149
 msgid "After content"
 msgstr "После контента"
 
-#: admin/partials/clickky-edit-placement.php:123
-#: admin/partials/clickky-edit-placement.php:301
+#: admin/partials/clickky-edit-placement.php:132
+#: admin/partials/clickky-edit-placement.php:310
 #: admin/partials/clickky-global-settings.php:85
 msgid "Select post"
 msgstr "Выберите статью"
 
-#: admin/partials/clickky-edit-placement.php:148
-#: admin/partials/clickky-edit-placement.php:364
+#: admin/partials/clickky-edit-placement.php:157
+#: admin/partials/clickky-edit-placement.php:373
 #: admin/partials/clickky-global-settings.php:137
 msgid "Select category"
 msgstr "Выберите категорию"
 
-#: admin/partials/clickky-edit-placement.php:159
+#: admin/partials/clickky-edit-placement.php:168
 msgid "Before articles"
 msgstr "Перед статьями"
 
-#: admin/partials/clickky-edit-placement.php:163
+#: admin/partials/clickky-edit-placement.php:172
 msgid "After articles"
 msgstr "После статей"
 
-#: admin/partials/clickky-edit-placement.php:171
+#: admin/partials/clickky-edit-placement.php:180
 msgid "Select widget"
 msgstr "Выбрать виджет"
 
-#: admin/partials/clickky-edit-placement.php:182
+#: admin/partials/clickky-edit-placement.php:191
 msgid "No"
 msgstr "Нет"
 
-#: admin/partials/clickky-edit-placement.php:188
+#: admin/partials/clickky-edit-placement.php:197
 msgid "Yes"
 msgstr "Да"
 
-#: admin/partials/clickky-edit-placement.php:201
+#: admin/partials/clickky-edit-placement.php:210
 msgid "Use global settings"
-msgstr "Использовать глобальные настройки"
+msgstr "Использовать общие настройки"
 
-#: admin/partials/clickky-edit-placement.php:213
+#: admin/partials/clickky-edit-placement.php:222
+#: admin/partials/clickky-global-settings.php:15
 msgid "Сheck all pages"
 msgstr "Выбрать все страницы"
 
-#: admin/partials/clickky-edit-placement.php:234
+#: admin/partials/clickky-edit-placement.php:243
 #: admin/partials/clickky-global-settings.php:31
 msgid "Home"
 msgstr "Главная"
 
-#: admin/partials/clickky-edit-placement.php:269
-#: admin/partials/clickky-edit-placement.php:329
-#: admin/partials/clickky-edit-placement.php:391
+#: admin/partials/clickky-edit-placement.php:278
+#: admin/partials/clickky-edit-placement.php:338
+#: admin/partials/clickky-edit-placement.php:400
 #: admin/partials/clickky-global-settings.php:57
 #: admin/partials/clickky-global-settings.php:105
 #: admin/partials/clickky-global-settings.php:156
 msgid "All"
 msgstr "Выбрать все"
 
-#: admin/partials/clickky-global-settings.php:5
-msgid "Global settings"
-msgstr "Глобальные настройки"
-
-#: admin/partials/clickky-global-settings.php:23
-msgid "Show all"
-msgstr "Показать все страницы"
-
 #: admin/partials/clickky-my-placement.php:4
 msgid "MY PLACEMENT"
-msgstr "Мои размещения"
+msgstr "МОИ ПЛЕЙСМЕНТЫ"
 
 #: admin/partials/clickky-my-placement.php:27
 msgid "Delete"
@@ -216,6 +254,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://clickky.biz/"
 msgstr "http://clickky.biz/"
+
+#~ msgid "Show all"
+#~ msgstr "Показать все страницы"
 
 #~ msgid "Catfish Ads"
 #~ msgstr "Catfish Ads"

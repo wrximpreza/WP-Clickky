@@ -1,16 +1,5 @@
 <?php
 
-
-/**
- * The public-facing functionality of the plugin.
- *
- * @link       https://clickky.biz/
- * @since      1.0.0
- *
- * @package    Clickky
- * @subpackage Clickky/public
- */
-
 /**
  * The public-facing functionality of the plugin.
  *
@@ -276,7 +265,7 @@ class Clickky_Public
                 unset($settings['ads']);
                 unset($settings['js_file']);
 
-                if ($this->check_where_show($settings) && $result->status==1) {
+                if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
@@ -315,7 +304,7 @@ class Clickky_Public
                 unset($settings['ads']);
 
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings) && $result->status==1) {
+                if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                         <!-- BEGIN CODE {literal} -->
                         <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
@@ -352,7 +341,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings) && $result->status==1) {
+                if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/dialogads/js/main.js'></script>
@@ -389,7 +378,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings) && $result->status==1) {
+                if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/slideads/js/main.js'></script>
@@ -424,7 +413,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings) && $result->status==1) {
+                if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
                 <script src='http://native.cli.bz/nativeads/full/js/main.js'></script>
@@ -458,7 +447,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings) && $result->status==1) {
+                if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/popin/js/main.js'></script>
@@ -492,7 +481,7 @@ class Clickky_Public
                 $settings = unserialize($result->settings);
                 unset($settings['ads']);
                 unset($settings['js_file']);
-                if ($this->check_where_show($settings) && $result->status==1) {
+                if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
             <!-- BEGIN CODE {literal} -->
             <script src='http://native.cli.bz/nativeads/media/js/main.js'></script>
@@ -612,19 +601,19 @@ class Clickky_Public
     private function check_where_show($setting)
     {
 
-        if ($setting['global']==1) {
+        if ($setting['global'] == 1) {
 
-            if (get_option($this->plugin_name . '_home')==1) {
+            if (get_option($this->plugin_name . '_home') == 1) {
                 return true;
             }
 
-            if (get_option($this->plugin_name . '_main')==1) {
+            if (get_option($this->plugin_name . '_main') == 1) {
                 return true;
             }
 
             if (is_page()) {
                 $banner_pages = unserialize(get_option($this->plugin_name . '_page'));
-                if(isset($banner_pages)) {
+                if (isset($banner_pages)) {
                     if (in_array(get_the_ID(), $banner_pages)) {
                         return true;
                     }
@@ -633,7 +622,7 @@ class Clickky_Public
 
             if (is_single()) {
                 $banner_posts = unserialize(get_option($this->plugin_name . '_post'));
-                if(isset($banner_posts)) {
+                if (isset($banner_posts)) {
                     if (in_array(get_the_ID(), $banner_posts)) {
                         return true;
                     }
@@ -643,7 +632,7 @@ class Clickky_Public
             if (is_category()) {
                 $category = get_queried_object();
                 $banner_categories = unserialize(get_option($this->plugin_name . '_category'));
-                if(isset($banner_categories)) {
+                if (isset($banner_categories)) {
                     if (in_array($category->term_id, $banner_categories)) {
                         return true;
                     }
@@ -663,7 +652,7 @@ class Clickky_Public
 
         if (is_page()) {
             $banner_pages = $setting['page'];
-            if(isset($banner_pages)) {
+            if (isset($banner_pages)) {
                 if (in_array(get_the_ID(), $banner_pages)) {
                     return true;
                 }
@@ -672,7 +661,7 @@ class Clickky_Public
 
         if (is_single()) {
             $banner_posts = $setting['post'];
-            if(isset($banner_posts)) {
+            if (isset($banner_posts)) {
                 if (in_array(get_the_ID(), $banner_posts)) {
                     return true;
                 }
@@ -682,7 +671,7 @@ class Clickky_Public
         if (is_category()) {
             $category = get_queried_object();
             $banner_categories = $setting['category'];
-            if(isset($banner_categories)) {
+            if (isset($banner_categories)) {
                 if (in_array($category->term_id, $banner_categories)) {
                     return true;
                 }

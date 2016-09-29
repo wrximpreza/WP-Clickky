@@ -4,7 +4,7 @@
         <?php if (isset($data['original_id'])): ?>
             <?php echo $data['name']; ?><span><?php _e('Edit', 'clickky'); ?></span>
         <?php else: ?>
-           <?php _e('Add', 'clickky'); ?>
+            <?php _e('Add', 'clickky'); ?>
         <?php endif; ?>
 
     </h1>
@@ -51,18 +51,18 @@
                         </div>
                     </div>
                     <div class="col s4 template-images">
-                        <?php if($data['id']=='fullScreen'){
+                        <?php if ($data['id'] == 'fullScreen') {
 
                             ?>
                             <img
-                                src="<?php echo CLICKKY_PLUGIN_URL.'/admin/img/ads/full.jpg'; ?>"
+                                src="<?php echo CLICKKY_PLUGIN_URL . '/admin/img/ads/full.jpg'; ?>"
                                 class="img-responsive banner-template-change" alt="">
                             <?php
-                        }elseif (isset($data['default']['template'])){ ?>
+                        } elseif (isset($data['default']['template'])) { ?>
 
                             <?php foreach ($data['default']['template']['values'] as $k => $img) {
                                 if ($data['result']['template'] == $k) {
-                                    if ($img!='') {
+                                    if ($img != '') {
                                         ?>
                                         <img
                                             src="<?php echo $img; ?>"
@@ -100,7 +100,7 @@
 
                                         <p>
                                             <select class="browser-default"
-                                                name="settings[page]">
+                                                    name="settings[page]">
                                                 <option
                                                     value=""><?php _e('Select', 'clickky'); ?></option>
 
@@ -135,11 +135,11 @@
                                     <div class="collapsible-body">
                                         <p>
                                             <select class="browser-default"
-                                                name="settings[post]">
+                                                    name="settings[post]">
                                                 <option
                                                     value=""><?php _e('Select', 'clickky'); ?></option>
 
-                                                <option <?php if ($settings[post]  == 'after_comment') echo 'selected'; ?>
+                                                <option <?php if ($settings[post] == 'after_comment') echo 'selected'; ?>
                                                     value="after_comment"><?php _e('After comment', 'clickky'); ?>
                                                 </option>
                                                 <option <?php if ($settings[post] == 'before_content') echo 'selected'; ?>
@@ -160,7 +160,7 @@
                                     <div class="collapsible-body">
                                         <p>
                                             <select class="browser-default"
-                                                name="settings[category]">
+                                                    name="settings[category]">
                                                 <option
                                                     value=""><?php _e('Select', 'clickky'); ?></option>
                                                 <option <?php if ($settings[category] == 'before_loop') echo 'selected'; ?>
@@ -183,7 +183,7 @@
                                     <div class="collapsible-body">
                                         <p>
                                             <select class="browser-default"
-                                                name="settings[widget]">
+                                                    name="settings[widget]">
                                                 <option <?php
                                                 if (isset($settings['widget']))
                                                     if ($settings['widget'] == 0)
@@ -205,7 +205,7 @@
                             <p class="first">
                                 <input type="checkbox" id="global" value="1"
                                        name="settings[global]" class="filled-in"
-                                       value="1" <?php if ($settings['global'] == 1 || $_GET['id']==0) echo 'checked'; ?>
+                                       value="1" <?php if ($settings['global'] == 1 || $_GET['id'] == 0) echo 'checked'; ?>
                                 />
                                 <label for="global"><?php _e('Use global settings', 'clickky'); ?></label>
                             </p>
@@ -214,7 +214,7 @@
                                        name="settings[main]"
                                        class="filled-in"
                                        value="1" <?php
-                                if($_GET['id']==0 && get_option($this->plugin_name . '_main')==1)
+                                if ($_GET['id'] == 0 && get_option($this->plugin_name . '_main') == 1)
                                     echo 'checked';
                                 elseif ($settings['main'] == 1)
                                     echo 'checked';
@@ -234,11 +234,11 @@
                                                    name="settings[home]"
                                                    class="filled-in"
                                                    value="1" <?php
-                                                        if($_GET['id']==0 && get_option($this->plugin_name . '_home')==1)
-                                                            echo 'checked';
-                                                        elseif ($settings['home'] == 1)
-                                                            echo 'checked';
-                                                        ?>
+                                            if ($_GET['id'] == 0 && get_option($this->plugin_name . '_home') == 1)
+                                                echo 'checked';
+                                            elseif ($settings['home'] == 1)
+                                                echo 'checked';
+                                            ?>
                                             />
                                             <label for="home"><?php _e('Home', 'clickky'); ?></label>
 
@@ -251,7 +251,7 @@
                                         <i class="material-icons">arrow_drop_down</i></div>
                                     <div class="collapsible-body">
                                         <?php
-                                        $checked_global_pages = unserialize(get_option($this->plugin_name  . '_page'));
+                                        $checked_global_pages = unserialize(get_option($this->plugin_name . '_page'));
                                         if (!is_array($checked_global_pages)) {
                                             $checked_global_pages = array();
                                         }
@@ -267,9 +267,9 @@
                                                    onClick="toggleCheckbox(this, 'pages_all')"
                                                 <?php
 
-                                                if($_GET['id']==0 && count($checked_global_pages) == count($pages)){
+                                                if ($_GET['id'] == 0 && count($checked_global_pages) == count($pages)) {
                                                     echo 'checked';
-                                                }elseif (count($checked_pages) == count($pages)) {
+                                                } elseif (count($checked_pages) == count($pages)) {
                                                     echo 'checked';
                                                 }
 
@@ -287,10 +287,10 @@
                                                            value="<?php echo $page->ID; ?>"
                                                            id="page_<?php echo $page->ID; ?>"
                                                         <?php
-                                                        if($_GET['id']==0 && is_array($checked_global_pages) && count($checked_global_pages) > 0){
+                                                        if ($_GET['id'] == 0 && is_array($checked_global_pages) && count($checked_global_pages) > 0) {
                                                             if (in_array($page->ID, $checked_global_pages))
                                                                 echo 'checked';
-                                                        }elseif (is_array($checked_pages) && count($checked_pages) > 0) {
+                                                        } elseif (is_array($checked_pages) && count($checked_pages) > 0) {
                                                             if (in_array($page->ID, $checked_pages))
                                                                 echo 'checked';
                                                         }
@@ -328,9 +328,9 @@
                                             <input id="post_all" type="checkbox" class="filled-in"
                                                    onClick="toggleCheckbox(this, 'all_posts')"
                                                 <?php
-                                                if($_GET['id']==0 && count($checked_global_posts) == count($posts)){
+                                                if ($_GET['id'] == 0 && count($checked_global_posts) == count($posts)) {
                                                     echo 'checked';
-                                                }elseif (count($checked_posts) == count($posts)) {
+                                                } elseif (count($checked_posts) == count($posts)) {
                                                     echo 'checked';
                                                 }
                                                 ?>
@@ -348,10 +348,10 @@
                                                            value="<?php echo $post->ID; ?>"
                                                            id="post_<?php echo $post->ID; ?>"
                                                         <?php
-                                                        if($_GET['id']==0 && is_array($checked_global_posts) && count($checked_global_posts) > 0){
+                                                        if ($_GET['id'] == 0 && is_array($checked_global_posts) && count($checked_global_posts) > 0) {
                                                             if (in_array($post->ID, $checked_global_posts))
                                                                 echo 'checked';
-                                                        }elseif (is_array($checked_posts) && count($checked_posts) > 0)
+                                                        } elseif (is_array($checked_posts) && count($checked_posts) > 0)
                                                             if (in_array($post->ID, $checked_posts))
                                                                 echo 'checked';
                                                         ?>
@@ -390,9 +390,9 @@
                                             <input id="category__all" type="checkbox" class="filled-in"
                                                    onClick="toggleCheckbox(this, 'all_categories')"
                                                 <?php
-                                                if($_GET['id']==0 && count($checked_global_categories) == count($categories)){
+                                                if ($_GET['id'] == 0 && count($checked_global_categories) == count($categories)) {
                                                     echo 'checked';
-                                                }elseif (count($checked_categories) == count($categories)) {
+                                                } elseif (count($checked_categories) == count($categories)) {
                                                     echo 'checked';
                                                 }
                                                 ?>
@@ -409,10 +409,10 @@
                                                            value="<?php echo $category->term_id; ?>"
                                                            id="category_<?php echo $category->term_id; ?>"
                                                         <?php
-                                                        if($_GET['id']==0 && is_array($checked_global_categories) && count($checked_global_categories) > 0){
+                                                        if ($_GET['id'] == 0 && is_array($checked_global_categories) && count($checked_global_categories) > 0) {
                                                             if (in_array($category->term_id, $checked_global_categories))
                                                                 echo 'checked';
-                                                        }elseif (is_array($checked_categories) && count($checked_categories) > 0)
+                                                        } elseif (is_array($checked_categories) && count($checked_categories) > 0)
                                                             if (in_array($category->term_id, $checked_categories))
                                                                 echo 'checked';
                                                         ?>

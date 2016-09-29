@@ -10,16 +10,6 @@
  * @subpackage Clickky/includes
  */
 
-/**
- * Fired during plugin activation.
- *
- * This class defines all code necessary to run during the plugin's activation.
- *
- * @since      1.0.0
- * @package    Clickky
- * @subpackage Clickky/includes
- * @author     Your Name <email@example.com>
- */
 class Clickky_Activator {
 
 	/**
@@ -30,7 +20,7 @@ class Clickky_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-        //register_activation_hook(__FILE__, array( 'Clickky_Activator', 'clickky_table_install' ));
+
         global $wpdb;
 
         $table_name = $wpdb->prefix . "clickky_ads";
@@ -47,8 +37,6 @@ class Clickky_Activator {
 
             require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
             dbDelta($sql);
-
-            //$rows_affected = $wpdb->insert( $table_name, array( 'time' => current_time('mysql'), 'name' => $welcome_name, 'text' => $welcome_text ) );
 
             add_option("clickky_db_version", '1.0.0');
 
