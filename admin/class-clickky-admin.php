@@ -76,20 +76,20 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
-                    'name' => 'Delay',
-                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                    'name' => __('Delay', 'clickky'),
+                    'hover' => __('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky')
                 ),
                 'template' => array(
                     'type' => 'select',
-                    'name' => 'Template',
+                    'name' => __('Template', 'clickky'),
                     'hover' => '',
                     'help' => ' <ol class="list-inline">
                                         <li>1 - top-line ,</li>
@@ -104,11 +104,11 @@ class Clickky_Admin
                 ),
                 'countBanners' => array(
                     'type' => 'hidden',
-                    'name' => 'Banners are involved in the slider',
-                    'hover' => 'banners are involved in the slider',
-                    'help' => 'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
+                    'name' => __('Banners are involved in the slider', 'clickky'),
+                    'hover' => __('banners are involved in the slider', 'clickky'),
+                    'help' => __('from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
                                     from 2 to 4 inclusive - available for 4, 5, 6 or 7 templates
-                                    > 4 - triggered the default value - 3'
+                                    > 4 - triggered the default value - 3', 'clickky')
                 )
 
             )
@@ -129,20 +129,20 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
-                    'name' => 'Delay',
-                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                    'name' => __('Delay', 'clickky'),
+                    'hover' => __('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky')
                 ),
                 'template' => array(
                     'type' => 'select',
-                    'name' => 'Template',
+                    'name' => __('Template', 'clickky'),
                     'hover' => '',
                     'help' => ' <ol class="list-inline">
                                          <li>4 - top-line slider (horizontal) ,</li>
@@ -159,11 +159,11 @@ class Clickky_Admin
                 ),
                 'countBanners' => array(
                     'type' => 'text',
-                    'name' => 'Banners are involved in the slider',
-                    'hover' => 'banners are involved in the slider',
-                    'help' => 'from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
+                    'name' => __('Banners are involved in the slider', 'clickky'),
+                    'hover' => __('banners are involved in the slider', 'clickky'),
+                    'help' => __('from 0 to 1 inclusive - automatically 1, 2 or 3 templates are triggered
                                     from 2 to 4 inclusive - available for 4, 5, 6 or 7 templates
-                                    > 4 - triggered the default value - 3'
+                                    > 4 - triggered the default value - 3', 'clickky')
                 )
 
             )
@@ -185,20 +185,20 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
-                    'name' => 'Delay',
-                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                    'name' => __('Delay', 'clickky'),
+                    'hover' => __('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky')
                 ),
                 'template' => array(
                     'type' => 'select',
-                    'name' => 'Template',
+                    'name' => __('Template', 'clickky'),
                     'hover' => '',
                     'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
                     'values' => array(
@@ -209,9 +209,9 @@ class Clickky_Admin
                 ),
                 'countShow' => array(
                     'type' => 'text',
-                    'name' => 'Banners rotation time in minutes',
-                    'hover' => 'banner update happens every (n) minutes',
-                    'help' => 'all positive numeric integers 0 - show the following banner each time you update the current page'
+                    'name' => __('Banners rotation time in minutes', 'clickky'),
+                    'hover' => __('banner update happens every (n) minutes', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - show the following banner each time you update the current page', 'clickky')
                 )
 
             )
@@ -232,14 +232,14 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'attr' => 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
-                    'name' => 'Template',
+                    'name' => __('Template', 'clickky'),
                     'hover' => '',
                     'help' => '  <div class="alert  alert-warning">' . __('<strong>Warning!</strong> Any other values for this type of advertising makes the script useless character set, be careful.', 'clickky') . '</div>',
                     'values' => array(
@@ -252,9 +252,9 @@ class Clickky_Admin
                 ),
                 'background' => array(
                     'type' => 'select',
-                    'name' => 'Background',
-                    'hover' => 'parameter that defines the background color of the space where the advertisement displays',
-                    'help' => 'dark or light',
+                    'name' => __('Background', 'clickky'),
+                    'hover' => __('parameter that defines the background color of the space where the advertisement displays', 'clickky'),
+                    'help' => __('dark or light', 'clickky'),
                     'values' => array(
                         'dark' => 'dark',
                         'light' => 'light'
@@ -262,9 +262,9 @@ class Clickky_Admin
                 ),
                 'autoShow' => array(
                     'type' => 'text',
-                    'name' => 'Banners rotation time in minutes',
-                    'hover' => 'parameter that determines the delay time before opening the banner in seconds',
-                    'help' => 'from 0 to 60 inclusive  - banner will be opened immediately after the load page'
+                    'name' => __('Banners rotation time in minutes', 'clickky'),
+                    'hover' => __('parameter that determines the delay time before opening the banner in seconds', 'clickky'),
+                    'help' => __('from 0 to 60 inclusive  - banner will be opened immediately after the load page', 'clickky')
                 )
 
             )
@@ -285,22 +285,22 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'attr' => 'disabled'
                 ),
                 'delay' => array(
                     'type' => 'text',
-                    'name' => 'Delay',
-                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                    'name' => __('Delay', 'clickky'),
+                    'hover' => __('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky')
                 ),
                 'pageShow' => array(
                     'type' => 'text',
-                    'name' => 'Page number on what the ads appears',
-                    'hover' => 'parameter that determines the page number on what the ads appears',
-                    'help' => 'all positive numeric integers 0 - is ignored'
+                    'name' => __('Page number on what the ads appears', 'clickky'),
+                    'hover' => __('parameter that determines the page number on what the ads appears', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - is ignored', 'clickky')
                 )
 
             )
@@ -321,14 +321,14 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'attr' => 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
-                    'name' => 'Template',
+                    'name' => __('Template', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'values' => array(
@@ -341,15 +341,15 @@ class Clickky_Admin
                 ),
                 'delay' => array(
                     'type' => 'text',
-                    'name' => 'Delay',
-                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                    'name' => __('Delay', 'clickky'),
+                    'hover' => __('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky')
                 ),
                 'pageShow' => array(
                     'type' => 'text',
-                    'name' => 'Page number on what the ads appears',
-                    'hover' => 'parameter that determines the page number on what the ads appears',
-                    'help' => 'all positive numeric integers 0 - is ignored'
+                    'name' => __('Page number on what the ads appears', 'clickky'),
+                    'hover' => __('parameter that determines the page number on what the ads appears', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - is ignored', 'clickky')
                 )
 
             )
@@ -371,14 +371,14 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'attr' => 'disabled'
                 ),
                 'template' => array(
                     'type' => 'select',
-                    'name' => 'Template',
+                    'name' => __('Template', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'values' => array(
@@ -399,21 +399,21 @@ class Clickky_Admin
                 ),
                 'delay' => array(
                     'type' => 'text',
-                    'name' => 'Delay',
-                    'hover' => 'parameter responsible for the delay time before displaying an advertising banner in seconds',
-                    'help' => 'all positive numeric integers 0 - ad unit display at web page loading without a delay'
+                    'name' => __('Delay', 'clickky'),
+                    'hover' => __('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky')
                 ),
                 'countShow' => array(
                     'type' => 'text',
-                    'name' => 'Page number on what the ads appears',
-                    'hover' => 'parameter that determines the page number on what the ads appears',
-                    'help' => 'all positive numeric integers 0 - is ignored'
+                    'name' => __('Page number on what the ads appears', 'clickky'),
+                    'hover' => __('parameter that determines the page number on what the ads appears', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - is ignored', 'clickky')
                 ),
                 'second' => array(
                     'type' => 'text',
-                    'name' => 'Delay time for the close button in seconds',
-                    'hover' => 'parameter that defines the delay time for the close button in seconds',
-                    'help' => 'all positive numeric integers, 0 - the script does not work'
+                    'name' => __('Delay time for the close button in seconds', 'clickky'),
+                    'hover' => __('parameter that defines the delay time for the close button in seconds', 'clickky'),
+                    'help' => __('all positive numeric integers, 0 - the script does not work', 'clickky')
                 )
 
             )
@@ -428,7 +428,7 @@ class Clickky_Admin
             'default' => array(
                 'name' => array(
                     'type' => 'text',
-                    'name' => 'Name',
+                    'name' => __('Name', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'show' => 0
@@ -452,7 +452,7 @@ class Clickky_Admin
                 ),
                 'hash' => array(
                     'type' => 'text',
-                    'name' => 'Hash',
+                    'name' => __('Hash', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'show' => 1,
@@ -460,7 +460,7 @@ class Clickky_Admin
                 ),
                 'template' => array(
                     'type' => 'select',
-                    'name' => 'Template',
+                    'name' => __('Template', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'values' => array(
@@ -473,7 +473,7 @@ class Clickky_Admin
                 ),
                 'buttonClassColor' => array(
                     'type' => 'select',
-                    'name' => 'Button Color',
+                    'name' => __('Button Color', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'values' => array(
@@ -484,7 +484,7 @@ class Clickky_Admin
                 ),
                 'background' => array(
                     'type' => 'color',
-                    'name' => 'Background',
+                    'name' => __('Background', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => '#ffffff',
@@ -492,7 +492,7 @@ class Clickky_Admin
                 ),
                 'fontFamily' => array(
                     'type' => 'text',
-                    'name' => 'Font Family',
+                    'name' => __('Font Family', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => 'Helvetica,Arial,sans-serif',
@@ -500,7 +500,7 @@ class Clickky_Admin
                 ),
                 'colorFontTitle' => array(
                     'type' => 'color',
-                    'name' => 'Color font title',
+                    'name' => __('Color font title', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => '#000000',
@@ -508,7 +508,7 @@ class Clickky_Admin
                 ),
                 'ratingFontColor' => array(
                     'type' => 'color',
-                    'name' => 'Rating Color',
+                    'name' => __('Rating Color', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => '#000000',
@@ -516,7 +516,7 @@ class Clickky_Admin
                 ),
                 'colorFontDescription' => array(
                     'type' => 'color',
-                    'name' => 'Color description',
+                    'name' => __('Color description', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => '#000000',
@@ -524,7 +524,7 @@ class Clickky_Admin
                 ),
                 'buttonBackground' => array(
                     'type' => 'color',
-                    'name' => 'Button background',
+                    'name' => __('Button background', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => '#E63517',
@@ -532,7 +532,7 @@ class Clickky_Admin
                 ),
                 'buttonFontColor' => array(
                     'type' => 'color',
-                    'name' => 'Button font color',
+                    'name' => __('Button font color', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => '#ffffff',
@@ -540,7 +540,7 @@ class Clickky_Admin
                 ),
                 'buttonBorderColor' => array(
                     'type' => 'color',
-                    'name' => 'Button border color',
+                    'name' => __('Button border color', 'clickky'),
                     'hover' => '',
                     'help' => '',
                     'value' => '#E63517',
