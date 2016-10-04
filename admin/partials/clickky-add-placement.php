@@ -6,7 +6,7 @@
     <h1><?php _e('Hi, you can monetize your site with Clickky!', 'clickky'); ?></h1>
     <div class="sub-title">
         <?php _e("Paste the code into the form below and that`s all.<br />
-        If you don't have the code, you can sign up to Clickky`s publisher platform and get code!", 'clickky'); ?>
+        If you don't have the code, you can sign up to <a href='https://clickky.biz/content/web-mobile-monetization' target='_blank'>Clickky`s publisher platform</a> and get code!", 'clickky'); ?>
     </div>
 
     <form class="input-code" method="post" action="admin.php?page=my_placement&id=0">

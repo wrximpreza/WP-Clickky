@@ -756,6 +756,7 @@ class Clickky_Admin
                 return false;
             });
             jQuery("#code").on('click', function (event) {
+                jQuery("#code").val('');
                 jQuery("#code").removeClass('active');
             });
         </script>
