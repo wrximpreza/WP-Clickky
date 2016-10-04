@@ -406,7 +406,7 @@ class Clickky_Public
      */
     public function get_fullScreen()
     {
-        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='FullScreen Ads' AND status=1");
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Full-screen Ads' AND status=1");
         if (count($results) > 0) {
             foreach ($results as $result) {
                 $data = unserialize($result->data);
