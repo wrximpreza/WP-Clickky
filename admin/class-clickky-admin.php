@@ -362,7 +362,7 @@ class Clickky_Admin
             'id' => 'richmedia',
             'js_file' => 'media',
             'default' => array(
-                'widget_id' => array(
+                'site_id' => array(
                     'type' => 'text',
                     'name' => 'SITE ID',
                     'hover' => '',
@@ -562,7 +562,7 @@ class Clickky_Admin
 
         add_menu_page(
             'clickky',
-            'Clickky Banner',
+            'Clickky',
             'manage_options',
             'clickky',
             array($this, 'clickky'),
@@ -946,9 +946,10 @@ class Clickky_Admin
                 break;
             }
         }
-        if (count($ads['default']) != count($data)) {
+
+        /*if (count($ads['default']) != count($data)) {
             return false;
-        }
+        }*/
         if ($ads['id'] == 'banner' && $data['template'] > 3) {
             $ads = $this->banners['banner_slider'];
         }
