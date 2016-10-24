@@ -576,7 +576,7 @@ class Clickky_Admin
 
         remove_submenu_page('clickky', 'clickky');
         if (count($result) > 0) {
-            add_submenu_page('clickky', __('Dashboard', 'clickky'), __('Dashboard', 'clickky'), 'manage_options', 'clickky', array($this, 'dashboard_page'));
+            add_submenu_page('clickky', __('Stats', 'clickky'), __('Stats', 'clickky'), 'manage_options', 'clickky', array($this, 'dashboard_page'));
             add_submenu_page('clickky', __('Add placement', 'clickky'), __('Add placement', 'clickky'), 'manage_options', 'add_placement', array($this, 'add_placement_page'));
         } else {
             add_submenu_page('clickky', __('Add placement', 'clickky'), __('Add placement', 'clickky'), 'manage_options', 'clickky', array($this, 'add_placement_page'));

@@ -8,7 +8,7 @@
 <?php
 if(get_option('clickky_login')):?>
     <div class="row content col s12 dashboard">
-        <h1><?php _e('DASHBOARD', 'clickky'); ?></h1>
+        <h1><?php _e('STATS', 'clickky'); ?></h1>
         <h5><?php _e('REVENUE', 'clickky'); ?></h5>
 
         <div class="row" id="revenue">

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: clickky\n"
-"POT-Creation-Date: 2016-10-24 16:12+0300\n"
-"PO-Revision-Date: 2016-10-24 16:17+0300\n"
+"POT-Creation-Date: 2016-10-24 17:50+0300\n"
+"PO-Revision-Date: 2016-10-24 17:50+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -198,8 +198,8 @@ msgid "Button border color"
 msgstr "Цвет окантовки кнопки"
 
 #: admin/class-clickky-admin.php:579
-msgid "Dashboard"
-msgstr "Дешборд"
+msgid "Stats"
+msgstr "Статистика"
 
 #: admin/class-clickky-admin.php:580 admin/class-clickky-admin.php:582
 msgid "Add placement"
@@ -380,8 +380,8 @@ msgid "All"
 msgstr "Выбрать все"
 
 #: admin/partials/clickky-main.php:11
-msgid "DASHBOARD"
-msgstr "Дешборд"
+msgid "STATS"
+msgstr "СТАТИСТИКА"
 
 #: admin/partials/clickky-main.php:12
 msgid "REVENUE"
@@ -523,6 +523,12 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Сlickky"
 msgstr "Сlickky"
+
+#~ msgid "Dashboard"
+#~ msgstr "Дешборд"
+
+#~ msgid "DASHBOARD"
+#~ msgstr "Дешборд"
 
 #~ msgid ""
 #~ "Paste the code into the form below and that`s all.<br />\n"
