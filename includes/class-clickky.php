@@ -162,6 +162,10 @@ class Clickky
         $this->loader->add_action('admin_print_footer_scripts', $plugin_admin, 'publish_ad_javascript');
         $this->loader->add_action('wp_ajax_publish_action', $plugin_admin, 'publish_action_callback');
 
+        $this->loader->add_action('admin_print_footer_scripts', $plugin_admin, 'load_dashboard_data');
+        $this->loader->add_action('wp_ajax_load_dashboard', $plugin_admin, 'load_dashboard_callback');
+
+
     }
 
     /**

@@ -9,6 +9,8 @@
  * @subpackage Clickky/admin
  */
 
+require_once(CLICKKY_PLUGIN_PATH . 'includes/Curl/Curl.php');
+
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -55,7 +57,9 @@ class Clickky_Admin
      */
     public function __construct($plugin_name, $version)
     {
-
+        global $wpdb;
+        $this->wpdb = $wpdb;
+        $this->table_name = $wpdb->prefix . "clickky_ads";
         $this->plugin_name = $plugin_name;
         $this->version = $version;
         $this->wp_clickky_options = get_option($this->plugin_name);
@@ -550,8 +554,6 @@ class Clickky_Admin
 
             )
         );
-
-
     }
 
     /**
@@ -559,6 +561,8 @@ class Clickky_Admin
      */
     public function add_admin_menu()
     {
+
+        $result = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " ");
 
         add_menu_page(
             'clickky',
@@ -569,8 +573,14 @@ class Clickky_Admin
             plugin_dir_url(__FILE__) . 'img/icon.png',
             '2.1'
         );
+
         remove_submenu_page('clickky', 'clickky');
-        add_submenu_page('clickky', __('Add placement', 'clickky'), __('Add placement', 'clickky'), 'manage_options', 'clickky', array($this, 'add_placement_page'));
+        if (count($result) > 0) {
+            add_submenu_page('clickky', __('Dashboard', 'clickky'), __('Dashboard', 'clickky'), 'manage_options', 'clickky', array($this, 'dashboard_page'));
+            add_submenu_page('clickky', __('Add placement', 'clickky'), __('Add placement', 'clickky'), 'manage_options', 'add_placement', array($this, 'add_placement_page'));
+        } else {
+            add_submenu_page('clickky', __('Add placement', 'clickky'), __('Add placement', 'clickky'), 'manage_options', 'clickky', array($this, 'add_placement_page'));
+        }
         add_submenu_page('clickky', __('My placement', 'clickky'), __('My placement', 'clickky'), 'manage_options', 'my_placement', array($this, 'my_placement_page'));
         add_submenu_page('clickky', __('Global settings', 'clickky'), __('Global settings', 'clickky'), 'manage_options', 'global_settings', array($this, 'global_settings_page'));
 
@@ -634,26 +644,137 @@ class Clickky_Admin
     }
 
     /**
-     *
+     * Global page settings
      */
     public function global_settings_page()
     {
         require_once plugin_dir_path(__FILE__) . 'partials/clickky-global-settings.php';
     }
 
-
     /**
-     *
+     * @param $curl
+     * @param $from
+     * @param $to
+     * @param $type
+     * @return array|int|string
      */
-    public function add_placement_page()
+    public function getMetrics($curl, $from, $to, $type)
     {
 
-        require_once plugin_dir_path(__FILE__) . 'partials/clickky-add-placement.php';
+        $result = array();
+        $result = 0;
+        foreach ($curl->responseCookies as $k => $v) {
+            $curl->setCookie($k, $v);
+        }
+        if ($type == 'revenue') {
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/site/total?period=' . $from . ':' . $to . '&metrics[]=payout');
+            if (!$curl->error) {
+                if ($curl->response->status == 'ok') {
+                    if (count($curl->response->result)) {
+                        $result = $curl->response->result[0]->payout;
+                    } else {
+                        $result = 0;
+                    }
+                }
+            } else {
+                echo 'Error: ' . $curl->errorCode . ': ' . $curl->errorMessage;
+            }
+        } elseif ($type == 'android') {
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[os][]=Android&&metrics[]=leads');
+            if (!$curl->error) {
+                if ($curl->response->status == 'ok') {
+                    if (isset($curl->response->result[0]->leads)) {
+                        $result = $curl->response->result[0]->leads . '%';
+                    } else {
+                        $result = '0%';
+                    }
+                }
+            }
+        } elseif ($type == 'ios') {
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[os][]=iOS&&metrics[]=leads');
+            if (!$curl->error) {
+                if ($curl->response->status == 'ok') {
+                    if (isset($curl->response->result[0]->leads)) {
+                        $result = $curl->response->result[0]->leads . '%';
+                    } else {
+                        $result = '0%';
+                    }
+                } else {
+                    $result = '0%';
+                }
+            }
+        } elseif ($type == 'tables') {
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[device_type][]=tablet&metrics[]=leads');
+            if (!$curl->error) {
+                if ($curl->response->status == 'ok') {
+                    if (isset($curl->response->result[0]->leads)) {
+                        $result = $curl->response->result[0]->leads . '%';
+                    } else {
+                        $result = '0%';
+                    }
+                } else {
+                    $result = '0%';
+                }
+            }
+        } elseif ($type == 'phones') {
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[device_type][]=smartphone&metrics[]=leads');
+            if (!$curl->error) {
+                if ($curl->response->status == 'ok') {
+                    if (isset($curl->response->result[0]->leads)) {
+                        $result = $curl->response->result[0]->leads . '%';
+                    } else {
+                        $result = '0%';
+                    }
+                } else {
+                    $result = '0%';
+                }
+            }
+        }
+
+
+        return $result;
+    }
+
+    /**
+     * Dashboard page
+     */
+    public function dashboard_page()
+    {
+
+        $result = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " ");
+
+        if (isset($_POST['username'])) {
+            $curl = new Curl();
+            $curl->setHeader('Content-Type', 'application/json');
+            $curl->post('http://platform.clickky.biz/api/v1.0/clk/front-end/login', array(
+                'username' => $_POST['username'],
+                'password' => $_POST['password'],
+                'remember' => true,
+            ));
+            if ($curl->error) {
+                $message =  __('WRONG EMAIL OR PASSWORD', 'clickky');
+            } else {
+                add_option('clickky_login', $_POST['username'], '', $autoload = 'yes');
+                add_option('clickky_password', $_POST['password'], '', $autoload = 'yes');
+            }
+
+        }
+
+        require_once plugin_dir_path(__FILE__) . 'partials/clickky-main.php';
 
     }
 
     /**
-     *
+     * Add placement page
+     */
+    public function add_placement_page()
+    {
+        require_once plugin_dir_path(__FILE__) . 'partials/clickky-add-placement.php';
+    }
+
+
+    /**
+     *  Publish js code
      */
     public function publish_ad_javascript()
     {
@@ -702,31 +823,265 @@ class Clickky_Admin
         <?php
     }
 
+
     /**
-     *
+     * Callback
      */
     public function publish_action_callback()
     {
-        global $wpdb;
-        $table_name = $wpdb->prefix . "clickky_ads";
+
         if ($_POST['status'] == 'publish') {
 
             $status = 1;
             if ($_POST['switch'] == 'false') {
                 $status = 0;
             }
-            $wpdb->get_results("UPDATE " . $table_name . " SET status = " . $status . " WHERE id=" . $_POST['id'] . " LIMIT 1");
+            $this->wpdb->get_results("UPDATE " . $this->table_name . " SET status = " . $status . " WHERE id=" . $_POST['id'] . " LIMIT 1");
             wp_die();
         } elseif ($_POST['status'] == 'delete') {
 
-            $wpdb->get_results("DELETE  FROM " . $table_name . " WHERE id=" . $_POST['id']);
+            $this->wpdb->get_results("DELETE  FROM " . $this->table_name . " WHERE id=" . $_POST['id']);
             wp_die();
         }
     }
 
+    /**
+     *  Dashboard data
+     */
+    public function load_dashboard_data()
+    {
+
+        $d = date('Y-m-d', time());
+        $d_e = explode('-', $d);
+        $d_f = date("Y-m-d", strtotime("first day of previous month"));
+        $lists = array(
+            array(
+                'type' => 'revenue',
+                'from' => date('Y-m-d', time()),
+                'to' => date('Y-m-d', time()),
+                'select' => '#revenue .today'
+            ),
+            array(
+                'type' => 'revenue',
+                'from' => date('Y-m-d', time() - 86400),
+                'to' => date('Y-m-d', time() - 86400),
+                'select' => '#revenue .yesterday'
+            ),
+            array(
+                'type' => 'revenue',
+                'from' => date('Y-m-d', time() - (86400 * 7)),
+                'to' => date('Y-m-d', time()),
+                'select' => '#revenue .seven'
+            ),
+            array(
+                'type' => 'revenue',
+                'from' => $d_e[0] . '-' . $d_e[1] . '-01',
+                'to' => date('Y-m-d', time()),
+                'select' => '#revenue .this_month'
+            ),
+            array(
+                'type' => 'revenue',
+                'from' => $d_f,
+                'to' => date('Y-m-d', time()),
+                'select' => '#revenue .last_month'
+            ),
+            array(
+                'type' => 'revenue',
+                'from' => '2016-01-01',
+                'to' => date('Y-m-d', time()),
+                'select' => '#revenue .all_time'
+            ),
+
+
+            array(
+                'type' => 'android',
+                'from' => date('Y-m-d', time()),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .today.android'
+            ),
+            array(
+                'type' => 'ios',
+                'from' => date('Y-m-d', time()),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .today.ios'
+            ),
+            array(
+                'type' => 'tables',
+                'from' => date('Y-m-d', time()),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .today.tables'
+            ),
+            array(
+                'type' => 'phones',
+                'from' => date('Y-m-d', time()),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .today.phones'
+            ),
+
+
+            array(
+                'type' => 'android',
+                'from' => date('Y-m-d', time() - 86400),
+                'to' => date('Y-m-d', time() - 86400),
+                'select' => '.devices .yesterday.android'
+            ),
+            array(
+                'type' => 'ios',
+                'from' => date('Y-m-d', time() - 86400),
+                'to' => date('Y-m-d', time() - 86400),
+                'select' => '.devices .yesterday.ios'
+            ),
+            array(
+                'type' => 'tables',
+                'from' => date('Y-m-d', time() - 86400),
+                'to' => date('Y-m-d', time() - 86400),
+                'select' => '.devices .yesterday.tables'
+            ),
+            array(
+                'type' => 'phones',
+                'from' => date('Y-m-d', time() - 86400),
+                'to' => date('Y-m-d', time() - 86400),
+                'select' => '.devices .yesterday.phones'
+            ),
+
+
+            array(
+                'type' => 'android',
+                'from' => date('Y-m-d', time() - (86400 * 7)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .seven.android'
+            ),
+            array(
+                'type' => 'ios',
+                'from' => date('Y-m-d', time() - (86400 * 7)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .seven.ios'
+            ),
+            array(
+                'type' => 'tables',
+                'from' => date('Y-m-d', time() - (86400 * 7)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .seven.tables'
+            ),
+            array(
+                'type' => 'phones',
+                'from' => date('Y-m-d', time() - (86400 * 7)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .seven.phones'
+            ),
+
+
+            array(
+                'type' => 'android',
+                'from' => date('Y-m-d', time() - (86400 * 30)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .this_month.android'
+            ),
+            array(
+                'type' => 'ios',
+                'from' => date('Y-m-d', time() - (86400 * 30)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .this_month.ios'
+            ),
+            array(
+                'type' => 'tables',
+                'from' => date('Y-m-d', time() - (86400 * 30)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .this_month.tables'
+            ),
+            array(
+                'type' => 'phones',
+                'from' => date('Y-m-d', time() - (86400 * 30)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .this_month.phones'
+            ),
+
+            array(
+                'type' => 'android',
+                'from' => date('Y-m-d', time() - (86400 * 90)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .three_month.android'
+            ),
+            array(
+                'type' => 'ios',
+                'from' => date('Y-m-d', time() - (86400 * 90)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .three_month.ios'
+            ),
+            array(
+                'type' => 'tables',
+                'from' => date('Y-m-d', time() - (86400 * 90)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .three_month.tables'
+            ),
+            array(
+                'type' => 'phones',
+                'from' => date('Y-m-d', time() - (86400 * 90)),
+                'to' => date('Y-m-d', time()),
+                'select' => '.devices .three_month.phones'
+            ),
+
+        );
+
+
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                <?php
+                foreach ($lists as $k => $v) {
+                    echo "jQuery.ajax({
+                            type: 'POST',
+                            data: {
+                                'from': '" . $v['from'] . "',
+                                'to': '" . $v['to'] . "',
+                                'type': '" . $v['type'] . "',
+                                action: 'load_dashboard'
+                            },
+                            url: ajaxurl,
+                            success: function (result) {
+                                jQuery('" . $v['select'] . "').html(result);
+                            }
+                        });";
+                }
+                ?>
+
+            });
+
+        </script>
+        <?php
+    }
 
     /**
-     *
+     * Dashoard callback
+     */
+    public function load_dashboard_callback()
+    {
+
+        if (isset($_POST['action'])) {
+            if (get_option('clickky_login') || get_option('clickky_password')) {
+
+                $curl = new Curl();
+                $curl->setHeader('Content-Type', 'application/json');
+                $curl->post('http://platform.clickky.biz/api/v1.0/clk/front-end/login', array(
+                    'username' => get_option('clickky_login'),
+                    'password' => get_option('clickky_password'),
+                    'remember' => true,
+                ));
+
+                if ($curl->error) {
+                    echo '0';
+                } else {
+                    echo $this->getMetrics($curl, $_POST['from'], $_POST['to'], $_POST['type']);
+                }
+                //echo "Время выполнения скрипта: ".(microtime(true) - $start);
+            }
+        }
+        wp_die();
+    }
+
+
+    /**
+     * Javascript
      */
     public function check_ad_javascript()
     {
@@ -764,7 +1119,7 @@ class Clickky_Admin
     }
 
     /**
-     *
+     * Callback
      */
     public function check_action_callback()
     {
@@ -784,13 +1139,12 @@ class Clickky_Admin
     }
 
     /**
-     *
+     * My placement page
      */
     public function my_placement_page()
     {
 
-        global $wpdb;
-        $table_name = $wpdb->prefix . "clickky_ads";
+
         if (isset($_GET['id'])) {
 
             $id = $_GET['id'];
@@ -805,7 +1159,7 @@ class Clickky_Admin
 
                 if ($id == 0) {
 
-                    $rows_affected = $wpdb->insert($table_name,
+                    $rows_affected = $this->wpdb->insert($this->table_name,
                         array(
                             'name' => $_POST['name'],
                             'data' => serialize($_POST['data']),
@@ -820,7 +1174,7 @@ class Clickky_Admin
                     }
 
                 } else {
-                    $rows_affected = $wpdb->update($table_name,
+                    $rows_affected = $this->wpdb->update($this->table_name,
                         array(
                             'name' => $_POST['name'],
                             'data' => serialize($_POST['data']),
@@ -838,7 +1192,7 @@ class Clickky_Admin
                 $data = $this->validate_ad($code);
             } else {
                 $data = array();
-                $result = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE id=" . $id . " LIMIT 1");
+                $result = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE id=" . $id . " LIMIT 1");
 
                 if ($result) {
                     $result = $result[0];
@@ -857,7 +1211,7 @@ class Clickky_Admin
             require_once plugin_dir_path(__FILE__) . 'partials/clickky-edit-placement.php';
         } else {
 
-            $data = $wpdb->get_results("SELECT * FROM " . $table_name . " ");
+            $data = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " ");
             $result = array();
 
             foreach ($data as $k => $v) {
@@ -1048,7 +1402,7 @@ class Clickky_Admin
                             </a>
                         </li>
                         <li>
-                            <a class="btn" href="admin.php?page=clickky">' . __('ADD PLACEMENT', 'clickky') . '</a>
+                            <a class="btn" href="admin.php?page=add_placement">' . __('ADD PLACEMENT', 'clickky') . '</a>
                         </li>
                     </ul>
                 </div>
@@ -1146,7 +1500,7 @@ class Clickky_Admin
     }
 
     /**
-     *
+     * Footer
      */
     public function htmlFooter()
     {
