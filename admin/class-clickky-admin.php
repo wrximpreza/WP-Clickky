@@ -3,7 +3,7 @@
  * The admin-specific functionality of the plugin.
  *
  * @link       https://clickky.biz/
- * @since      1.0.0
+ * @since      1.1.0
  *
  * @package    Clickky
  * @subpackage Clickky/admin
@@ -27,7 +27,7 @@ class Clickky_Admin
     /**
      * The ID of this plugin.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @access   private
      * @var      string $clickky The ID of this plugin.
      */
@@ -36,7 +36,7 @@ class Clickky_Admin
     /**
      * The version of this plugin.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @access   private
      * @var      string $version The current version of this plugin.
      */
@@ -51,7 +51,7 @@ class Clickky_Admin
     /**
      * Initialize the class and set its properties.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @param      string $clickky The name of this plugin.
      * @param      string $version The version of this plugin.
      */
@@ -589,7 +589,7 @@ class Clickky_Admin
     /**
      * Register the stylesheets for the admin area.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      */
     public function enqueue_styles()
     {
@@ -614,7 +614,7 @@ class Clickky_Admin
     /**
      * Register the JavaScript for the admin area.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      */
     public function enqueue_scripts()
     {

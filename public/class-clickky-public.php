@@ -16,7 +16,7 @@ class Clickky_Public
     /**
      * The ID of this plugin.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @access   private
      * @var      string $clickky The ID of this plugin.
      */
@@ -25,7 +25,7 @@ class Clickky_Public
     /**
      * The version of this plugin.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @access   private
      * @var      string $version The current version of this plugin.
      */
@@ -40,7 +40,7 @@ class Clickky_Public
     /**
      * Initialize the class and set its properties.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @param      string $clickky The name of the plugin.
      * @param      string $version The version of this plugin.
      */
@@ -60,7 +60,7 @@ class Clickky_Public
     /**
      * Register the stylesheets for the public-facing side of the site.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      */
     public function enqueue_banner()
     {
@@ -276,7 +276,8 @@ class Clickky_Public
                         'hash': '" . $data['hash'] . "', 
                         'delay' : " . $data['delay'] . ",
                         'template': " . $data['template'] . ",
-                        'countBanners': " . $data['countBanners'] . "
+                        'countBanners': " . $data['countBanners'] . ",
+                        'wp': 'true'
                     };
                     var Cliky = new Cliky(o);
                     Cliky.init();
@@ -315,7 +316,8 @@ class Clickky_Public
                                 'hash': '" . $data['hash'] . "', 
                                 'delay' : " . $data['delay'] . ",
                                 'template': " . $data['template'] . ",
-                                'countBanners': " . $data['countBanners'] . "
+                                'countBanners': " . $data['countBanners'] . ",
+                                'wp': 'true'
                             };
                             var Cliky = new Cliky(o);
                             Cliky.init();
@@ -352,7 +354,8 @@ class Clickky_Public
                         'hash': '" . $data['hash'] . "', 
                         'delay' : " . $data['delay'] . ",
                         'template': " . $data['template'] . ",
-                        'countShow': " . $data['countShow'] . "
+                        'countShow': " . $data['countShow'] . ",
+                        'wp': 'true'
                     };
                     var Cliky = new Cliky(o);
                     Cliky.init();
@@ -388,7 +391,8 @@ class Clickky_Public
                     'hash': '" . $data['hash'] . "', 
                     'template': " . $data['template'] . ",
                     'background': '" . $data['background'] . "',
-                    'autoShow': " . $data['autoShow'] . "
+                    'autoShow': " . $data['autoShow'] . ",
+                    'wp': 'true'
                 };
                 var ClickkyMultiBanner = new ClickkyMultiBanner(o);
                 ClickkyMultiBanner.init();
@@ -422,7 +426,8 @@ class Clickky_Public
                         'widget_id' : '" . $data['widget_id'] . "',
                         'hash': '" . $data['hash'] . "', 
                         'delay' : " . $data['delay'] . ",
-                        'pageShow': " . $data['pageShow'] . "
+                        'pageShow': " . $data['pageShow'] . ",
+                        'wp': 'true'
                     };
                     var ClickkyFull = new ClickkyFull(o);
                     ClickkyFull.init();
@@ -457,7 +462,8 @@ class Clickky_Public
                        'hash': '" . $data['hash'] . "', //set up hash value
                        'template':" . $data['template'] . ",
                        'delay' : " . $data['delay'] . ",
-                       'pageShow': " . $data['pageShow'] . "
+                       'pageShow': " . $data['pageShow'] . ",
+                        'wp': 'true'
                    };
                    new ClickkyPopin(o).init();
             </script>
@@ -492,7 +498,8 @@ class Clickky_Public
                        'hash': '" . $data['hash'] . "', 
                        'template': " . $data['template'] . ",
                        'delay': " . $data['delay'] . ",
-                       'countShow': " . $data['countShow'] . "
+                       'countShow': " . $data['countShow'] . ",
+                        'wp': 'true'
                    };
                    var ClickkyRichmedia = new ClickkyRichmedia(o);
                    ClickkyRichmedia.init();
@@ -582,7 +589,8 @@ class Clickky_Public
                                 'buttonBackground': '" . $data['buttonBackground'] . "',
                                 'buttonFontColor': '" . $data['buttonFontColor'] . "',
                                 'buttonBorderColor': '" . $data['buttonBackground'] . "'
-                            }
+                            },
+                            'wp': 'true'
                         };
                         new ClickkyTizer(o).init();
                 </script>

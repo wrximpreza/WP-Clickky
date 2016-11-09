@@ -6,7 +6,7 @@
  * This file is used to markup the public-facing aspects of the plugin.
  *
  * @link       https://clickky.biz/
- * @since      1.0.0
+ * @since      1.1.0
  *
  * @package    Clickky
  * @subpackage Clickky/public/partials

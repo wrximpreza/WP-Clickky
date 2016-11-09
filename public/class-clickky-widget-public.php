@@ -9,7 +9,7 @@
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      1.0.0
+ * @since      1.1.0
  * @package    Clickky
  * @subpackage Clickky/includes
  * @author     Your Name <email@example.com>
@@ -19,7 +19,7 @@ class Clickky_Widget
     /**
      * The ID of this plugin.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @access   private
      * @var      string $clickky The ID of this plugin.
      */
@@ -28,7 +28,7 @@ class Clickky_Widget
     /**
      * The version of this plugin.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @access   private
      * @var      string $version The current version of this plugin.
      */
@@ -37,7 +37,7 @@ class Clickky_Widget
     /**
      * class Clickky_Public.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @access   private
      * @var      string $clickky_public The container of Clickky_Public class.
      */
@@ -46,7 +46,7 @@ class Clickky_Widget
     /**
      * Initialize the class and set its properties.
      *
-     * @since    1.0.0
+     * @since    1.1.0
      * @param      string $clickky The name of the plugin.
      * @param      string $version The version of this plugin.
      */
