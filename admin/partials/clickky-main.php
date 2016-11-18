@@ -695,15 +695,15 @@ if(get_option('clickky_login')):?>
                     <thead>
                     <tr class="hd">
                         <th data-field="id"></th>
-                        <th data-field="id">Status</th>
-                        <th data-field="name">Requests</th>
-                        <th data-field="price">Response</th>
-                        <th data-field="price">Impressions</th>
-                        <th data-field="price">Clicks</th>
-                        <th data-field="price">Ctr,%</th>
-                        <th data-field="price">Revenue,$</th>
-                        <th data-field="price">Ecpm,$</th>
-                        <th data-field="price">Fillrate,%</th>
+                        <th data-field="id"><?php _e('Status', 'clickky'); ?></th>
+                        <th data-field="name"><?php _e('Requests', 'clickky'); ?></th>
+                        <th data-field="price"><?php _e('Response', 'clickky'); ?></th>
+                        <th data-field="price"><?php _e('Impressions', 'clickky'); ?></th>
+                        <th data-field="price"><?php _e('Clicks', 'clickky'); ?></th>
+                        <th data-field="price"><?php _e('Ctr,%', 'clickky'); ?></th>
+                        <th data-field="price"><?php _e('Revenue,$', 'clickky'); ?></th>
+                        <th data-field="price"><?php _e('Ecpm,$', 'clickky'); ?></th>
+                        <th data-field="price"><?php _e('Fillrate,%', 'clickky'); ?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -833,7 +833,7 @@ if(get_option('clickky_login')):?>
                     </tbody>
                     <tfoot class="all_foot">
                         <tr class="hd">
-                            <th class="title">Total</th>
+                            <th class="title"><?php _e('Total', 'clickky'); ?></th>
                             <th class="all_foot">
                             </th>
                             <th class="all_requests preloa">

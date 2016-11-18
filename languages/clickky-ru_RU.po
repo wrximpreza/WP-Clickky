@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: clickky\n"
-"POT-Creation-Date: 2016-10-24 17:50+0300\n"
-"PO-Revision-Date: 2016-10-24 17:50+0300\n"
+"POT-Creation-Date: 2016-11-18 20:03+0200\n"
+"PO-Revision-Date: 2016-11-18 20:04+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -24,19 +24,21 @@ msgstr ""
 #: admin/class-clickky-admin.php:83 admin/class-clickky-admin.php:136
 #: admin/class-clickky-admin.php:192 admin/class-clickky-admin.php:239
 #: admin/class-clickky-admin.php:292 admin/class-clickky-admin.php:328
-#: admin/class-clickky-admin.php:378 admin/class-clickky-admin.php:459
+#: admin/class-clickky-admin.php:379 admin/class-clickky-admin.php:430
+#: admin/class-clickky-admin.php:511
 msgid "Hash"
 msgstr "Hash"
 
 #: admin/class-clickky-admin.php:90 admin/class-clickky-admin.php:143
 #: admin/class-clickky-admin.php:199 admin/class-clickky-admin.php:299
-#: admin/class-clickky-admin.php:348 admin/class-clickky-admin.php:406
+#: admin/class-clickky-admin.php:348 admin/class-clickky-admin.php:386
+#: admin/class-clickky-admin.php:458
 msgid "Delay"
 msgstr "Задержка"
 
 #: admin/class-clickky-admin.php:91 admin/class-clickky-admin.php:144
 #: admin/class-clickky-admin.php:200 admin/class-clickky-admin.php:300
-#: admin/class-clickky-admin.php:349 admin/class-clickky-admin.php:407
+#: admin/class-clickky-admin.php:349 admin/class-clickky-admin.php:459
 msgid ""
 "parameter responsible for the delay time before displaying an advertising "
 "banner in seconds"
@@ -46,7 +48,7 @@ msgstr ""
 
 #: admin/class-clickky-admin.php:92 admin/class-clickky-admin.php:145
 #: admin/class-clickky-admin.php:201 admin/class-clickky-admin.php:301
-#: admin/class-clickky-admin.php:350 admin/class-clickky-admin.php:408
+#: admin/class-clickky-admin.php:350 admin/class-clickky-admin.php:460
 msgid ""
 "all positive numeric integers 0 - ad unit display at web page loading "
 "without a delay"
@@ -56,8 +58,8 @@ msgstr ""
 
 #: admin/class-clickky-admin.php:96 admin/class-clickky-admin.php:149
 #: admin/class-clickky-admin.php:205 admin/class-clickky-admin.php:246
-#: admin/class-clickky-admin.php:335 admin/class-clickky-admin.php:385
-#: admin/class-clickky-admin.php:467
+#: admin/class-clickky-admin.php:335 admin/class-clickky-admin.php:437
+#: admin/class-clickky-admin.php:519
 msgid "Template"
 msgstr "Шаблон"
 
@@ -105,7 +107,7 @@ msgstr ""
 "все положительные числовые целые числа, 0 - показывают банера каждый раз, "
 "когда вы обновляете текущую страницу"
 
-#: admin/class-clickky-admin.php:259 admin/class-clickky-admin.php:491
+#: admin/class-clickky-admin.php:259 admin/class-clickky-admin.php:543
 msgid "Background"
 msgstr "Фон"
 
@@ -133,96 +135,122 @@ msgid ""
 msgstr "1-60, 0 - не открывает баннер"
 
 #: admin/class-clickky-admin.php:305 admin/class-clickky-admin.php:354
-#: admin/class-clickky-admin.php:412
+#: admin/class-clickky-admin.php:464
 msgid "Page number on what the ads appears"
 msgstr "Номер страницы показа рекламы"
 
 #: admin/class-clickky-admin.php:306 admin/class-clickky-admin.php:355
-#: admin/class-clickky-admin.php:413
+#: admin/class-clickky-admin.php:465
 msgid "parameter that determines the page number on what the ads appears"
 msgstr ""
 "параметр, который определяет номер страницы, на которой появится реклама"
 
 #: admin/class-clickky-admin.php:307 admin/class-clickky-admin.php:356
-#: admin/class-clickky-admin.php:414
+#: admin/class-clickky-admin.php:466
 msgid "all positive numeric integers 0 - is ignored"
 msgstr "все положительные числовые целые числа, 0 - игнорируется"
 
-#: admin/class-clickky-admin.php:418
+#: admin/class-clickky-admin.php:387
+msgid "delay parameter before advertising opens itself"
+msgstr "Параметр задержки, через которая реклама откроется автоматически"
+
+#: admin/class-clickky-admin.php:388
+msgid "all positive numeric integers 0 - ad unit auto open is cancelled"
+msgstr ""
+"все положительные числовые целые числа, 0 - автооткрытие рекламы отключено"
+
+#: admin/class-clickky-admin.php:392
+msgid "Button position"
+msgstr "Button position"
+
+#: admin/class-clickky-admin.php:394
+msgid "gift button position on the site"
+msgstr "Позиция подарочной кнопки на странице"
+
+#: admin/class-clickky-admin.php:404
+msgid "closeButtonDelay"
+msgstr "closeButtonDelay"
+
+#: admin/class-clickky-admin.php:406
+msgid ""
+"parameter which indicates the time when the button \"close\" becomes active"
+msgstr "Задержка перед тем как кнопка \"закрыть\" станет активной"
+
+#: admin/class-clickky-admin.php:470
 msgid "Delay time for the close button in seconds"
 msgstr "Время задержки для кнопки закрытия в секундах"
 
-#: admin/class-clickky-admin.php:419
+#: admin/class-clickky-admin.php:471
 msgid "parameter that defines the delay time for the close button in seconds"
 msgstr ""
 "Параметр, который определяет время задержки для кнопки закрытия в секундах"
 
-#: admin/class-clickky-admin.php:420
+#: admin/class-clickky-admin.php:472
 msgid "all positive numeric integers, 0 - the script does not work"
 msgstr "все положительные целые числа, числовые 0 - скрипт не работает"
 
-#: admin/class-clickky-admin.php:435
+#: admin/class-clickky-admin.php:487
 msgid "Name"
 msgstr "Название"
 
-#: admin/class-clickky-admin.php:480
+#: admin/class-clickky-admin.php:532
 msgid "Button Color"
 msgstr "Цвет кнопки"
 
-#: admin/class-clickky-admin.php:499
+#: admin/class-clickky-admin.php:551
 msgid "Font Family"
 msgstr "Семейство шрифтов"
 
-#: admin/class-clickky-admin.php:507
+#: admin/class-clickky-admin.php:559
 msgid "Color font title"
 msgstr "Цвет шрифта заголовка"
 
-#: admin/class-clickky-admin.php:515
+#: admin/class-clickky-admin.php:567
 msgid "Rating Color"
 msgstr "Цвет рейтинга"
 
-#: admin/class-clickky-admin.php:523
+#: admin/class-clickky-admin.php:575
 msgid "Color description"
 msgstr "Цвет описания"
 
-#: admin/class-clickky-admin.php:531
+#: admin/class-clickky-admin.php:583
 msgid "Button background"
 msgstr "Цвет кнопки"
 
-#: admin/class-clickky-admin.php:539
+#: admin/class-clickky-admin.php:591
 msgid "Button font color"
 msgstr "Цвет шрифта кнопки"
 
-#: admin/class-clickky-admin.php:547
+#: admin/class-clickky-admin.php:599
 msgid "Button border color"
 msgstr "Цвет окантовки кнопки"
 
-#: admin/class-clickky-admin.php:579
+#: admin/class-clickky-admin.php:631
 msgid "Stats"
 msgstr "Статистика"
 
-#: admin/class-clickky-admin.php:580 admin/class-clickky-admin.php:582
+#: admin/class-clickky-admin.php:632 admin/class-clickky-admin.php:634
 msgid "Add placement"
 msgstr "Добавить плейсмент"
 
-#: admin/class-clickky-admin.php:584 admin/class-clickky-admin.php:1395
+#: admin/class-clickky-admin.php:636 admin/class-clickky-admin.php:1653
 msgid "My placement"
 msgstr "Мои плейсменты"
 
-#: admin/class-clickky-admin.php:585 admin/class-clickky-admin.php:1401
+#: admin/class-clickky-admin.php:637 admin/class-clickky-admin.php:1659
 #: admin/partials/clickky-global-settings.php:4
 msgid "Global settings"
 msgstr "Общие настройки"
 
-#: admin/class-clickky-admin.php:755
+#: admin/class-clickky-admin.php:819
 msgid "WRONG EMAIL OR PASSWORD"
 msgstr "НЕПРАВИЛЬНЫЙ АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ИЛИ ПАРОЛЬ"
 
-#: admin/class-clickky-admin.php:1106
+#: admin/class-clickky-admin.php:1363
 msgid "Next"
 msgstr "Далее"
 
-#: admin/class-clickky-admin.php:1131
+#: admin/class-clickky-admin.php:1388
 msgid ""
 "You put correct code! You should turn on placement on my placement page or "
 "change delivery setting to this placement there!"
@@ -231,11 +259,11 @@ msgstr ""
 "плейсменты' или изменить настройки отображения данного плейсмента в его "
 "настройках."
 
-#: admin/class-clickky-admin.php:1133
+#: admin/class-clickky-admin.php:1390
 msgid "Check your code"
 msgstr "Проверьте Ваш код"
 
-#: admin/class-clickky-admin.php:1405
+#: admin/class-clickky-admin.php:1663
 msgid "ADD PLACEMENT"
 msgstr "ДОБАВИТЬ  ПЛЕЙСМЕНТ"
 
@@ -261,7 +289,7 @@ msgid "CHECK"
 msgstr "ПРОВЕРИТЬ"
 
 #: admin/partials/clickky-edit-placement.php:5
-#: admin/partials/clickky-my-placement.php:23
+#: admin/partials/clickky-my-placement.php:24
 msgid "Edit"
 msgstr "Изменить"
 
@@ -379,97 +407,125 @@ msgstr "Главная"
 msgid "All"
 msgstr "Выбрать все"
 
-#: admin/partials/clickky-main.php:11
+#: admin/partials/clickky-main.php:12
 msgid "STATS"
 msgstr "СТАТИСТИКА"
 
-#: admin/partials/clickky-main.php:12
+#: admin/partials/clickky-main.php:13
 msgid "REVENUE"
 msgstr "ДОХОДЫ"
 
-#: admin/partials/clickky-main.php:16
+#: admin/partials/clickky-main.php:17
 msgid "TODAY"
 msgstr "CЕГОДНЯ"
 
-#: admin/partials/clickky-main.php:34
+#: admin/partials/clickky-main.php:35
 msgid "YESTERDAY"
 msgstr "ВЧЕРА"
 
-#: admin/partials/clickky-main.php:52
+#: admin/partials/clickky-main.php:53
 msgid "7 DAYS"
 msgstr "7 ДНЕЙ"
 
-#: admin/partials/clickky-main.php:70
+#: admin/partials/clickky-main.php:71
 msgid "THIS MONTH"
 msgstr "ЭТОТ МЕСЯЦ"
 
-#: admin/partials/clickky-main.php:88
+#: admin/partials/clickky-main.php:89
 msgid "LAST MONTH"
 msgstr "ПРОШЛЫЙ МЕСЯЦ"
 
-#: admin/partials/clickky-main.php:106
+#: admin/partials/clickky-main.php:107
 msgid "ALL TIME"
 msgstr "ВСЕ ВРЕМЯ"
 
-#: admin/partials/clickky-main.php:127 admin/partials/clickky-main.php:663
+#: admin/partials/clickky-main.php:130
 msgid "Today"
 msgstr "Сегодня"
 
-#: admin/partials/clickky-main.php:128 admin/partials/clickky-main.php:664
+#: admin/partials/clickky-main.php:131
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: admin/partials/clickky-main.php:129 admin/partials/clickky-main.php:665
+#: admin/partials/clickky-main.php:132
 msgid "Last 7 days"
 msgstr "за 7 дней"
 
-#: admin/partials/clickky-main.php:130 admin/partials/clickky-main.php:666
+#: admin/partials/clickky-main.php:133
 msgid "Last 30 days"
 msgstr "за 30 дней"
 
-#: admin/partials/clickky-main.php:131 admin/partials/clickky-main.php:667
+#: admin/partials/clickky-main.php:134
 msgid "Last 90 days"
 msgstr "за 90 дней"
 
-#: admin/partials/clickky-main.php:193 admin/partials/clickky-main.php:298
-#: admin/partials/clickky-main.php:402 admin/partials/clickky-main.php:508
-#: admin/partials/clickky-main.php:613
+#: admin/partials/clickky-main.php:196 admin/partials/clickky-main.php:301
+#: admin/partials/clickky-main.php:405 admin/partials/clickky-main.php:511
+#: admin/partials/clickky-main.php:616
 msgid "DEVICE TYPE"
 msgstr "ТИП УСТРОЙСТВА"
 
-#: admin/partials/clickky-main.php:214 admin/partials/clickky-main.php:319
-#: admin/partials/clickky-main.php:423 admin/partials/clickky-main.php:529
-#: admin/partials/clickky-main.php:634
+#: admin/partials/clickky-main.php:217 admin/partials/clickky-main.php:322
+#: admin/partials/clickky-main.php:426 admin/partials/clickky-main.php:532
+#: admin/partials/clickky-main.php:637
 msgid "Tablets"
 msgstr "Планшеты"
 
-#: admin/partials/clickky-main.php:233 admin/partials/clickky-main.php:338
-#: admin/partials/clickky-main.php:442 admin/partials/clickky-main.php:548
-#: admin/partials/clickky-main.php:653
+#: admin/partials/clickky-main.php:236 admin/partials/clickky-main.php:341
+#: admin/partials/clickky-main.php:445 admin/partials/clickky-main.php:551
+#: admin/partials/clickky-main.php:656
 msgid "Phones"
 msgstr "Телефоны"
 
-#: admin/partials/clickky-main.php:677
-msgid "Impessions"
-msgstr "Impessions"
+#: admin/partials/clickky-main.php:698
+msgid "Status"
+msgstr "Статус"
 
-#: admin/partials/clickky-main.php:682
+#: admin/partials/clickky-main.php:699
+msgid "Requests"
+msgstr "Запросы"
+
+#: admin/partials/clickky-main.php:700
+msgid "Response"
+msgstr "Ответы"
+
+#: admin/partials/clickky-main.php:701
+msgid "Impressions"
+msgstr "Показы"
+
+#: admin/partials/clickky-main.php:702
 msgid "Clicks"
-msgstr "Clicks"
+msgstr "Клики"
 
-#: admin/partials/clickky-main.php:687
-msgid "CTR"
-msgstr "CTR"
+#: admin/partials/clickky-main.php:703
+msgid "Ctr,%"
+msgstr "Ctr,%"
 
-#: admin/partials/clickky-main.php:742
+#: admin/partials/clickky-main.php:704
+msgid "Revenue,$"
+msgstr "Доход,$"
+
+#: admin/partials/clickky-main.php:705
+msgid "Ecpm,$"
+msgstr "Ecpm,$"
+
+#: admin/partials/clickky-main.php:706
+msgid "Fillrate,%"
+msgstr "Филрейт,%"
+
+#: admin/partials/clickky-main.php:836
+msgid "Total"
+msgstr "Общее"
+
+#: admin/partials/clickky-main.php:974
 msgid "PASSWORD"
 msgstr "ПАРОЛЬ"
 
-#: admin/partials/clickky-main.php:747
+#: admin/partials/clickky-main.php:979
 msgid "SIGN IN"
 msgstr "ВОЙТИ В СИСТЕМУ"
 
-#: admin/partials/clickky-main.php:753
+#: admin/partials/clickky-main.php:985
 msgid "Forgot Password?"
 msgstr "Забыли пароль?"
 
@@ -477,9 +533,13 @@ msgstr "Забыли пароль?"
 msgid "MY PLACEMENT"
 msgstr "МОИ ПЛЕЙСМЕНТЫ"
 
-#: admin/partials/clickky-my-placement.php:28
+#: admin/partials/clickky-my-placement.php:29
 msgid "Delete"
 msgstr "Удалить"
+
+#: admin/partials/clickky-my-placement.php:36
+msgid "No placement"
+msgstr "Нет прейсментов"
 
 #: public/class-clickky-widget-public.php:79
 msgid "Widget displays Clickky Recommended Apps"
@@ -499,7 +559,7 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "Clickky's Mobile Web Monetization Tool"
-msgstr ""
+msgstr "Clickky's Mobile Web Monetization Tool"
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
@@ -519,10 +579,31 @@ msgid ""
 ">https://clickky.biz/content/web-mobile-monetization</a> to start using the "
 "plugin correctly."
 msgstr ""
+"This is a monetization plugin for Wordpress websites created for the "
+"convenience of Clickky's mobile web monetization platform customers "
+"following our mission of providing easy-to-use monetization solutions for "
+"website and application owners. Wordpress plugin is suitable for anyone who "
+"runs a website on this platform. It allows to avoid the manual integration "
+"of monetizatino code into a website and start running ads customized for "
+"Wordpress sites fast and efficiently. You need to sign up to <a target="
+"\"_blank\" href=\"https://clickky.biz/content/web-mobile-monetization\" "
+">https://clickky.biz/content/web-mobile-monetization</a> to start using the "
+"plugin correctly."
 
 #. Author of the plugin/theme
 msgid "Сlickky"
 msgstr "Сlickky"
+
+#~ msgid "all positive numeric integers 0 - ad unit display at web page"
+#~ msgstr ""
+#~ "все положительные числовые целые числа, 0 - рекламный блок отображения "
+#~ "загрузки веб-страницы без задержки"
+
+#~ msgid "Impessions"
+#~ msgstr "Impessions"
+
+#~ msgid "CTR"
+#~ msgstr "CTR"
 
 #~ msgid "Dashboard"
 #~ msgstr "Дешборд"
@@ -636,9 +717,6 @@ msgstr "Сlickky"
 
 #~ msgid "1-60, 0 - do not open the banner"
 #~ msgstr "1-60, 0 - не открывает баннер"
-
-#~ msgid "Status"
-#~ msgstr "Статус"
 
 #~ msgid "parameter defines the ad unit template on the publisher web site"
 #~ msgstr "Параметр определяет шаблон рекламного блока на веб-сайте"

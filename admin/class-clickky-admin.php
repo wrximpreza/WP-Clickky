@@ -384,14 +384,14 @@ class Clickky_Admin
                 'delay' => array(
                     'type' => 'text',
                     'name' => __('Delay', 'clickky'),
-                    'hover' => __('parameter responsible for the delay time before displaying an advertising banner in seconds', 'clickky'),
-                    'help' => __('all positive numeric integers 0 - ad unit display at web page loading without a delay', 'clickky')
+                    'hover' => __('delay parameter before advertising opens itself', 'clickky'),
+                    'help' => __('all positive numeric integers 0 - ad unit auto open is cancelled', 'clickky')
                 ),
                 'positionButton' => array(
                     'type' => 'select',
                     'name' => __('Button position', 'clickky'),
                     'hover' => '',
-                    'help' => '',
+                    'help' => __('gift button position on the site'),
                     'values' => array(
                         'topleft' => 'Top left',
                         'topright' => 'Top right',
@@ -402,8 +402,8 @@ class Clickky_Admin
                 'closeButtonDelay' => array(
                     'type' => 'text',
                     'name' => __('closeButtonDelay', 'clickky'),
-                    'hover' => __('', 'clickky'),
-                    'help' => __('', 'clickky')
+                    'hover' => '',
+                    'help' =>  __('parameter which indicates the time when the button "close" becomes active', 'clickky'),
                 )
 
             )
