@@ -6,7 +6,7 @@
  * public-facing side of the site and the admin area.
  *
  * @link       https://clickky.biz/
- * @since      1.1.1
+ * @since      1.3.0
  *
  * @package    Clickky
  * @subpackage Clickky/includes
@@ -20,7 +20,7 @@ class Clickky
      * The loader that's responsible for maintaining and registering all hooks that power
      * the plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   protected
      * @var      Clickky_Loader $loader Maintains and registers all hooks for the plugin.
      */
@@ -29,7 +29,7 @@ class Clickky
     /**
      * The unique identifier of this plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   protected
      * @var      string $clickky The string used to uniquely identify this plugin.
      */
@@ -38,7 +38,7 @@ class Clickky
     /**
      * The current version of the plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   protected
      * @var      string $version The current version of the plugin.
      */
@@ -51,13 +51,13 @@ class Clickky
      * Load the dependencies, define the locale, and set the hooks for the admin area and
      * the public-facing side of the site.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      */
     public function __construct()
     {
 
         $this->plugin_name = 'clickky';
-        $this->version = '1.1.1';
+        $this->version = '1.3.0';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -79,7 +79,7 @@ class Clickky
      * Create an instance of the loader which will be used to register the hooks
      * with WordPress.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      */
     private function load_dependencies()
@@ -125,7 +125,7 @@ class Clickky
      * Uses the Clickky_i18n class in order to set the domain and to register the hook
      * with WordPress.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      */
     private function set_locale()
@@ -140,7 +140,7 @@ class Clickky
      * Register all of the hooks related to the admin area functionality
      * of the plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      */
     private function define_admin_hooks()
@@ -178,7 +178,7 @@ class Clickky
      * Register all of the hooks related to the public-facing functionality
      * of the plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      */
     private function define_public_hooks()
@@ -220,7 +220,7 @@ class Clickky
     /**
      * Run the loader to execute all of the hooks with WordPress.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      */
     public function run()
     {
@@ -231,7 +231,7 @@ class Clickky
      * The name of the plugin used to uniquely identify it within the context of
      * WordPress and to define internationalization functionality.
      *
-     * @since     1.1.1
+     * @since      1.3.0
      * @return    string    The name of the plugin.
      */
     public function get_plugin_name()
@@ -242,7 +242,7 @@ class Clickky
     /**
      * The reference to the class that orchestrates the hooks with the plugin.
      *
-     * @since     1.1.1
+     * @since      1.3.0
      * @return    Clickky_Loader    Orchestrates the hooks of the plugin.
      */
     public function get_loader()
@@ -253,7 +253,7 @@ class Clickky
     /**
      * Retrieve the version number of the plugin.
      *
-     * @since     1.1.1
+     * @since      1.3.0
      * @return    string    The version number of the plugin.
      */
     public function get_version()

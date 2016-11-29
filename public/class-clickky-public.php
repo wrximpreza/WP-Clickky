@@ -16,7 +16,7 @@ class Clickky_Public
     /**
      * The ID of this plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      * @var      string $clickky The ID of this plugin.
      */
@@ -25,7 +25,7 @@ class Clickky_Public
     /**
      * The version of this plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      * @var      string $version The current version of this plugin.
      */
@@ -40,7 +40,7 @@ class Clickky_Public
     /**
      * Initialize the class and set its properties.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @param      string $clickky The name of the plugin.
      * @param      string $version The version of this plugin.
      */
@@ -60,7 +60,7 @@ class Clickky_Public
     /**
      * Register the stylesheets for the public-facing side of the site.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      */
     public function enqueue_banner()
     {
@@ -85,6 +85,7 @@ class Clickky_Public
         echo $this->get_interstitial();
         echo $this->get_richmedia();
         echo $this->get_giftedads();
+        echo $this->get_intextads();
 
     }
 
@@ -268,7 +269,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
-                <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
+                <script src='//native.cli.bz/nativeads/banner/js/main.js'></script>
                 <script type='text/javascript'>
                
                     var o = {
@@ -308,7 +309,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                         <!-- BEGIN CODE {literal} -->
-                        <script src='http://native.cli.bz/nativeads/banner/js/main.js'></script>
+                        <script src='//native.cli.bz/nativeads/banner/js/main.js'></script>
                         <script type='text/javascript'>
                        
                             var o = {
@@ -346,7 +347,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
-                <script src='http://native.cli.bz/nativeads/dialogads/js/main.js'></script>
+                <script src='//native.cli.bz/nativeads/dialogads/js/main.js'></script>
                 <script type='text/javascript'>
                   
                     var o = {
@@ -384,7 +385,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
             <!-- BEGIN CODE {literal} -->
-            <script src='http://native.cli.bz/nativeads/slideads/js/main.js'></script>
+            <script src='//native.cli.bz/nativeads/slideads/js/main.js'></script>
             <script type='text/javascript'>
                 var o = {
                     'widget_id' : '" . $data['widget_id'] . "', 
@@ -420,7 +421,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
                 <!-- BEGIN CODE {literal} -->
-                <script src='http://native.cli.bz/nativeads/full/js/main.js'></script>
+                <script src='//native.cli.bz/nativeads/full/js/main.js'></script>
                 <script type='text/javascript'>
                     var o = {
                         'widget_id' : '" . $data['widget_id'] . "',
@@ -455,7 +456,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
             <!-- BEGIN CODE {literal} -->
-            <script src='http://native.cli.bz/nativeads/popin/js/main.js'></script>
+            <script src='//native.cli.bz/nativeads/popin/js/main.js'></script>
             <script type='text/javascript'>
                    var o = {
                        'widget_id' : '" . $data['widget_id'] . "', //set up site_id value
@@ -490,7 +491,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
             <!-- BEGIN CODE {literal} -->
-            <script src='http://native.cli.bz/nativeads/media/js/main.js'></script>
+            <script src='//native.cli.bz/nativeads/media/js/main.js'></script>
             <script type='text/javascript'>
                    var o = {
                        'site_id' : '" . $data['site_id'] . "', 
@@ -505,6 +506,40 @@ class Clickky_Public
                    ClickkyRichmedia.init();
             </script>
             <!-- {/literal} END CODE -->
+        ";
+                }
+            }
+        }
+    }
+
+
+    /**
+     * Generate js code Intextads
+     * @return string
+     */
+    public function get_intextads()
+    {
+        $results = $this->wpdb->get_results("SELECT * FROM " . $this->table_name . " WHERE name='Intext' AND status=1");
+        if (count($results) > 0) {
+            foreach ($results as $result) {
+                $data = unserialize($result->data);
+                $settings = unserialize($result->settings);
+                unset($settings['ads']);
+                unset($settings['js_file']);
+                if ($this->check_where_show($settings) && $result->status == 1) {
+                    return "
+                <!-- BEGIN CODE {literal} -->
+                <script src='//native.cli.bz/nativeads/intext/js/main.js'></script>
+                <script type='text/javascript'>
+                       var o = {
+                           'site_id' : '" . $data['site_id'] . "', 
+                           'countWords': " . $data['countWords'] . ",
+                           'lang': '" . $data['lang'] . "',
+                           'wp': 'true'
+                       };
+                       new ClickkyIntext(o).init();
+                </script>
+                <!-- {/literal} END CODE -->
         ";
                 }
             }
@@ -527,7 +562,7 @@ class Clickky_Public
                 if ($this->check_where_show($settings) && $result->status == 1) {
                     return "
             <!-- BEGIN CODE {literal} -->
-            <script src='http://native.cli.bz/nativeads/giftedads/js/main.js'></script>
+            <script src='//native.cli.bz/nativeads/giftedads/js/main.js'></script>
             <script type='text/javascript'>
                    var o = {
                        'site_id' : '" . $data['site_id'] . "', 
@@ -602,7 +637,7 @@ class Clickky_Public
         $html = '';
         //add_action( 'wp_enqueue_scripts', array($this, 'loadTizerJs'));
         if (!$this->show) {
-            $html .= "<script src='http://native.cli.bz/nativeads/tizer/js/main.js'></script>";
+            $html .= "<script src='//native.cli.bz/nativeads/tizer/js/main.js'></script>";
             $this->show = true;
         }
 

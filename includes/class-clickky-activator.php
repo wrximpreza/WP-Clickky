@@ -4,7 +4,7 @@
  * Fired during plugin activation
  *
  * @link       https://clickky.biz/
- * @since      1.1.1
+ * @since      1.3.0
  *
  * @package    Clickky
  * @subpackage Clickky/includes
@@ -17,7 +17,7 @@ class Clickky_Activator {
 	 *
 	 * Long Description.
 	 *
-	 * @since    1.2.0
+	 * @since      1.3.0
 	 */
 	public static function activate() {
 
@@ -38,7 +38,7 @@ class Clickky_Activator {
             require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
             dbDelta($sql);
             add_option("clickky_main", '1');
-            add_option("clickky_db_version", '1.1.1');
+            add_option("clickky_db_version", '1.3.0');
 
         }
 	}

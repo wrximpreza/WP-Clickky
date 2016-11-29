@@ -3,7 +3,7 @@
  * The admin-specific functionality of the plugin.
  *
  * @link       https://clickky.biz/
- * @since      1.1.1
+ * @since      1.3.0
  *
  * @package    Clickky
  * @subpackage Clickky/admin
@@ -27,7 +27,7 @@ class Clickky_Admin
     /**
      * The ID of this plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      * @var      string $clickky The ID of this plugin.
      */
@@ -36,7 +36,7 @@ class Clickky_Admin
     /**
      * The version of this plugin.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @access   private
      * @var      string $version The current version of this plugin.
      */
@@ -51,7 +51,7 @@ class Clickky_Admin
     /**
      * Initialize the class and set its properties.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      * @param      string $clickky The name of this plugin.
      * @param      string $version The version of this plugin.
      */
@@ -309,6 +309,41 @@ class Clickky_Admin
 
             )
         );
+
+        $this->banners['Intext'] = array(
+            'name' => 'Intext',
+            'alias' => 'clickky/intext',
+            'callback' => 'intext',
+            'id' => 'Intext',
+            'js_file' => 'intext',
+            'default' => array(
+                'site_id' => array(
+                    'type' => 'text',
+                    'name' => 'SITE ID',
+                    'hover' => '',
+                    'help' => '',
+                    'attr' => 'disabled'
+                ),
+                'countWords' => array(
+                    'type' => 'text',
+                    'name' => __('Number of words', 'clickky'),
+                    'hover' => '',
+                    'help' => __('Number of words on the page for replace', 'clickky'),
+                ),
+                'lang' => array(
+                    'type' => 'select',
+                    'name' => __('Language', 'clickky'),
+                    'hover' => '',
+                    'help' => __('Site language', 'clickky'),
+                    'values' => array(
+                        'all' => __('All language', 'clickky'),
+                        'ru' => __('Russian language', 'clickky'),
+                        'en'=> __('English language', 'clickky')
+                    )
+                )
+            )
+        );
+
         $this->banners['Interstitial'] = array(
             'name' => 'Interstitial',
             'alias' => 'clickky/interstitial',
@@ -641,7 +676,7 @@ class Clickky_Admin
     /**
      * Register the stylesheets for the admin area.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      */
     public function enqueue_styles()
     {
@@ -666,7 +701,7 @@ class Clickky_Admin
     /**
      * Register the JavaScript for the admin area.
      *
-     * @since    1.2.0
+     * @since      1.3.0
      */
     public function enqueue_scripts()
     {
@@ -719,7 +754,8 @@ class Clickky_Admin
             $curl->setCookie($k, $v);
         }
         if ($type == 'revenue') {
-            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/site/total?period=' . $from . ':' . $to . '&metrics[]=payout');
+
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/self-service/reports/publisher/total?period=' . $from . ':' . $to . '&metrics[]=payout');
             if (!$curl->error) {
                 if ($curl->response->status == 'ok') {
                     if (count($curl->response->result)) {
@@ -734,7 +770,7 @@ class Clickky_Admin
                 $result = 0;
             }
         } elseif ($type == 'android') {
-            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[os][]=Android&&metrics[]=leads');
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/self-service/reports/publisher/total?period=' . $from . ':' . $to . '&filter_by[os][]=Android&&metrics[]=leads');
             if (!$curl->error) {
                 if ($curl->response->status == 'ok') {
                     if (isset($curl->response->result[0]->leads)) {
@@ -749,7 +785,7 @@ class Clickky_Admin
                 $result = '0%';
             }
         } elseif ($type == 'ios') {
-            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[os][]=iOS&&metrics[]=leads');
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/self-service/reports/publisher/total?period=' . $from . ':' . $to . '&filter_by[os][]=iOS&&metrics[]=leads');
             if (!$curl->error) {
                 if ($curl->response->status == 'ok') {
                     if (isset($curl->response->result[0]->leads)) {
@@ -764,7 +800,7 @@ class Clickky_Admin
                 $result = '0%';
             }
         } elseif ($type == 'tables') {
-            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[device_type][]=tablet&metrics[]=leads');
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/self-service/reports/publisher/total?period=' . $from . ':' . $to . '&filter_by[device_type][]=tablet&metrics[]=leads');
             if (!$curl->error) {
                 if ($curl->response->status == 'ok') {
                     if (isset($curl->response->result[0]->leads)) {
@@ -779,7 +815,7 @@ class Clickky_Admin
                 $result = '0%';
             }
         } elseif ($type == 'phones') {
-            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?period=' . $from . ':' . $to . '&filter_by[device_type][]=smartphone&metrics[]=leads');
+            $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/self-service/reports/publisher/total?period=' . $from . ':' . $to . '&filter_by[device_type][]=smartphone&metrics[]=leads');
             if (!$curl->error) {
                 if ($curl->response->status == 'ok') {
                     if (isset($curl->response->result[0]->leads)) {
@@ -1317,9 +1353,10 @@ class Clickky_Admin
                         $curl->setCookie($k, $v);
                     }
                     if($_POST['type'] == 'some'){
-                        $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement?metrics[]=resource_id&metrics[]=resource_name&metrics[]=placement_id&metrics[]=placement_name&metrics[]=placement_type&metrics[]=requests&metrics[]=responses&metrics[]=valid_impressions&metrics[]=valid_clicks&metrics[]=ctr&metrics[]=ecpm&metrics[]=payout&metrics[]=fillrate_overall&limit=100&page=1&period='.$_POST['from'].':'.$_POST['to'].'&filter_by[placement][]='.$_POST['filter']);
+
+                        $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/self-service/reports/publisher?metrics[]=resource_id&metrics[]=resource_name&metrics[]=placement_id&metrics[]=placement_name&metrics[]=placement_type&metrics[]=requests&metrics[]=responses&metrics[]=valid_impressions&metrics[]=valid_clicks&metrics[]=ctr&metrics[]=ecpm&metrics[]=payout&metrics[]=fillrate_overall&limit=100&page=1&period='.$_POST['from'].':'.$_POST['to'].'&filter_by[placement][]='.$_POST['filter']);
                     }else {
-                        $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/reports/affiliates/placement/total?metrics[]=resource_id&metrics[]=resource_name&metrics[]=placement_id&metrics[]=placement_name&metrics[]=placement_type&metrics[]=requests&metrics[]=responses&metrics[]=valid_impressions&metrics[]=valid_clicks&metrics[]=ctr&metrics[]=ecpm&metrics[]=payout&metrics[]=fillrate_overall&limit=100&page=1&period='.$_POST['from'].':'.$_POST['to'].''.$_POST['all_filter']);
+                        $curl->get('http://platform.clickky.biz/api/v1.0/clk/front-end/self-service/reports/publisher/total?metrics[]=resource_id&metrics[]=resource_name&metrics[]=placement_id&metrics[]=placement_name&metrics[]=placement_type&metrics[]=requests&metrics[]=responses&metrics[]=valid_impressions&metrics[]=valid_clicks&metrics[]=ctr&metrics[]=ecpm&metrics[]=payout&metrics[]=fillrate_overall&limit=100&page=1&period='.$_POST['from'].':'.$_POST['to'].''.$_POST['all_filter']);
                     }
                     if (!$curl->error) {
                         /*var_dump($curl->response);
@@ -1727,6 +1764,7 @@ class Clickky_Admin
             $html .= '<select  id="' . $data['id'] . '_' . $name . '" class="browser-default" 
                                 onchange="' . $script . '"
                                 name="data[' . $name . ']">';
+
             foreach ($value['values'] as $k => $img) {
                 $s = '';
                 if ($data['result'][$name] == $k)

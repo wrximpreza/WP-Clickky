@@ -4,7 +4,7 @@
  * Fired during plugin deactivation
  *
  * @link       https://clickky.biz/
- * @since      1.1.1
+ * @since      1.3.0
  *
  * @package    Clickky
  * @subpackage Clickky/includes
@@ -17,7 +17,7 @@ class Clickky_Deactivator {
 	 *
 	 * Long Description.
 	 *
-	 * @since    1.2.0
+	 * @since      1.3.0
 	 */
 	public static function deactivate() {
 

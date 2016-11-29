@@ -7,7 +7,7 @@
  * so that it is ready for translation.
  *
  * @link       https://clickky.biz/
- * @since      1.1.1
+ * @since      1.3.0
  *
  * @package    Clickky
  * @subpackage Clickky/includes
@@ -19,7 +19,7 @@ class Clickky_i18n {
 	/**
 	 * Load the plugin text domain for translation.
 	 *
-	 * @since    1.2.0
+	 * @since      1.3.0
 	 */
 	public function load_plugin_textdomain() {
 

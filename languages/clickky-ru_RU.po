@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: clickky\n"
-"POT-Creation-Date: 2016-11-18 20:03+0200\n"
-"PO-Revision-Date: 2016-11-18 20:04+0200\n"
+"POT-Creation-Date: 2016-11-28 10:35+0200\n"
+"PO-Revision-Date: 2016-11-28 10:35+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -23,22 +23,22 @@ msgstr ""
 
 #: admin/class-clickky-admin.php:83 admin/class-clickky-admin.php:136
 #: admin/class-clickky-admin.php:192 admin/class-clickky-admin.php:239
-#: admin/class-clickky-admin.php:292 admin/class-clickky-admin.php:328
-#: admin/class-clickky-admin.php:379 admin/class-clickky-admin.php:430
-#: admin/class-clickky-admin.php:511
+#: admin/class-clickky-admin.php:292 admin/class-clickky-admin.php:363
+#: admin/class-clickky-admin.php:414 admin/class-clickky-admin.php:465
+#: admin/class-clickky-admin.php:546
 msgid "Hash"
 msgstr "Hash"
 
 #: admin/class-clickky-admin.php:90 admin/class-clickky-admin.php:143
 #: admin/class-clickky-admin.php:199 admin/class-clickky-admin.php:299
-#: admin/class-clickky-admin.php:348 admin/class-clickky-admin.php:386
-#: admin/class-clickky-admin.php:458
+#: admin/class-clickky-admin.php:383 admin/class-clickky-admin.php:421
+#: admin/class-clickky-admin.php:493
 msgid "Delay"
 msgstr "Задержка"
 
 #: admin/class-clickky-admin.php:91 admin/class-clickky-admin.php:144
 #: admin/class-clickky-admin.php:200 admin/class-clickky-admin.php:300
-#: admin/class-clickky-admin.php:349 admin/class-clickky-admin.php:459
+#: admin/class-clickky-admin.php:384 admin/class-clickky-admin.php:494
 msgid ""
 "parameter responsible for the delay time before displaying an advertising "
 "banner in seconds"
@@ -48,7 +48,7 @@ msgstr ""
 
 #: admin/class-clickky-admin.php:92 admin/class-clickky-admin.php:145
 #: admin/class-clickky-admin.php:201 admin/class-clickky-admin.php:301
-#: admin/class-clickky-admin.php:350 admin/class-clickky-admin.php:460
+#: admin/class-clickky-admin.php:385 admin/class-clickky-admin.php:495
 msgid ""
 "all positive numeric integers 0 - ad unit display at web page loading "
 "without a delay"
@@ -58,8 +58,8 @@ msgstr ""
 
 #: admin/class-clickky-admin.php:96 admin/class-clickky-admin.php:149
 #: admin/class-clickky-admin.php:205 admin/class-clickky-admin.php:246
-#: admin/class-clickky-admin.php:335 admin/class-clickky-admin.php:437
-#: admin/class-clickky-admin.php:519
+#: admin/class-clickky-admin.php:370 admin/class-clickky-admin.php:472
+#: admin/class-clickky-admin.php:554
 msgid "Template"
 msgstr "Шаблон"
 
@@ -107,7 +107,7 @@ msgstr ""
 "все положительные числовые целые числа, 0 - показывают банера каждый раз, "
 "когда вы обновляете текущую страницу"
 
-#: admin/class-clickky-admin.php:259 admin/class-clickky-admin.php:543
+#: admin/class-clickky-admin.php:259 admin/class-clickky-admin.php:578
 msgid "Background"
 msgstr "Фон"
 
@@ -134,123 +134,151 @@ msgid ""
 "page"
 msgstr "1-60, 0 - не открывает баннер"
 
-#: admin/class-clickky-admin.php:305 admin/class-clickky-admin.php:354
-#: admin/class-clickky-admin.php:464
+#: admin/class-clickky-admin.php:305 admin/class-clickky-admin.php:389
+#: admin/class-clickky-admin.php:499
 msgid "Page number on what the ads appears"
 msgstr "Номер страницы показа рекламы"
 
-#: admin/class-clickky-admin.php:306 admin/class-clickky-admin.php:355
-#: admin/class-clickky-admin.php:465
+#: admin/class-clickky-admin.php:306 admin/class-clickky-admin.php:390
+#: admin/class-clickky-admin.php:500
 msgid "parameter that determines the page number on what the ads appears"
 msgstr ""
 "параметр, который определяет номер страницы, на которой появится реклама"
 
-#: admin/class-clickky-admin.php:307 admin/class-clickky-admin.php:356
-#: admin/class-clickky-admin.php:466
+#: admin/class-clickky-admin.php:307 admin/class-clickky-admin.php:391
+#: admin/class-clickky-admin.php:501
 msgid "all positive numeric integers 0 - is ignored"
 msgstr "все положительные числовые целые числа, 0 - игнорируется"
 
-#: admin/class-clickky-admin.php:387
+#: admin/class-clickky-admin.php:329
+msgid "Number of words"
+msgstr "Кол-во слов"
+
+#: admin/class-clickky-admin.php:331
+msgid "Number of words on the page for replace"
+msgstr "Кол-во слов для замены на странице"
+
+#: admin/class-clickky-admin.php:335
+msgid "Language"
+msgstr "Язык сайта"
+
+#: admin/class-clickky-admin.php:337
+msgid "Site language"
+msgstr "Язык сайта"
+
+#: admin/class-clickky-admin.php:339
+msgid "All language"
+msgstr "Все"
+
+#: admin/class-clickky-admin.php:340
+msgid "Russian language"
+msgstr "Русский"
+
+#: admin/class-clickky-admin.php:341
+msgid "English language"
+msgstr "Английский"
+
+#: admin/class-clickky-admin.php:422
 msgid "delay parameter before advertising opens itself"
 msgstr "Параметр задержки, через которая реклама откроется автоматически"
 
-#: admin/class-clickky-admin.php:388
+#: admin/class-clickky-admin.php:423
 msgid "all positive numeric integers 0 - ad unit auto open is cancelled"
 msgstr ""
 "все положительные числовые целые числа, 0 - автооткрытие рекламы отключено"
 
-#: admin/class-clickky-admin.php:392
+#: admin/class-clickky-admin.php:427
 msgid "Button position"
 msgstr "Button position"
 
-#: admin/class-clickky-admin.php:394
+#: admin/class-clickky-admin.php:429
 msgid "gift button position on the site"
 msgstr "Позиция подарочной кнопки на странице"
 
-#: admin/class-clickky-admin.php:404
+#: admin/class-clickky-admin.php:439
 msgid "closeButtonDelay"
 msgstr "closeButtonDelay"
 
-#: admin/class-clickky-admin.php:406
+#: admin/class-clickky-admin.php:441
 msgid ""
 "parameter which indicates the time when the button \"close\" becomes active"
 msgstr "Задержка перед тем как кнопка \"закрыть\" станет активной"
 
-#: admin/class-clickky-admin.php:470
+#: admin/class-clickky-admin.php:505
 msgid "Delay time for the close button in seconds"
 msgstr "Время задержки для кнопки закрытия в секундах"
 
-#: admin/class-clickky-admin.php:471
+#: admin/class-clickky-admin.php:506
 msgid "parameter that defines the delay time for the close button in seconds"
 msgstr ""
 "Параметр, который определяет время задержки для кнопки закрытия в секундах"
 
-#: admin/class-clickky-admin.php:472
+#: admin/class-clickky-admin.php:507
 msgid "all positive numeric integers, 0 - the script does not work"
 msgstr "все положительные целые числа, числовые 0 - скрипт не работает"
 
-#: admin/class-clickky-admin.php:487
+#: admin/class-clickky-admin.php:522
 msgid "Name"
 msgstr "Название"
 
-#: admin/class-clickky-admin.php:532
+#: admin/class-clickky-admin.php:567
 msgid "Button Color"
 msgstr "Цвет кнопки"
 
-#: admin/class-clickky-admin.php:551
+#: admin/class-clickky-admin.php:586
 msgid "Font Family"
 msgstr "Семейство шрифтов"
 
-#: admin/class-clickky-admin.php:559
+#: admin/class-clickky-admin.php:594
 msgid "Color font title"
 msgstr "Цвет шрифта заголовка"
 
-#: admin/class-clickky-admin.php:567
+#: admin/class-clickky-admin.php:602
 msgid "Rating Color"
 msgstr "Цвет рейтинга"
 
-#: admin/class-clickky-admin.php:575
+#: admin/class-clickky-admin.php:610
 msgid "Color description"
 msgstr "Цвет описания"
 
-#: admin/class-clickky-admin.php:583
+#: admin/class-clickky-admin.php:618
 msgid "Button background"
 msgstr "Цвет кнопки"
 
-#: admin/class-clickky-admin.php:591
+#: admin/class-clickky-admin.php:626
 msgid "Button font color"
 msgstr "Цвет шрифта кнопки"
 
-#: admin/class-clickky-admin.php:599
+#: admin/class-clickky-admin.php:634
 msgid "Button border color"
 msgstr "Цвет окантовки кнопки"
 
-#: admin/class-clickky-admin.php:631
+#: admin/class-clickky-admin.php:666
 msgid "Stats"
 msgstr "Статистика"
 
-#: admin/class-clickky-admin.php:632 admin/class-clickky-admin.php:634
+#: admin/class-clickky-admin.php:667 admin/class-clickky-admin.php:669
 msgid "Add placement"
 msgstr "Добавить плейсмент"
 
-#: admin/class-clickky-admin.php:636 admin/class-clickky-admin.php:1653
+#: admin/class-clickky-admin.php:671 admin/class-clickky-admin.php:1690
 msgid "My placement"
 msgstr "Мои плейсменты"
 
-#: admin/class-clickky-admin.php:637 admin/class-clickky-admin.php:1659
+#: admin/class-clickky-admin.php:672 admin/class-clickky-admin.php:1696
 #: admin/partials/clickky-global-settings.php:4
 msgid "Global settings"
 msgstr "Общие настройки"
 
-#: admin/class-clickky-admin.php:819
+#: admin/class-clickky-admin.php:855
 msgid "WRONG EMAIL OR PASSWORD"
 msgstr "НЕПРАВИЛЬНЫЙ АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ ИЛИ ПАРОЛЬ"
 
-#: admin/class-clickky-admin.php:1363
+#: admin/class-clickky-admin.php:1400
 msgid "Next"
 msgstr "Далее"
 
-#: admin/class-clickky-admin.php:1388
+#: admin/class-clickky-admin.php:1425
 msgid ""
 "You put correct code! You should turn on placement on my placement page or "
 "change delivery setting to this placement there!"
@@ -259,11 +287,11 @@ msgstr ""
 "плейсменты' или изменить настройки отображения данного плейсмента в его "
 "настройках."
 
-#: admin/class-clickky-admin.php:1390
+#: admin/class-clickky-admin.php:1427
 msgid "Check your code"
 msgstr "Проверьте Ваш код"
 
-#: admin/class-clickky-admin.php:1663
+#: admin/class-clickky-admin.php:1700
 msgid "ADD PLACEMENT"
 msgstr "ДОБАВИТЬ  ПЛЕЙСМЕНТ"
 
