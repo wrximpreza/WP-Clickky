@@ -46,6 +46,8 @@ function deactivate_clickky() {
 register_activation_hook( __FILE__, 'activate_clickky' );
 register_deactivation_hook( __FILE__, 'deactivate_clickky' );
 
+
+
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.

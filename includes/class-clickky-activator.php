@@ -22,7 +22,8 @@ class Clickky_Activator {
 	public static function activate() {
 
         global $wpdb;
-
+        add_option("clickky_main", 1);
+        add_option("clickky_db_version", '1.3.0');
         $table_name = $wpdb->prefix . "clickky_ads";
         if($wpdb->get_var("show tables like '$table_name'") != $table_name) {
 
@@ -37,8 +38,7 @@ class Clickky_Activator {
 
             require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
             dbDelta($sql);
-            add_option("clickky_main", '1');
-            add_option("clickky_db_version", '1.3.0');
+
 
         }
 	}
